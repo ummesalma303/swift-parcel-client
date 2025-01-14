@@ -25,16 +25,16 @@ const NavBar = () => {
     const {user,handleLogout} = useContext(AuthContext);
         console.log(user)
     return (
-        <div className='fixed w-full px-10 flex justify-between items-center p-3 bg-slate-300' >
+        <div className='fixed w-full px-5 md:px-10 flex justify-between items-center p-3 bg-slate-300' >
             <div className="flex items-center">
                 <img className='w-8 md:w-10' src={logo} alt="" />
             <h2 className='text-lg md:text-2xl font-semibold'>SwiftParcel</h2>
             </div>
             {/*  */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2 md:space-x-4">
             <div className="flex items-center">
             <IoIosNotificationsOutline />
-            <ul className='flex space-x-7'>
+            <ul>
                 <NavLink to='/'>home</NavLink>
             </ul>
             </div>
@@ -47,7 +47,7 @@ const NavBar = () => {
 
 
 <DropdownMenu>
-  <DropdownMenuTrigger className='rounded-full'><img className='w-14 h-14 rounded-full' src={user?.photoURL} alt="" /></DropdownMenuTrigger>
+  <DropdownMenuTrigger className='rounded-full'><img className='w-10 h-10 md:w-14 md:h-14 rounded-full' src={user?.photoURL} alt="" /></DropdownMenuTrigger>
   <DropdownMenuContent>
     <DropdownMenuLabel>{user?.displayName}</DropdownMenuLabel>
     <DropdownMenuSeparator />

@@ -4,6 +4,7 @@ import React, { useContext } from 'react';
 import { useForm } from "react-hook-form"
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import SocialLogin from '@/components/SocialLogin/SocialLogin';
 
 const Register = () => {
     const navigate = useNavigate()
@@ -22,7 +23,7 @@ const Register = () => {
             name: data?.name,
             photo: data?.photo,
             email: data?.email,
-            role: data?.photo
+            role: data?.role
         }
         const updateData ={
             displayName: data?.name, photoURL: data?.photo
@@ -52,8 +53,9 @@ const Register = () => {
     return (
         <div className='h-screen flex flex-col justify-center items-center '>
              <h2 className='text-2xl font-semibold mb-6'>Please login yor account</h2>
-             <div className="w-11/12 md:w-1/3">
-             <form className=' border-2 p-5 rounded-lg' onSubmit={handleSubmit(onSubmit)}>
+             <div className="w-11/12 md:w-1/3 border-2 p-5 rounded-lg">
+            
+             <form className=' ' onSubmit={handleSubmit(onSubmit)}>
     {/* input-1 */}
      <div>
      <label>Name</label>
@@ -85,15 +87,18 @@ const Register = () => {
       <select className='border-2 w-full p-1 rounded-md'  {...register("role")}>
       {/* <option defaultValue='Select A role'></option> */}
       {/* <option disabled selected>Select A role</option> */}
-        <option value="user">User</option>
-        <option value="deliveryMan">Delivery Man</option>
+        <option value="User">User</option>
+        <option value="Delivery Man">Delivery Man</option>
         {/* <option value="other">other</option> */}
       </select><br />
       
      </div>
      <p className='pt-1 pb-3'>If You have an account.please <Link to='/login'><span className='hover:underline text-red-300'>Login</span></Link></p>
-      <input className='bg-black px-4 py-2 rounded-md text-white' type="submit" />
+      <input className='bg-black px-4 py-1 w-full rounded-md text-white mb-3' type="submit" />
     </form>
+    <div className="divide-x-2 ">
+    <SocialLogin></SocialLogin>
+    </div>
              </div>
    
         </div>
