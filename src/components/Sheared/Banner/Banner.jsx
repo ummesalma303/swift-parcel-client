@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 
 const Banner = () => {
   return (
-    <div className="bg-banner bg-cover bg-no-repeat h-[90vh] bg-center">
+    <div className="bg-banner bg-cover bg-no-repeat h-screen bg-center">
       <div className="bg-[#00000042] w-full h-full flex justify-center items-center">
         {/* <div className=""> */}
         <div className="w-11/12 md:w-1/2 mx-auto text-center text-white space-y-3">
