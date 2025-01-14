@@ -25,7 +25,8 @@ const NavBar = () => {
     const {user,handleLogout} = useContext(AuthContext);
         console.log(user)
     return (
-        <div className='fixed w-full px-5 md:px-10 flex justify-between items-center p-3 bg-slate-300' >
+       <div className="">
+         <div className='fixed w-full px-5 md:px-10 flex justify-between items-center py-2 bg-slate-200' >
             <div className="flex items-center">
                 <img className='w-8 md:w-10' src={logo} alt="" />
             <h2 className='text-lg md:text-2xl font-semibold'>SwiftParcel</h2>
@@ -66,6 +67,7 @@ const NavBar = () => {
             </div>
             </div>
         </div>
+       </div>
     );
 };
 
