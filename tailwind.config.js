@@ -27,7 +27,7 @@ module.exports = {
   theme: {
   	extend: {
 		  backgroundImage: {
-			'banner': 'url("/src/assets/banner.jpeg")', // Escape single quotes
+			'banner': 'url("./src/assets/banner-2.jpg")', // Escape single quotes
 		  },
   		borderRadius: {
   			lg: 'var(--radius)',
