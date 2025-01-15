@@ -34,15 +34,16 @@ const BookParcel = () => {
 
   // console.log(weight)
   const onSubmit = (data) => {
+    // let date = new Date().toLocaleDateString()
     // if (data?.phone) {
     //     console.log('hjghj',data?.phone)
-// i can't understand one requirement
+// 
     // }
 const parcelData={
-  ...data,bookingDate: new Date(),parcelWeight:weight,status:'pending'
+  ...data, bookingDate: new Date().toLocaleDateString(),parcelWeight:weight,status:'pending'
 }
-console.log(parcelData)
-    axiosPublic.post('/parcel',data)
+// console.log(parcelData,date)
+    axiosPublic.post('/parcel',parcelData)
     .then(res=>{
        Swal.fire({
               title: "Success",

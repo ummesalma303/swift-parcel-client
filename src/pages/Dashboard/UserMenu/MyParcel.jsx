@@ -12,8 +12,11 @@ import {
 import useAxiosPublic from '@/Hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import { AuthContext } from '@/providers/AuthProvider';
- 
-  
+import { Button } from '@/components/ui/button';
+import { BsPencilSquare } from "react-icons/bs";
+import { MdCancelPresentation } from 'react-icons/md';
+import { IoStarHalfSharp } from "react-icons/io5";
+
 const MyParcel = () => {
   const {user} = useContext(AuthContext)
   const axiosPublic = useAxiosPublic()
@@ -103,19 +106,25 @@ const MyParcel = () => {
         {myParcels?.map((parcel) => (
           <TableRow key={parcel?._id}>
              <TableCell className="font-medium">{parcel?.parcelType}</TableCell>
-             <TableCell>{parcel?.paymentMethod}</TableCell>
+             <TableCell>{parcel?.bookingDate}</TableCell>
              <TableCell>{parcel?.deliveryDate}</TableCell>
-            <TableCell className="text-right">{parcel?.totalAmount}</TableCell>
+            <TableCell className="text-right">{parcel?.bookingDate}</TableCell>
+            <TableCell className="text-right">{parcel?.s}</TableCell>
+            <TableCell className="text-right">{parcel?.status}</TableCell>
+            <TableCell className="text-right"><Button variant="outline"><BsPencilSquare /></Button></TableCell>
+            <TableCell className="text-right"><Button variant="outline"><MdCancelPresentation /></Button></TableCell>
+            {parcel?.status==='delivered'&&<TableCell className="text-right"><Button><IoStarHalfSharp />Review</Button></TableCell>}
+            <TableCell className="text-right"><Button>Pay</Button></TableCell>
             
           </TableRow>
         ))}
       </TableBody>
-      <TableFooter>
+      {/* <TableFooter>
         <TableRow>
           <TableCell colSpan={3}>Total</TableCell>
           <TableCell className="text-right">$2,500.00</TableCell>
         </TableRow>
-      </TableFooter>
+      </TableFooter> */}
     </Table>
              </div>
         </div>
