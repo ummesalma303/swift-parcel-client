@@ -52,7 +52,7 @@ const NavBar = () => {
   <DropdownMenuContent>
     <DropdownMenuLabel>{user?.displayName}</DropdownMenuLabel>
     <DropdownMenuSeparator />
-    <DropdownMenuItem>Dashboard</DropdownMenuItem>
+    <NavLink to='/dashboard'><DropdownMenuItem>Dashboard</DropdownMenuItem></NavLink>
    <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
     {/* <DropdownMenuItem>Team</DropdownMenuItem>
     <DropdownMenuItem>Subscription</DropdownMenuItem> */}

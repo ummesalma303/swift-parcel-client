@@ -4,19 +4,9 @@ import { FaBox } from 'react-icons/fa';
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdOutlineSpatialTracking } from "react-icons/md";
 import ParcelCountCard from '../FeaturesCard/ParcelCount/ParcelCountCard';
-import useAxiosPublic from '@/Hooks/useAxiosPublic';
-import { useQuery } from '@tanstack/react-query';
 
 const FeaturesSec = () => {
-    const axiosPublic = useAxiosPublic()
-    const {data:users} =useQuery({
-        queryKey:["users"],
-        queryFn: async () => {
-    const res = await axiosPublic.get('/users')
-         return res.data   
-        }
-    })
-    console.log(users)
+   
     return (
        <div className="my-12 w-11/12 mx-auto">
         <h2 className='text-3xl font-semibold my-6'> Our Beautiful Features</h2>
@@ -30,10 +20,10 @@ const FeaturesSec = () => {
             {/* parcel counts */}
             
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-10 mt-5">
-        <ParcelCountCard title={"Total Number of Parcels Booked"}/>
-        <ParcelCountCard title={"Total Number of Parcels Delivered"}/>
-        <ParcelCountCard title={`Total Number of People Using Your App: ${users?.length}`}/>
+        <div className="">
+        <ParcelCountCard/>
+        {/* <ParcelCountCard title={"Total Number of Parcels Delivered"}/>
+        <ParcelCountCard title={`Total Number of People Using Your App: ${users?.length}`}/> */}
         </div>
        </div>
     );

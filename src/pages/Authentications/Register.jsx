@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form"
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import SocialLogin from '@/components/SocialLogin/SocialLogin';
+import Swal from 'sweetalert2';
 
 const Register = () => {
     const navigate = useNavigate()
@@ -33,7 +34,12 @@ const Register = () => {
             // console.log(res)
             updateUserProfile(updateData)
             setUser({...user,...updateData})
-
+             Swal.fire({
+                          title: "Success",
+                          text: "user successfully register",
+                          icon: "success",
+                          timer: 1000
+                        });
          /* -------------------------- send data on database ------------------------- */
          axios.post('http://localhost:5000/users',userInfo)
          .then(res=>{
@@ -94,7 +100,7 @@ const Register = () => {
       
      </div>
      <p className='pt-1 pb-3'>If You have an account.please <Link to='/login'><span className='hover:underline text-red-300'>Login</span></Link></p>
-      <input className='bg-black px-4 py-1 w-full rounded-md text-white mb-3' type="submit" />
+      <input className='bg-black px-4 py-1 w-full rounded-md text-white mb-3' type="submit" value='register' />
     </form>
     <div className="divide-x-2 ">
     <SocialLogin></SocialLogin>

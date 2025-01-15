@@ -1,0 +1,192 @@
+import { Input } from "@/components/ui/input";
+import { AuthContext } from "@/providers/AuthProvider";
+import React, { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { FaClipboardList } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+
+const BookParcel = () => {
+  // const navigate = useNavigate()
+  const { user } = useContext(AuthContext);
+  // console.log(createNewUser)
+  const {
+    register,
+    formState: { errors },
+    reset,
+    handleSubmit,
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+  return (
+    <div>
+      {/* form */}
+      <div className="my-7 flex flex-col justify-center items-center ">
+        <div className="">
+          <h2 className="text-2xl font-semibold mb-6 flex items-center">
+            {" "}
+            Book a Parcel <FaClipboardList size={25} />
+          </h2>
+        </div>
+        <div className="w-11/12 md:w-11/12 lg:w-10/12 border-2 p-5 rounded-lg">
+          <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
+            {/* input-1 */}
+            <div className="space-y-1">
+              <label>Name</label>
+              {/* <label>Email:</label> */}
+              <Input
+                className="text-green-500"
+                type="text"
+                value={user?.displayName}
+                disabled
+                {...register("name", { required: true })}
+              />
+            </div>
+            {/* input-2 */}
+            <div className="space-y-1">
+              <label>Email:</label>
+              <Input
+                type="email"
+                className="text-green-500"
+                value={user?.email}
+                {...register("email", { required: true })}
+              />
+              {errors.email && (
+                <span className="text-red-500">This field is required</span>
+              )}
+            </div>
+            {/* input-3 */}
+            <div className="space-y-1">
+              <label>Phone Number:</label>
+              <Input
+                type="number"
+                placeholder="Phone Number"
+                {...register("phone", { required: true })}
+              />
+              {errors.phone && (
+                <span className="text-red-500">This field is required</span>
+              )}
+            </div>
+            {/* input-4 */}
+            <div className="space-y-2">
+              <label>Parcel Type:</label>
+              <Input
+                type="text"
+                placeholder="Parcel Type"
+                {...register("parcelType", { required: true })}
+              />
+              {errors.parcelType && (
+                <span className="text-red-500">This field is required</span>
+              )}
+            </div>
+            {/* input-5 */}
+            <div className="space-y-1">
+              <label>Parcel Weight:</label>
+              <Input
+                type="number"
+                placeholder="Parcel Weight"
+                {...register("parcelWeight", { required: true })}
+              />
+              {errors.parcelWeight && (
+                <span className="text-red-500">This field is required</span>
+              )}
+            </div>
+
+            {/* receivers */}
+            {/* receiver input-1 */}
+            <div className="space-y-1">
+              <label>Receiver’s Name:</label>
+              <Input
+                type="text"
+                placeholder="Receiver’s Name"
+                {...register("receiverName", { required: true })}
+              />
+              {errors.receiverName && (
+                <span className="text-red-500">This field is required</span>
+              )}
+            </div>
+            {/* receiver input-2 */}
+            <div className="space-y-1">
+              <label>Receiver's Phone Number:</label>
+              <Input
+                type="number"
+                placeholder="Receiver's Phone Number"
+                {...register("receiverPhone", { required: true })}
+              />
+              {errors.receiverPhone && (
+                <span className="text-red-500">This field is required</span>
+              )}
+            </div>
+
+            {/* receiver input-3 */}
+            <div className="space-y-1">
+              <label>Parcel Delivery Date:</label>
+              <input
+                type="date"
+                className="w-full border-2 p-2 rounded-md"
+                {...register("deliveryAddress", { required: true })}
+              />
+              {errors.deliveryAddress && <span className='text-red-500'>This field is required</span>} 
+            </div>
+            
+            {/* receiver input-4 */}
+            <div className="space-y-1">
+              <label>Price:</label>
+              <input
+                type="number"
+                className="w-full border-2 p-2 rounded-md"
+                placeholder="Price"
+                {...register("price", { required: true })}
+              />
+              {errors.price && <span className='text-red-500'>This field is required</span>} 
+            </div>
+            {/* receiver input-4 */}
+            <div className="space-y-1">
+              <label>Delivery Address Latitude:</label>
+              <input step="0.01"
+                type="number"
+                className="w-full border-2 p-2 rounded-md"
+                placeholder="Delivery Address Latitude"
+                {...register("addressLatitude", { required: true })}
+              />
+              {errors.addressLatitude && <span className='text-red-500'>This field is required</span>} 
+            </div>
+            {/* receiver input-5 */}
+            <div className="space-y-1">
+              <label>Delivery Address longitude:</label>
+              <input min="0"  step="0.01"
+                type="number"
+                className="w-full border-2 p-2 rounded-md"
+                placeholder="Delivery Address longitude"
+                {...register("addressLongitude", { required: true })}
+              />
+              {errors.addressLongitude && <span className='text-red-500'>This field is required</span>} 
+            </div>
+            {/* receiver input-3 */}
+            <div className="space-y-1">
+              <label>Parcel Delivery Address:</label>
+              <textarea
+                type="text"
+                className="w-full border-2 p-2 rounded-md"
+                placeholder="Parcel Delivery Address"
+                {...register("deliveryAddress", { required: true })}
+              />
+              {errors.deliveryAddress && (
+                <span className="text-red-500">This field is required</span>
+              )}
+            </div>
+
+            <input
+              className="bg-black px-4 py-1 w-full rounded-md text-white mb-3"
+              type="submit"
+              value="Book"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BookParcel;

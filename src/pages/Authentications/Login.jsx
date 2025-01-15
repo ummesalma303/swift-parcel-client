@@ -4,6 +4,7 @@ import { AuthContext } from '@/providers/AuthProvider';
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form"
 import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 // import axios from 'axios';
 
 const Login = () => {
@@ -24,6 +25,12 @@ const Login = () => {
         loginUser(data?.email,data?.password)
         .then(res=>{
             console.log(res)
+            Swal.fire({
+              title: "Success",
+              text: "user successfully login",
+              icon: "success",
+              timer: 1000
+            });
             navigate('/')
             // reset
         })

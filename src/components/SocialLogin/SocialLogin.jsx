@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '@/providers/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import useAxiosPublic from '@/Hooks/useAxiosPublic';
+import Swal from 'sweetalert2';
  
 const SocialLogin = () => {
     const navigate = useNavigate()
@@ -22,6 +23,12 @@ const SocialLogin = () => {
             axiosPublic.post('/users',userInfo)
             .then((res) => {
                 console.log(res.data)
+                 Swal.fire({
+                              title: "Success",
+                              text: "User successfully login",
+                              icon: "success",
+                              timer: 1000
+                            });
                 navigate('/')
               }).catch((error) => {
                 console.log(error)
