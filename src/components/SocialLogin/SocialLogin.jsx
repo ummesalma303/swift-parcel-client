@@ -27,7 +27,7 @@ const SocialLogin = () => {
                               title: "Success",
                               text: "User successfully login",
                               icon: "success",
-                              timer: 1000
+                              // timer: 1000
                             });
                 navigate('/')
               }).catch((error) => {

@@ -23,7 +23,7 @@ import {
   
 const NavBar = () => {
     const {user,handleLogout} = useContext(AuthContext);
-        console.log(user)
+        // console.log(user?.photoURL)
     return (
        <div className="">
          <div className='fixed w-full px-5 md:px-10 flex justify-between items-center py-2 bg-slate-200' >
@@ -48,7 +48,7 @@ const NavBar = () => {
 
 
 <DropdownMenu>
-  <DropdownMenuTrigger className='rounded-full'><img className='w-10 h-10 md:w-14 md:h-14 rounded-full' src={user?.photoURL} alt="" /></DropdownMenuTrigger>
+  <DropdownMenuTrigger className='rounded-full'><img referrerPolicy='no-referrer' className='w-10 h-10 md:w-14 md:h-14 rounded-full' src={user?.photoURL} alt="" /></DropdownMenuTrigger>
   <DropdownMenuContent>
     <DropdownMenuLabel>{user?.displayName}</DropdownMenuLabel>
     <DropdownMenuSeparator />

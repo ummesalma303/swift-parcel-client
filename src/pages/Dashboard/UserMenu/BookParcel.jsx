@@ -1,14 +1,22 @@
 import { Input } from "@/components/ui/input";
+import useAxiosPublic from "@/Hooks/useAxiosPublic";
 import { AuthContext } from "@/providers/AuthProvider";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaClipboardList } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const BookParcel = () => {
+  const [total,setTotal] = useState(0)
+  // let fontWeight;
+  const [weight,setWeight] = useState(1)
+  const axiosPublic = useAxiosPublic()
   // const navigate = useNavigate()
+  const [error,setError] = useState([])
   const { user } = useContext(AuthContext);
   // console.log(createNewUser)
+//   requirement
   const {
     register,
     formState: { errors },
@@ -16,11 +24,42 @@ const BookParcel = () => {
     handleSubmit,
   } = useForm();
 
+  const handleWeight = (value) =>{
+   let fontWeight = value
+    // setWeight(value)
+    setWeight(fontWeight)
+    setTotal(fontWeight*50)
+    // const price = fontWeight*50
+  }
+
+  // console.log(weight)
   const onSubmit = (data) => {
-    console.log(data);
+    // if (data?.phone) {
+    //     console.log('hjghj',data?.phone)
+// i can't understand one requirement
+    // }
+const parcelData={
+  ...data,bookingDate: new Date(),parcelWeight:weight,status:'pending'
+}
+console.log(parcelData)
+    axiosPublic.post('/parcel',data)
+    .then(res=>{
+       Swal.fire({
+              title: "Success",
+              text: `${user?.displayName}'s ${weight} parcel successfully booked`,
+              icon: "success",
+              // timer: 1000
+            });
+            reset()
+            setTotal(0)
+      console.log(res.data)})
+    .catch(err=>console.log(err))
+    // console.log(data);
   };
+ 
   return (
     <div>
+        
       {/* form */}
       <div className="my-7 flex flex-col justify-center items-center ">
         <div className="">
@@ -37,24 +76,30 @@ const BookParcel = () => {
               {/* <label>Email:</label> */}
               <Input
                 className="text-green-500"
-                type="text"
+                // type="text"
                 value={user?.displayName}
                 disabled
-                {...register("name", { required: true })}
+                {...register("name")}
               />
             </div>
             {/* input-2 */}
             <div className="space-y-1">
               <label>Email:</label>
               <Input
-                type="email"
+                // type="email"
                 className="text-green-500"
                 value={user?.email}
-                {...register("email", { required: true })}
+                {...register("email")}
+                disabled
               />
-              {errors.email && (
-                <span className="text-red-500">This field is required</span>
-              )}
+               {/* <Input
+                className="text-green-500"
+                type="text"
+                value={user?.displayName}
+                disabled
+                {...register("name")}
+              /> */}
+              
             </div>
             {/* input-3 */}
             <div className="space-y-1">
@@ -83,11 +128,13 @@ const BookParcel = () => {
             {/* input-5 */}
             <div className="space-y-1">
               <label>Parcel Weight:</label>
-              <Input
+              <Input onChange={(e)=>handleWeight(e.target.value)}
                 type="number"
                 placeholder="Parcel Weight"
-                {...register("parcelWeight", { required: true })}
+                // {...register("parcelWeight", { required: true })}
               />
+              {/* <Input onChange={(e)=>handleWeight(e.target.value)} /> */}
+
               {errors.parcelWeight && (
                 <span className="text-red-500">This field is required</span>
               )}
@@ -125,26 +172,27 @@ const BookParcel = () => {
               <input
                 type="date"
                 className="w-full border-2 p-2 rounded-md"
-                {...register("deliveryAddress", { required: true })}
+                {...register("deliveryDate", { required: true })}
               />
-              {errors.deliveryAddress && <span className='text-red-500'>This field is required</span>} 
+              {errors.deliveryDate && <span className='text-red-500'>This field is required</span>} 
             </div>
             
             {/* receiver input-4 */}
             <div className="space-y-1">
-              <label>Price:</label>
+              <label>Price(tk):</label>
               <input
-                type="number"
+                // type="number"
+                value={total}
                 className="w-full border-2 p-2 rounded-md"
                 placeholder="Price"
                 {...register("price", { required: true })}
               />
-              {errors.price && <span className='text-red-500'>This field is required</span>} 
+              {/* {errors.price && <span className='text-red-500'>This field is required</span>}  */}
             </div>
             {/* receiver input-4 */}
             <div className="space-y-1">
               <label>Delivery Address Latitude:</label>
-              <input step="0.01"
+              <input step="any"
                 type="number"
                 className="w-full border-2 p-2 rounded-md"
                 placeholder="Delivery Address Latitude"
@@ -155,7 +203,7 @@ const BookParcel = () => {
             {/* receiver input-5 */}
             <div className="space-y-1">
               <label>Delivery Address longitude:</label>
-              <input min="0"  step="0.01"
+              <input min="0"  step="any"
                 type="number"
                 className="w-full border-2 p-2 rounded-md"
                 placeholder="Delivery Address longitude"
