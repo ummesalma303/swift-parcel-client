@@ -20,14 +20,14 @@ const Register = () => {
     
       const onSubmit = (data) => {
         // console.log(data)
-        const userInfo ={
-            name: data?.name,
-            photo: data?.photo,
-            email: data?.email,
-            role: data?.role
-        }
         const updateData ={
             displayName: data?.name, photoURL: data?.photo
+        }
+        const userInfo ={
+            displayName: data?.name, 
+            photoURL: data?.photo,
+            email: data?.email,
+            role: data?.role
         }
         createNewUser(data?.email,data?.password)
         .then(res=>{

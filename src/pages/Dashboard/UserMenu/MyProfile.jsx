@@ -39,9 +39,16 @@ const MyProfile = () => {
 
           // updateUserProfile(updateData)
           updateProfile(auth.currentUser,updateData).then(res=>{
-              setUser({...user,...updateData})
-              axiosPublic.patch(``)
-                console.log(res)
+              axiosPublic.patch(`/updateUser/${user?.email}`,{displayName: data?.name, photoURL: data?.photo})
+              .then(res=>{
+                  console.log(updateData)
+                  setUser({...user,...updateData})
+                  // if (res.data.modifiedCount>0) {
+                    //     console.log('successfully update database')
+                    // }
+                    console.log(res.data)})
+                .catch(err=>console.log(err))
+                        // console.log(res)
             }).catch(err=>console.log(err))
         
             //  Swal.fire({

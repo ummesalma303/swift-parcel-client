@@ -7,7 +7,8 @@ const useUser = () => {
     const {user} = useContext(AuthContext)
     const axiosPublic = useAxiosPublic()
     const {data:users={},isLoading} =useQuery({
-        queryKey:["users",user?.email],
+        queryKey:["user",user?.email],
+        enabled:!!(user?.email),
         queryFn: async () => {
     const res = await axiosPublic.get(`/users/${user?.email}`)
          return res.data   

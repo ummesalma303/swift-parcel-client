@@ -13,6 +13,9 @@ import PrivateRoutes from "@/privateRoutes/PrivateRoutes";
 import MyParcel from "@/pages/Dashboard/UserMenu/MyParcel";
 import MyProfile from "@/pages/Dashboard/UserMenu/MyProfile";
 import UpdateBooking from "@/pages/Dashboard/updateBooking/UpdateBooking";
+import AllUser from "@/pages/Dashboard/AdminMenus/AllUser";
+import Statistics from "@/pages/Dashboard/AdminMenus/Statistics";
+import AllParcels from "@/pages/Dashboard/AdminMenus/AllParcels";
 // import Register from "@/pages/Authentication/Register";
 // import Login from "@/pages/Authentication/Login";
 
@@ -41,8 +44,8 @@ import UpdateBooking from "@/pages/Dashboard/updateBooking/UpdateBooking";
      element:<PrivateRoutes><DashboardLayout/></PrivateRoutes>,
      children:[
       {
-        // path:'myProfile',
-        index:true,
+        path:'myProfile',
+        // index:true,
         element:<PrivateRoutes><MyProfile /></PrivateRoutes>
       },
       {
@@ -57,6 +60,18 @@ import UpdateBooking from "@/pages/Dashboard/updateBooking/UpdateBooking";
         path:'updateBooking/:id',
         loader: ({params})=>fetch(`http://localhost:5000/parcels/${params.id}`),
         element:<PrivateRoutes><UpdateBooking /></PrivateRoutes>
+      },
+      {
+        path:'allUsers',
+        element:<PrivateRoutes><AllUser/></PrivateRoutes>
+      },
+      {
+        path:'allParcel',
+        element:<PrivateRoutes><AllParcels/></PrivateRoutes>
+      },
+      {
+        index:true,
+        element:<PrivateRoutes><Statistics/></PrivateRoutes>
       },
       
      ]

@@ -6,8 +6,9 @@ import { FaUsersViewfinder } from "react-icons/fa6";
 const AdminMenus = () => {
     return (
         <>
-        <NavLink to='/dashboard' className='flex items-center space-x-2'><FaBoxes />All Parcels</NavLink>
-        <NavLink to='myParcel'className='flex items-center space-x-2'><FaUsers /> All Users</NavLink>
+        <NavLink to='/dashboard' className='flex items-center space-x-2'>Statistic</NavLink>
+        <NavLink to='allUsers'className='flex items-center space-x-2'><FaUsers /> All Users</NavLink>
+        <NavLink to='allParcel' className='flex items-center space-x-2'><FaBoxes />All Parcel</NavLink>
         <NavLink to='myProfile' className='flex items-center space-x-2'><FaUsersViewfinder /> All Delivery Men</NavLink>
         </>
     );
