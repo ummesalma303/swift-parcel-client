@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
     Table,
     TableBody,
@@ -21,7 +21,8 @@ import Swal from 'sweetalert2';
 import { Input } from '@/components/ui/input';
 
 const MyParcel = () => {
-  // const [disabled,setDisabled] = useState()
+  // const [myParcels]
+  const [filter,setFilter] = useState('')
   const {user} = useContext(AuthContext)
   const axiosPublic = useAxiosPublic()
     const invoices = [
@@ -72,9 +73,10 @@ const MyParcel = () => {
       // show data
      
     const {data:myParcels=[],isLoading,refetch} =useQuery({
-        queryKey:["parcel",user?.email],
+        queryKey:["parcel",user?.email,filter],
         queryFn: async () => {
-    const res = await axiosPublic.get(`/parcel/${user?.email}`)
+    // const res = await axiosPublic.get(`/parcel/${user?.email}`)
+    const res = await axiosPublic.get(`/parcel/${user?.email}?search=${filter}`)
          return res.data   
         }
     })
@@ -110,6 +112,19 @@ const MyParcel = () => {
         }
       });
     }
+
+
+    // useEffect(() => {
+    //    axiosPublic.get(`/allParcel?filter=${filter}`)
+    //   .then(res=>{
+    //     console.log(res.data)})
+    
+      
+    // }, [filter])
+    
+    // const handleFilter=(value)=>{
+    //   console.log(value)
+    
     return (
         <div>
             <div className="text-3xl font-semibold text-center my-4">
@@ -125,11 +140,11 @@ const MyParcel = () => {
       {/* <Input type="email" placeholder="Email" />
       <Button type="submit">Subscribe</Button> */}
        <label>Filter By Status:</label>
-      <select className='border-2 p-1 rounded-md' >
+      <select onChange={(e)=>setFilter(e.target.value)} className='border-2 p-1 rounded-md' >
       {/* <option defaultValue='Select A role'></option> */}
       {/* <option disabled selected>Select A role</option> */}
-        <option value="User">All</option>
-        <option value="Delivery Man">Status</option>
+        <option value="all">All</option>
+        <option value="pending">pending</option>
         {/* <option value="other">other</option> */}
       </select><br />
     </div>
