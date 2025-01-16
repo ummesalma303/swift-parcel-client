@@ -12,6 +12,7 @@ import BookParcel from "@/pages/Dashboard/UserMenu/BookParcel";
 import PrivateRoutes from "@/privateRoutes/PrivateRoutes";
 import MyParcel from "@/pages/Dashboard/UserMenu/MyParcel";
 import MyProfile from "@/pages/Dashboard/UserMenu/MyProfile";
+import UpdateBooking from "@/pages/Dashboard/updateBooking/UpdateBooking";
 // import Register from "@/pages/Authentication/Register";
 // import Login from "@/pages/Authentication/Login";
 
@@ -40,7 +41,12 @@ import MyProfile from "@/pages/Dashboard/UserMenu/MyProfile";
      element:<PrivateRoutes><DashboardLayout/></PrivateRoutes>,
      children:[
       {
+        // path:'myProfile',
         index:true,
+        element:<PrivateRoutes><MyProfile /></PrivateRoutes>
+      },
+      {
+        path:'bookParcel',
         element:<PrivateRoutes><BookParcel /></PrivateRoutes>
       },
       {
@@ -48,9 +54,11 @@ import MyProfile from "@/pages/Dashboard/UserMenu/MyProfile";
         element:<PrivateRoutes><MyParcel /></PrivateRoutes>
       },
       {
-        path:'myProfile',
-        element:<PrivateRoutes><MyProfile /></PrivateRoutes>
+        path:'updateBooking/:id',
+        loader: ({params})=>fetch(`http://localhost:5000/parcels/${params.id}`),
+        element:<PrivateRoutes><UpdateBooking /></PrivateRoutes>
       },
+      
      ]
     }
     // {

@@ -8,9 +8,10 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const BookParcel = () => {
+  const navigate =useNavigate()
   const [total,setTotal] = useState(0)
   // let fontWeight;
-  const [weight,setWeight] = useState(1)
+  const [weight,setWeight] = useState(0)
   const axiosPublic = useAxiosPublic()
   // const navigate = useNavigate()
   const [error,setError] = useState([])
@@ -39,10 +40,12 @@ const BookParcel = () => {
     //     console.log('hjghj',data?.phone)
 // 
     // }
+    console.log(total)
 const parcelData={
-  ...data, bookingDate: new Date().toLocaleDateString(),parcelWeight:weight,status:'pending'
+  ...data, totalPrice: total, bookingDate: new Date().toLocaleDateString(),parcelWeight:weight,status:'pending'
 }
-// console.log(parcelData,date)
+// console.log(parcelData.totalPrice)
+// console.log(parcelData,total)
     axiosPublic.post('/parcel',parcelData)
     .then(res=>{
        Swal.fire({
@@ -51,8 +54,7 @@ const parcelData={
               icon: "success",
               // timer: 1000
             });
-            reset()
-            setTotal(0)
+            navigate('/dashboard/myParcel')
       console.log(res.data)})
     .catch(err=>console.log(err))
     // console.log(data);
@@ -181,13 +183,9 @@ const parcelData={
             {/* receiver input-4 */}
             <div className="space-y-1">
               <label>Price(tk):</label>
-              <input
-                // type="number"
-                value={total}
-                className="w-full border-2 p-2 rounded-md"
-                placeholder="Price"
-                {...register("price", { required: true })}
-              />
+             
+              <Input value={total} {...register("totalPrice")}/>
+              
               {/* {errors.price && <span className='text-red-500'>This field is required</span>}  */}
             </div>
             {/* receiver input-4 */}

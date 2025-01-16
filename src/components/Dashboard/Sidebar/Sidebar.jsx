@@ -19,7 +19,7 @@ if(isLoading){
   return (
     <div>
       {/* small screen */}
-      <div className="flex justify-between items-center bg-gray-100 md:hidden px-8 py-3">
+      <div className="flex overflow-x-hidden justify-between items-center bg-gray-100 md:hidden px-8 py-3">
         <h2 className="text-2xl font-semibold ">SwiftParcel</h2>
         <button onClick={handleToggle}>
           <IoMdMenu size={30} />{" "}
@@ -32,7 +32,7 @@ transform
 left-0*/}
 
       <div
-        className={`z-10 md:fixed  bg-gray-100 w-64 space-y-6 px-2 py-4 absolute inset-y-0 ${
+        className={`z-10 md:fixed overflow-x-hidden bg-gray-100 w-64 space-y-6 px-2 py-4 absolute inset-y-0 ${
           toggle && "-translate-x-full"
         }  md:translate-x-0  transition duration-200 ease-in-out`}
       >
