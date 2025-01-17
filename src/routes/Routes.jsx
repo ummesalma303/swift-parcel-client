@@ -74,6 +74,7 @@ import AdminRoutes from "@/privateRoutes/AdminRoutes";
       },
       {
         path:'allParcel',
+        loader:()=>fetch('http://localhost:5000/delivery'),
         element:<PrivateRoutes><AllParcels/></PrivateRoutes>
       },
      
