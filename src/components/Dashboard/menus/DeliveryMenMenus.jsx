@@ -8,7 +8,7 @@ import { GiAlliedStar } from "react-icons/gi";
 const DeliveryMenMenus = () => {
     return (
         <>
-        <NavLink to='/dashboard' className='flex items-center space-x-2'><FaClipboardList />My Delivery List</NavLink>
+        <NavLink to='myDeliveryList' className='flex items-center space-x-2'><FaClipboardList />My Delivery List</NavLink>
         <NavLink to='myParcel'className='flex items-center space-x-2'><GiAlliedStar />My Reviews menu</NavLink>  
         </>
     );

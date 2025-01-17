@@ -7,6 +7,7 @@ const provider = new GoogleAuthProvider();
 const AuthProvider = ({children}) => {
     const [user,setUser] = useState(null);
     const [loading,setLoading] = useState(true);
+    const [deliveryMenID,setDeliveryMenID] = useState();
 
     // new user
     const createNewUser = (email, password) =>{
@@ -48,7 +49,8 @@ const AuthProvider = ({children}) => {
     
       return () => subscribe()
     }, [])
-    
+    console.log(
+        deliveryMenID)
     const info={
         createNewUser,
         updateUserProfile,
@@ -56,6 +58,7 @@ const AuthProvider = ({children}) => {
         googleLoginUser,
         handleLogout,
         setUser,
+        deliveryMenID,setDeliveryMenID,
         loading,
         user
     }

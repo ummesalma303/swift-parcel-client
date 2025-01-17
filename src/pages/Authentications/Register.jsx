@@ -39,7 +39,7 @@ const Register = () => {
                           title: "Success",
                           text: "user successfully register",
                           icon: "success",
-                          timer: 1000
+                        //   timer: 1000
                         });
          /* -------------------------- send data on database ------------------------- */
          axios.post('http://localhost:5000/users',userInfo)

@@ -1,7 +1,7 @@
 import useAxiosPublic from "@/Hooks/useAxiosPublic";
 import useUser from "@/Hooks/useUser";
 import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   Table,
   TableBody,
@@ -27,12 +27,15 @@ import { Label } from "@radix-ui/react-dropdown-menu";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { useLoaderData } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import { AuthContext } from "@/providers/AuthProvider";
 //   import { Label } from "@/components/ui/label"
 
 const AllParcels = () => {
   const delivery = useLoaderData();
-  const [id,setId] =useState({})
-  // console.log(id)
+  const {setDeliveryMenID} = useContext(AuthContext);
+  // const [id,setId] =useState({})
+  // console.log(deliveryMenID)
   const {
          register,
          formState: { errors },
@@ -50,20 +53,57 @@ const AllParcels = () => {
       return res.data;
     },
   });
-  console.log(parcels)
+  // console.log(parcels)
   const onSubmit = (data) => {
-    console.log(data)
     const deliveryManData ={
       ...data,status:'On The Way',
     }
+    console.log(data.deliveryId)
+    setDeliveryMenID(data.deliveryId)
     axiosPublic.patch(`/deliveryInfo/${data.parcelId}`,deliveryManData)
-    .then(res=>console.log(res.data))
+    .then(res=>{
+       if (res.data.modifiedCount>0) {
+        // setDeliveryMenID(data?.deliveryMenID)
+        console.log(data?.deliveryId)
+                Swal.fire({
+                    title: "Success",
+                    text: " Parcel Successfully Update. ",
+                    icon: "success",
+                  });
+                  // timer: 1000
+              }
+      // console.log(res.data)
+    })
     .catch(err=>console.log(err))
     console.log(deliveryManData)
   }
+
+
+const handleSearch=(e)=>{
+  e.preventDefault()
+  const lte = e.target.lte.value
+  const gte = e.target.gte.value
+  console.log(lte,gte)
+  axiosPublic.get(`/parcel?gte=${gte}&lte=${lte}`)
+}
+
   return (
     <div>
-      <Table>
+      <div className=" ">
+        <form onSubmit={handleSearch} className=" flex items-end">
+        <div className="">
+        <label htmlFor="" className="text-xl font-semibold ">Requested delivery date:</label><br />
+        <input className="border-2 border-gray-300 px-2 mt-3" type="date" name="gte" />
+        </div>
+        <div className="">
+        <input className="border-2 border-gray-300 px-2" type="date" name="lte" />
+        </div>
+        <Button type="submit"  >Search</Button>
+        </form>
+       
+      </div>
+     <div className="">
+     <Table>
         <TableCaption>A list of your recent invoices.</TableCaption>
         <TableHeader>
           <TableRow>
@@ -77,8 +117,8 @@ const AllParcels = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {parcels?.map((parcel) => (
-            <TableRow key={parcel._id}>
+          {parcels?.map((parcel,i) => (
+            <TableRow key={i}>
               <TableCell className="font-medium">{parcel?.name}</TableCell>
               <TableCell>{parcel?.phone}</TableCell>
               <TableCell>{parcel?.bookingDate}</TableCell>
@@ -152,6 +192,7 @@ const AllParcels = () => {
         </TableBody>
        
       </Table>
+     </div>
     </div>
   );
 };

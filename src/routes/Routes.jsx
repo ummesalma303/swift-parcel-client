@@ -17,6 +17,8 @@ import AllUser from "@/pages/Dashboard/AdminMenus/AllUser";
 import Statistics from "@/pages/Dashboard/AdminMenus/Statistics";
 import AllParcels from "@/pages/Dashboard/AdminMenus/AllParcels";
 import AdminRoutes from "@/privateRoutes/AdminRoutes";
+import AllDeliveryMen from "@/pages/Dashboard/AdminMenus/AllDeliveryMen";
+import MyDeliveryList from "@/pages/Dashboard/DeliveryMenMenus/MyDeliveryList";
 // import Register from "@/pages/Authentication/Register";
 // import Login from "@/pages/Authentication/Login";
 
@@ -65,7 +67,7 @@ import AdminRoutes from "@/privateRoutes/AdminRoutes";
         element:<PrivateRoutes><UpdateBooking /></PrivateRoutes>
       },
       {
-        index:'statistics',
+        path:'statistics',
         element:<PrivateRoutes><Statistics/></PrivateRoutes>
       },
       {
@@ -76,6 +78,16 @@ import AdminRoutes from "@/privateRoutes/AdminRoutes";
         path:'allParcel',
         loader:()=>fetch('http://localhost:5000/delivery'),
         element:<PrivateRoutes><AllParcels/></PrivateRoutes>
+      },
+      {
+        path:'allDeliveryMen',
+        // loader:()=>fetch('http://localhost:5000/delivery'),
+        element:<PrivateRoutes><AllDeliveryMen/></PrivateRoutes>
+      },
+      {
+        path:'myDeliveryList',
+        // loader:()=>fetch('http://localhost:5000/delivery'),
+        element:<PrivateRoutes><MyDeliveryList/></PrivateRoutes>
       },
      
      ]

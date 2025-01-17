@@ -26,6 +26,9 @@ const ParcelCountCard = ({title}) => {
            <div className="bg-[#F7F7F7] rounded-md p-5 text-center ">
            <h2>Total Number of Parcels Booked: <CountUp duration={2} end={userCount?.parcelCount} /> </h2>
            </div>
+           <div className="bg-[#F7F7F7] rounded-md p-5 text-center ">
+           <h2>Total Number of Parcels Delivered:------ </h2>
+           </div>
             {/* card-1 */}
            {/* <div className="bg-[#F7F7F7] rounded-md p-5 text-center ">
            <h2>Total Number of Parcels Booked: <CountUp duration={2} end={userCount?.usersCount} /> </h2>
