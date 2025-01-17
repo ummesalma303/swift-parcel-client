@@ -7,7 +7,7 @@ import FeaturesSec from '@/components/FeaturesSec/FeaturesSec/FeaturesSec';
 
 const Home = () => {
     const data = useContext(AuthContext);
-    console.log(data)
+    // console.log(data)
     return (
         <div>
             <Banner/>

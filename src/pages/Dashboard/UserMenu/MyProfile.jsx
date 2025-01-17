@@ -10,7 +10,11 @@ import Swal from 'sweetalert2';
 import { updateProfile } from 'firebase/auth';
 import { auth } from '@/firebase/firebase.config';
 import useAxiosPublic from '@/Hooks/useAxiosPublic';
+import { Button } from '@/components/ui/button';
 // import { getAuth, updateProfile } from "firebase/auth";
+const imgkey=import.meta.env.VITE_imageHostingKey
+const imgUploadURL=`https://api.imgbb.com/1/upload?key=${imgkey}`
+// console.log(imgkey,'--------',imgUploadURL)
 const MyProfile = () => {
     const axiosPublic=useAxiosPublic()
     // const auth = getAuth(app);
@@ -24,32 +28,56 @@ const MyProfile = () => {
         handleSubmit,
       } = useForm()
     
-      const onSubmit = (data) => {
+      const handleImage = e => {
+        // e.preventDefault()
         // console.log(data)
         // const userInfo ={
         //     name: data?.name,
         //     photo: data?.photo,
         // }
-        const updateData ={
-            displayName: data?.name, photoURL: data?.photo
+        // const updateData ={
+        //     displayName: user?.displayName, photoURL: data?.photo
+        // }
+        const imageFile={image:e}
+        axiosPublic.post(imgUploadURL,imageFile,{
+            headers:{
+                'content-type':'multipart/form-data'
+            }
+        })
+        .then(res=>{
+            const updateData ={
+            displayName: user?.displayName, photoURL: res?.data?.data?.display_url
         }
-        
+        updateProfile(auth.currentUser,updateData)
+        // // .then(res=>{
+            setUser({...user,...updateData})
+            console.log(res
+            )
+            console.log(updateData)
+            // window.reload()
+
+        // })
+        // .catch(err=>console.log(err))
+            // console.log(res?.data?.display_url)
+        })
+        .catch(err=>console.log(err))
+        // console.log(e[0])
       
 
 
           // updateUserProfile(updateData)
-          updateProfile(auth.currentUser,updateData).then(res=>{
-              axiosPublic.patch(`/updateUser/${user?.email}`,{displayName: data?.name, photoURL: data?.photo})
-              .then(res=>{
-                  console.log(updateData)
-                  setUser({...user,...updateData})
-                  // if (res.data.modifiedCount>0) {
-                    //     console.log('successfully update database')
-                    // }
-                    console.log(res.data)})
-                .catch(err=>console.log(err))
-                        // console.log(res)
-            }).catch(err=>console.log(err))
+        //   updateProfile(auth.currentUser,updateData).then(res=>{
+        //       axiosPublic.patch(`/updateUser/${user?.email}`,{displayName: data?.name, photoURL: data?.photo})
+        //       .then(res=>{
+        //           console.log(updateData)
+        //           setUser({...user,...updateData})
+        //           // if (res.data.modifiedCount>0) {
+        //             //     console.log('successfully update database')
+        //             // }
+        //             console.log(res.data)})
+        //         .catch(err=>console.log(err))
+        //                 // console.log(res)
+        //     }).catch(err=>console.log(err))
         
             //  Swal.fire({
             //               title: "Success",
@@ -69,25 +97,50 @@ const MyProfile = () => {
        
 
     }
+
+    const handleUpdateImage=e=>{
+        e.preventDefault()
+        console.log(e)
+    }
     return (
-        <div className='h-screen  w-11/12 mx-auto'>
+        <div className='h-[80vh]  w-11/12 mx-auto'>
             
             <h2 className='text-2xl font-semibold text-center'>myProfile</h2>
-           <div className="h-full flex justify-center space-x-4 items-center ">
-           <div className="">
-                <img className='w-24 h-24 rounded-full' src={user?.photoURL} alt="" />
+           <div className="h-full flex flex-col justify-center space-x-4 items-center  ">
+          <div className="border-[1px] p-5 rounded-md">
+          <div className=" text-center mb-4">
+                <img className='w-24 h-24 rounded-full mx-auto' src={user?.photoURL} alt="" />
                 <h2>{user?.displayName}</h2>
             </div>
-            <div className=" md:w-1/3 border-2 p-5 rounded-lg">
+            <form action="" className='space-x-5' >
+                {/* <input onChange={(e)=>handleImage(e.target.files[0])} type="file" name="" id="" /> */}
+
+                <label className='inline-block px-4 py-3 bg-slate-500 text-white cursor-pointer text-center' >Upload a image
+
+                <input hidden onChange={(e)=>handleImage(e.target.files[0])} type="file" />
+                
+                </label>
+
+                <label className='inline-block px-4 py-3 bg-green-300 cursor-pointer text-center font-semibold' >Update
+
+                <input hidden onChange={(e)=>handleImage(e.target.files[0])} type="file" />
+                
+                </label>
+                    
+
+                    
+            </form>
+          </div>
+            {/* <div className=" md:w-1/3 border-2 p-5 rounded-lg">
             <form className=' ' onSubmit={handleSubmit(onSubmit)}>
-    {/* input-1 */}
+   
       <div>
      <label>Name</label>
-     {/* <label>Email:</label> */}
+     
       <Input type="text" placeholder="Name" {...register("name", { required: true })}/>
       {errors.name && <span className='text-red-500'>This field is required</span>}
      </div>
-     {/* input-2 */}
+     
      <div className="">
      <label>PhotoURL:</label>
       <Input type="url" placeholder="PhotoURL" {...register("photo", { required: true })}/>
@@ -96,7 +149,7 @@ const MyProfile = () => {
      
       <input className='bg-black px-4 py-1 w-full rounded-md text-white mb-3 mt-2' type="submit" value='register' />
     </form>
-            </div>
+            </div> */}
            </div>
         </div>
     );

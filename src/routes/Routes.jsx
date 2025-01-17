@@ -16,6 +16,7 @@ import UpdateBooking from "@/pages/Dashboard/updateBooking/UpdateBooking";
 import AllUser from "@/pages/Dashboard/AdminMenus/AllUser";
 import Statistics from "@/pages/Dashboard/AdminMenus/Statistics";
 import AllParcels from "@/pages/Dashboard/AdminMenus/AllParcels";
+import AdminRoutes from "@/privateRoutes/AdminRoutes";
 // import Register from "@/pages/Authentication/Register";
 // import Login from "@/pages/Authentication/Login";
 
@@ -43,6 +44,8 @@ import AllParcels from "@/pages/Dashboard/AdminMenus/AllParcels";
      path:'/dashboard',
      element:<PrivateRoutes><DashboardLayout/></PrivateRoutes>,
      children:[
+      
+      
       {
         path:'myProfile',
         // index:true,
@@ -62,6 +65,10 @@ import AllParcels from "@/pages/Dashboard/AdminMenus/AllParcels";
         element:<PrivateRoutes><UpdateBooking /></PrivateRoutes>
       },
       {
+        index:'statistics',
+        element:<PrivateRoutes><Statistics/></PrivateRoutes>
+      },
+      {
         path:'allUsers',
         element:<PrivateRoutes><AllUser/></PrivateRoutes>
       },
@@ -69,11 +76,7 @@ import AllParcels from "@/pages/Dashboard/AdminMenus/AllParcels";
         path:'allParcel',
         element:<PrivateRoutes><AllParcels/></PrivateRoutes>
       },
-      {
-        index:true,
-        element:<PrivateRoutes><Statistics/></PrivateRoutes>
-      },
-      
+     
      ]
     }
     // {
