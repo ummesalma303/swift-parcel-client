@@ -26,45 +26,34 @@ const AllUser = () => {
     })
     console.log(users)
     return (
-        <div>
+        <div className='w-11/12 mx-auto'>
              <Table>
       <TableCaption>A list of your recent invoices.</TableCaption>
       <TableHeader>
         <TableRow>
-          <TableHead className="w-[100px]">Parcel Type 
-          </TableHead>
-          <TableHead>Approximate Delivery Date</TableHead>
-          <TableHead>Requested Delivery Date</TableHead>
-          <TableHead className="text-right">Booking Date</TableHead>
-          <TableHead className="text-right">Delivery Men ID</TableHead>
-          <TableHead className="text-right">Booking Status</TableHead>
+          <TableHead className="w-[100px]">User’s Name</TableHead>
+          <TableHead className="text-center">Phone Number</TableHead>
+          {/* <TableHead>Requested Delivery Date</TableHead> */}
+          <TableHead className="text-center">Number of parcels Booked</TableHead>
+          <TableHead className="text-right">Make Delivery Men Button</TableHead>
+          {/* <TableHead className="text-right">Booking Status</TableHead>
           <TableHead className="text-right">Update</TableHead>
           <TableHead className="text-right">Cancel</TableHead>
-          <TableHead className="text-right">Pay</TableHead>
+          <TableHead className="text-right">Pay</TableHead> */}
         </TableRow>
       </TableHeader>
       <TableBody>
         {users?.map((user) => (
           <TableRow key={user?._id}>
              {/* <TableCell className="font-medium">{parcel?.parcelType}</TableCell> */}
-             <TableCell>' '</TableCell>
-             <TableCell>{user?.displayName}</TableCell>
-            {/* <TableCell className="text-right">{parcel?.bookingDate}</TableCell>
-            <TableCell className="text-right">{parcel?.s}</TableCell>
-            <TableCell className="text-right">{parcel?.status}</TableCell> */}
+             <TableCell>{user?.name}</TableCell>
+             <TableCell className="text-center">{user?.phone||'N/A'}</TableCell>
+             {/* <TableCell>{user?.phone}</TableCell> */}
+             <TableCell className="text-right"> </TableCell>
             <TableCell className="text-right">
-            
-            {/* {
-            parcel?.status !== 'pending' ? <Button disabled ><BsPencilSquare /></Button>:<Link to={`/dashboard/updateBooking/${parcel?._id}`}><Button  ><BsPencilSquare /></Button></Link>
-            } */}
-            
-            </TableCell>
-            <TableCell className="text-right">
-            {/* {
-            parcel?.status !== 'pending' ? <Button variant="destructive" disabled ><MdCancelPresentation /></Button>: <Button variant="destructive" onClick={()=>handleCancel(parcel?._id)}><MdCancelPresentation /></Button>
-            } */}
+            <Button>Manage</Button>
              </TableCell>
-            <TableCell className="text-right"><Button>Pay</Button></TableCell>
+            {/* <TableCell className="text-right"></TableCell> */}
             {/* {parcel?.status==='delivered'&&<TableCell className="text-right"><Button><IoStarHalfSharp />Review</Button></TableCell>} */}
             
           </TableRow>

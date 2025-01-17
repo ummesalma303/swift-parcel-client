@@ -157,8 +157,8 @@ const MyParcel = () => {
           </TableHead>
           <TableHead>Approximate Delivery Date</TableHead>
           <TableHead>Requested Delivery Date</TableHead>
-          <TableHead className="text-right">Booking Date</TableHead>
-          <TableHead className="text-right">Delivery Men ID</TableHead>
+          <TableHead className="">Booking Date</TableHead>
+          <TableHead >Delivery Men ID</TableHead>
           <TableHead className="text-right">Booking Status</TableHead>
           <TableHead className="text-right">Update</TableHead>
           <TableHead className="text-right">Cancel</TableHead>
@@ -169,10 +169,10 @@ const MyParcel = () => {
         {myParcels?.map((parcel) => (
           <TableRow key={parcel?._id}>
              <TableCell className="font-medium">{parcel?.parcelType}</TableCell>
-             <TableCell>' '</TableCell>
+             <TableCell>{parcel?.approximateDate}</TableCell>
              <TableCell>{parcel?.deliveryDate}</TableCell>
-            <TableCell className="text-right">{parcel?.bookingDate}</TableCell>
-            <TableCell className="text-right">{parcel?.s}</TableCell>
+            <TableCell >{parcel?.bookingDate}</TableCell>
+            <TableCell>{parcel?.deliveryMenID}</TableCell>
             <TableCell className="text-right">{parcel?.status}</TableCell>
             <TableCell className="text-right">
             

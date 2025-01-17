@@ -19,19 +19,20 @@ const Register = () => {
       } = useForm()
     
       const onSubmit = (data) => {
-        // console.log(data)
+        console.log(data)
         const updateData ={
-            displayName: data?.name, photoURL: data?.photo
+            name: data?.name, photo: data?.photo
         }
         const userInfo ={
-            displayName: data?.name, 
-            photoURL: data?.photo,
+            name: data?.name, 
+            photo: data?.photo,
             email: data?.email,
-            role: data?.role
+            role: data?.role,
+            phone:data?.phone
         }
         createNewUser(data?.email,data?.password)
         .then(res=>{
-            // console.log(res)
+            console.log(res)
             updateUserProfile(updateData)
             setUser({...user,...updateData})
              Swal.fire({
@@ -57,16 +58,16 @@ const Register = () => {
     
     //   console.log(watch("example"))
     return (
-        <div className='h-screen flex flex-col justify-center items-center '>
+        <div className='my-6 flex flex-col justify-center items-center '>
              <h2 className='text-2xl font-semibold mb-6'>Please login yor account</h2>
              <div className="w-11/12 md:w-1/3 border-2 p-5 rounded-lg">
             
-             <form className=' ' onSubmit={handleSubmit(onSubmit)}>
+             <form className='grid gap-4' onSubmit={handleSubmit(onSubmit)}>
     {/* input-1 */}
      <div>
      <label>Name</label>
      {/* <label>Email:</label> */}
-      <Input type="text" placeholder="Name" {...register("name", { required: true })}/>
+      <Input type="text" placeholder="Name" required {...register("name", { required: true })}/>
       {errors.name && <span className='text-red-500'>This field is required</span>}
      </div>
      {/* input-2 */}
@@ -99,6 +100,13 @@ const Register = () => {
       </select><br />
       
      </div>
+     {/* input-6 */}
+     <div className="">
+     <label>Phone Number:</label>
+      <Input type="number" placeholder="Phone Number" {...register("phone", { required: true })}/>
+      {errors.phone && <span className='text-red-500'>This field is required</span>} 
+     </div>
+
      <p className='pt-1 pb-3'>If You have an account.please <Link to='/login'><span className='hover:underline text-red-300'>Login</span></Link></p>
       <input className='bg-black px-4 py-1 w-full rounded-md text-white mb-3' type="submit" value='register' />
     </form>

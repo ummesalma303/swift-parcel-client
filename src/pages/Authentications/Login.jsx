@@ -29,12 +29,20 @@ const Login = () => {
               title: "Success",
               text: "user successfully login",
               icon: "success",
-              timer: 1000
+              // timer: 1000
             });
             navigate('/')
             // reset
         })
-        .catch(err=>console.log(err))
+        .catch(err=>{
+          Swal.fire({
+            title: "Error",
+            text:`${err?.message}`,
+            icon: "success",
+            // timer: 1000
+          });
+          console.log(err)
+        })
 
     }
     
@@ -57,7 +65,7 @@ const Login = () => {
      </div>
     
      <p className='pt-1 pb-3'>If you are a new user.please <Link to='/register'><span className='hover:underline text-red-300'>Register</span></Link></p>
-      <input className='bg-black px-4 py-2 rounded-md text-white w-full mb-3' type="submit" />
+      <input className='bg-black px-4 py-2 rounded-md text-white w-full mb-3' type="submit" value='Login' />
     </form>
     <div className="divide-x-2 ">
     <SocialLogin></SocialLogin>
