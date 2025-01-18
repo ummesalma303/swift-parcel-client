@@ -234,7 +234,7 @@ const MyParcel = () => {
                                   
                                   value={parcel.deliveryEmail}
                                  
-                                  {...register("deliveryEmail", { required: true })}
+                                  {...register("email", { required: true })}
                                 />
                               </div>
                             </div>
