@@ -29,13 +29,17 @@ import { useLoaderData } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { AuthContext } from "@/providers/AuthProvider";
+import { format } from "date-fns";
 //   import { Label } from "@/components/ui/label"
 
 const AllParcels = () => {
+  const [lte,setLte] = useState('')
+  const [gte,setGte] = useState('')
   const delivery = useLoaderData();
   const {setDeliveryMenID} = useContext(AuthContext);
-  // const [id,setId] =useState({})
-  // console.log(deliveryMenID)
+  
+  // const [id,setId] =useState()
+  // console.log(delivery)
   const {
          register,
          formState: { errors },
@@ -46,60 +50,60 @@ const AllParcels = () => {
   // console.log(delivery)
   // const {user} = useContext(AuthContext)
   const axiosPublic = useAxiosPublic();
-  const { data: parcels = [], isLoading } = useQuery({
-    queryKey: ["parcels"],
+  const { data: parcels = [], isLoading,refetch } = useQuery({
+    queryKey: ["parcels",lte,gte],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/parcel`);
+      const res = await axiosPublic.get(`/parcel?gte=${lte}&lte=${gte}`);
       return res.data;
     },
   });
-  // console.log(parcels)
+
+  // console.log(id)
   const onSubmit = (data) => {
+    const select = JSON.parse(data.deliveryMan)
     const deliveryManData ={
-      ...data,status:'On The Way',
+      ...data, deliveryMan: select.name,deliveryMenID:select.id,deliveryEmail:select.email,
+      status:'On The Way',
     }
-    console.log(data.deliveryId)
-    setDeliveryMenID(data.deliveryId)
+    // reset()
+    // console.log(data)
+    // console.log(select)
+    console.log(deliveryManData)
+    // setDeliveryMenID(data)
     axiosPublic.patch(`/deliveryInfo/${data.parcelId}`,deliveryManData)
     .then(res=>{
        if (res.data.modifiedCount>0) {
         // setDeliveryMenID(data?.deliveryMenID)
-        console.log(data?.deliveryId)
+        console.log(res)
                 Swal.fire({
                     title: "Success",
                     text: " Parcel Successfully Update. ",
                     icon: "success",
                   });
+                  refetch()
                   // timer: 1000
               }
       // console.log(res.data)
     })
     .catch(err=>console.log(err))
-    console.log(deliveryManData)
+    // console.log(deliveryManData)
   }
 
-
-const handleSearch=(e)=>{
-  e.preventDefault()
-  const lte = e.target.lte.value
-  const gte = e.target.gte.value
-  console.log(lte,gte)
-  axiosPublic.get(`/parcel?gte=${gte}&lte=${lte}`)
-}
+console.log(lte,gte)
 
   return (
     <div>
-      <div className=" ">
-        <form onSubmit={handleSearch} className=" flex items-end">
+      <div className=" flex items-end">
+        {/* <form onSubmit={handleSearch} className=" flex items-end"> */}
         <div className="">
         <label htmlFor="" className="text-xl font-semibold ">Requested delivery date:</label><br />
-        <input className="border-2 border-gray-300 px-2 mt-3" type="date" name="gte" />
+        <input onChange={(e)=>setLte(e.target.value)} className="border-2 border-gray-300 px-2 mt-3" type="date" name="gte" />
         </div>
         <div className="">
-        <input className="border-2 border-gray-300 px-2" type="date" name="lte" />
+        <input onChange={(e)=>setGte(e.target.value)} className="border-2 border-gray-300 px-2" type="date" name="lte" />
         </div>
-        <Button type="submit"  >Search</Button>
-        </form>
+        {/* <Button type="submit"  >Search</Button>
+        </form> */}
        
       </div>
      <div className="">
@@ -121,7 +125,7 @@ const handleSearch=(e)=>{
             <TableRow key={i}>
               <TableCell className="font-medium">{parcel?.name}</TableCell>
               <TableCell>{parcel?.phone}</TableCell>
-              <TableCell>{parcel?.bookingDate}</TableCell>
+              <TableCell>{format(new Date(parcel?.bookingDate),'dd-MM-yyyy')}</TableCell>
               <TableCell>{parcel?.deliveryDate}</TableCell>
               <TableCell className="text-right">{parcel?.totalPrice}</TableCell>
               <TableCell className="text-right">{parcel?.status}</TableCell>
@@ -137,25 +141,50 @@ const handleSearch=(e)=>{
                        {/* input-1 */}
                         <div className="  ">
                           <label>Delivery Man Name:</label>
-                          <select defaultValue="Choose a name" className=" border-2 w-full p-1 rounded-md" required>
+                          {/* <select defaultValue="Choose a name" className=" border-2 w-full p-1 rounded-md" required>
                             {delivery.map((deliveryMan,i) => (
                               <>
-                              <option key={i}
+                              <option key={i} 
                                 className="w-full"
                                 value={deliveryMan?.name} {...register("deliveryMan")}
                               >
-                                {deliveryMan?.name
-                                }
+                                {deliveryMan?.name}
                               </option>
                               
+                              <input hidden
+                            type="deliveryEmail" value={deliveryMan?.email}
+                            {...register("deliveryEmail")}
+                          />
                               <input hidden
                             type="deliveryId" value={deliveryMan?._id}
                             {...register("deliveryId")}
                           />
                               </>
                             ))}
-                          </select>
-                          
+                          </select> */}
+      <select className='border-2 w-full p-1 rounded-md' required  {...register("deliveryMan")}>
+     {
+      delivery?.map(man=> (
+        <option value={JSON.stringify({ id: man._id, email: man.email, name: man.name })}>{man.name}</option> 
+      
+    //   <>
+    //   <input hidden
+    //     value={man?._id}
+    //     {...register("deliveryId")}
+    //   />
+    //    <input hidden
+    //     value={man?.email}
+    //   {...register("deliveryEmail")}
+    // />
+    //                       </>
+        
+      ))
+     }
+        {/* <option value="User">User</option>
+        <option value="Delivery Man">Delivery Man</option> */}
+       
+      </select><br />
+      
                           <br />
                         </div>
                         {/* input-2 */}
@@ -168,13 +197,13 @@ const handleSearch=(e)=>{
                         </div>
                         <div className="">
                           <input hidden
-                            type="parcelId" value={parcel?._id}
+                             value={parcel?._id}
                             {...register("parcelId")}
                           />
                         </div>
                       </div>
                       <DialogClose  asChild>
-                      <input className='bg-black px-4 py-1 w-full rounded-md text-white mb-3' type="submit" value='register' />
+                      <input className='bg-black px-4 py-1 w-full rounded-md text-white mb-3' type="submit" value='Submit' />
                       </DialogClose>
                     </form>
                     {/* <DialogClose  asChild>
@@ -198,3 +227,8 @@ const handleSearch=(e)=>{
 };
 
 export default AllParcels;
+
+
+
+
+// "{"deliveryMan":"nur","date":"2025-01-21","parcelId":"678b15716268ff5639faacac","deliveryMenID":"678b1025dfcb5f8988a0f86c","deliveryEmail":"ummi@nur.com","status":"On The Way"}"

@@ -49,8 +49,8 @@ const AuthProvider = ({children}) => {
     
       return () => subscribe()
     }, [])
-    console.log(
-        deliveryMenID)
+    // console.log(
+    //     deliveryMenID)
     const info={
         createNewUser,
         updateUserProfile,

@@ -49,42 +49,21 @@ const MyProfile = () => {
             displayName: user?.displayName, photoURL: res?.data?.data?.display_url
         }
         updateProfile(auth.currentUser,updateData)
-        // // .then(res=>{
+        .then(res=>{
             setUser({...user,...updateData})
-            console.log(res
-            )
-            console.log(updateData)
+            // console.log(res)
+            // console.log(updateData?.photoURL)
+            axios.patch(`http://localhost:5000/updateUser/${user?.email}`,{photo:updateData?.photoURL})
+            .then(res=>console.log(res))
+            .catch(err=>console.log(err))
             // window.reload()
 
-        // })
+        })
         // .catch(err=>console.log(err))
             // console.log(res?.data?.display_url)
         })
         .catch(err=>console.log(err))
-        // console.log(e[0])
-      
-
-
-          // updateUserProfile(updateData)
-        //   updateProfile(auth.currentUser,updateData).then(res=>{
-        //       axiosPublic.patch(`/updateUser/${user?.email}`,{displayName: data?.name, photoURL: data?.photo})
-        //       .then(res=>{
-        //           console.log(updateData)
-        //           setUser({...user,...updateData})
-        //           // if (res.data.modifiedCount>0) {
-        //             //     console.log('successfully update database')
-        //             // }
-        //             console.log(res.data)})
-        //         .catch(err=>console.log(err))
-        //                 // console.log(res)
-        //     }).catch(err=>console.log(err))
-        
-            //  Swal.fire({
-            //               title: "Success",
-            //               text: "user successfully register",
-            //               icon: "success",
-            //               timer: 1000
-            //             });
+       
          /* -------------------------- send data on database ------------------------- */
         //  axios.patch('http://localhost:5000/users',userInfo)
         //  .then(res=>{

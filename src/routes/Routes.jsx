@@ -19,6 +19,8 @@ import AllParcels from "@/pages/Dashboard/AdminMenus/AllParcels";
 import AdminRoutes from "@/privateRoutes/AdminRoutes";
 import AllDeliveryMen from "@/pages/Dashboard/AdminMenus/AllDeliveryMen";
 import MyDeliveryList from "@/pages/Dashboard/DeliveryMenMenus/MyDeliveryList";
+import Review from "@/pages/Dashboard/DeliveryMenMenus/MyReviews";
+import MyReviews from "@/pages/Dashboard/DeliveryMenMenus/MyReviews";
 // import Register from "@/pages/Authentication/Register";
 // import Login from "@/pages/Authentication/Login";
 
@@ -54,7 +56,8 @@ import MyDeliveryList from "@/pages/Dashboard/DeliveryMenMenus/MyDeliveryList";
         element:<PrivateRoutes><MyProfile /></PrivateRoutes>
       },
       {
-        path:'bookParcel',
+        path:'/dashboard',
+        // path:'bookParcel',
         element:<PrivateRoutes><BookParcel /></PrivateRoutes>
       },
       {
@@ -68,6 +71,7 @@ import MyDeliveryList from "@/pages/Dashboard/DeliveryMenMenus/MyDeliveryList";
       },
       {
         path:'statistics',
+        // path:'/dashboard',
         element:<PrivateRoutes><Statistics/></PrivateRoutes>
       },
       {
@@ -89,6 +93,11 @@ import MyDeliveryList from "@/pages/Dashboard/DeliveryMenMenus/MyDeliveryList";
         // loader:()=>fetch('http://localhost:5000/delivery'),
         element:<PrivateRoutes><MyDeliveryList/></PrivateRoutes>
       },
+      {
+        path:'reviews',
+        // loader:()=>fetch('http://localhost:5000/delivery'),
+        element:<PrivateRoutes><MyReviews/></PrivateRoutes>
+      },
      
      ]
     }
@@ -98,3 +107,11 @@ import MyDeliveryList from "@/pages/Dashboard/DeliveryMenMenus/MyDeliveryList";
   ]);
 
   export default router
+
+
+
+//   let dashboard ; 
+
+// if(admin == 'admin'){
+// dashboard = 'admin-home'
+// }

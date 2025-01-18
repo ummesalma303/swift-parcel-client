@@ -19,6 +19,7 @@ import SweetPagination from "sweetpagination";
 
 
 const AllUser = () => {
+  const [currentPageData, setCurrentPageData] = useState([]); 
     // const {user} = useContext(AuthContext)
     // const [currentPage, setCurrentPage] = useState([]);
     // const [items, setItemsPage] = useState(3);
@@ -26,7 +27,7 @@ const AllUser = () => {
     // const numberOfPages = Math.ceil(count/items)
     // const pages = [...Array(numberOfPages)]
     // const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-    // const 
+    // const
 
 
     const axiosPublic = useAxiosPublic()
@@ -75,7 +76,8 @@ const AllUser = () => {
     }
     return (
         <div className='w-11/12 mx-auto'>
-             <Table>
+            <div className="h-[80vh]">
+            <Table>
       <TableCaption>A list of your recent invoices.</TableCaption>
       <TableHeader>
         <TableRow>
@@ -91,7 +93,7 @@ const AllUser = () => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {users?.map((user) => (
+        {currentPageData?.map((user) => (
           <TableRow key={user?._id}>
              {/* <TableCell className="font-medium">{parcel?.parcelType}</TableCell> */}
              <TableCell>{user?.name}</TableCell>
@@ -108,21 +110,17 @@ const AllUser = () => {
           </TableRow>
         ))}
       </TableBody>
-      {/* <TableFooter>
-        <TableRow>
-          <TableCell colSpan={3}>Total</TableCell>
-          <TableCell className="text-right">$2,500.00</TableCell>
-        </TableRow>
-      </TableFooter> */}
     </Table> 
+            </div>
 
 
 <div>
-  {/* <button>Prev</button>
-  {
-    pages?.map(page=><Button></Button>)
-  }
-  <button>Next</button> */}
+    <SweetPagination
+    navigation={true}
+    dataPerPage={5}
+        currentPageData={setCurrentPageData}
+        getData={users}
+      />
   
 </div>
     

@@ -9,7 +9,7 @@ const DeliveryMenMenus = () => {
     return (
         <>
         <NavLink to='myDeliveryList' className='flex items-center space-x-2'><FaClipboardList />My Delivery List</NavLink>
-        <NavLink to='myParcel'className='flex items-center space-x-2'><GiAlliedStar />My Reviews menu</NavLink>  
+        <NavLink to='reviews'className='flex items-center space-x-2'><GiAlliedStar />My Reviews</NavLink>  
         </>
     );
 };

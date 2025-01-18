@@ -42,7 +42,7 @@ const BookParcel = () => {
     // }
     console.log(total)
 const parcelData={
-  ...data, totalPrice: total, bookingDate: new Date().toLocaleDateString(),parcelWeight:weight,status:'pending'
+  ...data, totalPrice: total, bookingDate: new Date(),parcelWeight:weight,status:'pending'
 }
 // console.log(parcelData.totalPrice)
 // console.log(parcelData,total)

@@ -3,6 +3,7 @@ import LineChart from '@/components/Dashboard/Adminmenus/LineChart';
 import useAxiosPublic from '@/Hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import ApexCharts from 'apexcharts'
+import { format } from 'date-fns';
 import { useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import Chart from 'react-apexcharts'
@@ -64,7 +65,8 @@ const Statistics = () => {
             enabled: false
           },
           xaxis: {
-            categories: bookingDate,
+            categories:bookingDate,
+            // categories: format(new Date(bookingDate)),
             // categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
             //   'United States', 'China', 'Germany'
             // ],
