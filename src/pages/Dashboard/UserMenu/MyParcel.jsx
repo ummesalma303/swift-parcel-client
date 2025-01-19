@@ -47,9 +47,9 @@ const MyParcel = () => {
   } = useForm();
 
   const [filter, setFilter] = useState("");
-  const { user } = useContext(AuthContext);
+  const { user,setTotal,total:price,setParcelIds } = useContext(AuthContext);
   const axiosPublic = useAxiosPublic();
-
+console.log(price)
   // show data
 
   const {
@@ -66,10 +66,21 @@ const MyParcel = () => {
       return res.data;
     },
   });
-  // if (condition) {
+  
 
-  // }
-  console.log(myParcels);
+  /* ----------------------- set state for checkout form ---------------------- */
+  useEffect(()=>{
+  const total = myParcels?.reduce((a,b)=>a + b?.totalPrice,0);
+  setTotal(total)
+
+},[myParcels,setTotal])
+
+  useEffect(()=>{
+    const parcelIds= myParcels?.map(parcel=>parcel._id);
+    setParcelIds(parcelIds)
+    // console.log(myParcels);
+  },[setParcelIds,myParcels])
+  // console.log(cartIds)
   const handleCancel = (id) => {
     console.log(id);
     Swal.fire({
@@ -157,6 +168,7 @@ const MyParcel = () => {
               <TableHead>Approximate Delivery Date</TableHead>
               <TableHead>Requested Delivery Date</TableHead>
               <TableHead className="">Booking Date</TableHead>
+              <TableHead className="">Price</TableHead>
               <TableHead>Delivery Men ID</TableHead>
               <TableHead className="text-right">Booking Status</TableHead>
               <TableHead className="text-right">Update</TableHead>
@@ -173,6 +185,7 @@ const MyParcel = () => {
                 <TableCell>{parcel?.approximateDate}</TableCell>
                 <TableCell>{parcel?.deliveryDate}</TableCell>
                 <TableCell>{parcel?.bookingDate}</TableCell>
+                <TableCell>${parcel?.totalPrice}</TableCell>
                 <TableCell>{parcel?.deliveryMenID || "N/A"}</TableCell>
                 <TableCell className="text-right">{parcel?.status}</TableCell>
                 <TableCell className="text-right">

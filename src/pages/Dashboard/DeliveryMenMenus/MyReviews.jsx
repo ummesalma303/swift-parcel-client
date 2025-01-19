@@ -21,7 +21,7 @@ const MyReviews = () => {
           return res.data;
         },
       });
-    //   console.log(myReviews)
+      console.log(reviews)
     return (
        <>
        <h2 className='text-center font-semibold text-3xl my-6 w-11/12 mx-auto'>My Reviews</h2>

@@ -8,7 +8,9 @@ const AuthProvider = ({children}) => {
     const [user,setUser] = useState(null);
     const [loading,setLoading] = useState(true);
     const [deliveryMenID,setDeliveryMenID] = useState();
-
+    const [total,setTotal] = useState(0);
+    const [parcelIds,setParcelIds] = useState(0);
+    // console.log(total)
     // new user
     const createNewUser = (email, password) =>{
         setLoading(true)
@@ -58,7 +60,12 @@ const AuthProvider = ({children}) => {
         googleLoginUser,
         handleLogout,
         setUser,
-        deliveryMenID,setDeliveryMenID,
+        setTotal,
+        total,
+        deliveryMenID,
+        setDeliveryMenID,
+        parcelIds,
+        setParcelIds,
         loading,
         user
     }
