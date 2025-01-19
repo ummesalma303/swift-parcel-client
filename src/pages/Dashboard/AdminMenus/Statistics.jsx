@@ -7,6 +7,7 @@ import { format } from 'date-fns';
 import { useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import Chart from 'react-apexcharts'
+// import { format } from "date-fns";
 
 const Statistics = () => {
     const bookingDate = []
@@ -33,21 +34,23 @@ const Statistics = () => {
         // console.log(num) 
         const d = new Date(num).getTime() 
         newDate.push(d)
-        const date =  parseInt(bookingDate)
+        // const date =  parseInt(bookingDate)
+        // const date = parseInt(bookingDate)
+        const date = format(new Date(num||0),'dd-MM-yyyy')
         intDate.push(date)
         // console.log(d)  
         
     }
     // const
-    console.log(newDate)
-    // console.log(bookingDate)
+    console.log(intDate)
+    console.log(bookingDate)
     // bar chart
     const [state, setState] = useState({
           
         series: [{
         //   data: bookingDate
-          data: intDate
-          // data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+          // data: intDate
+          data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
         }],
         options: {
           chart: {
@@ -65,7 +68,7 @@ const Statistics = () => {
             enabled: false
           },
           xaxis: {
-            categories:bookingDate,
+            categories: intDate,
             // categories: format(new Date(bookingDate)),
             // categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
             //   'United States', 'China', 'Germany'

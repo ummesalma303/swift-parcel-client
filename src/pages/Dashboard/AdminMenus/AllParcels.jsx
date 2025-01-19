@@ -81,6 +81,7 @@ const AllParcels = () => {
                     icon: "success",
                   });
                   refetch()
+                  reset()
                   // timer: 1000
               }
       // console.log(res.data)

@@ -21,7 +21,8 @@ const Register = () => {
       const onSubmit = (data) => {
         console.log(data)
         const updateData ={
-            name: data?.name, photo: data?.photo
+            displayName: data?.name, 
+            photoURL: data?.photo
         }
         const userInfo ={
             name: data?.name, 
@@ -58,7 +59,7 @@ const Register = () => {
     
     //   console.log(watch("example"))
     return (
-        <div className='my-6 flex flex-col justify-center items-center '>
+        <div className='py-6 flex flex-col justify-center items-center '>
              <h2 className='text-2xl font-semibold mb-6'>Please login yor account</h2>
              <div className="w-11/12 md:w-1/3 border-2 p-5 rounded-lg">
             

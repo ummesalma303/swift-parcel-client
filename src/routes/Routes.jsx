@@ -24,6 +24,7 @@ import MyReviews from "@/pages/Dashboard/DeliveryMenMenus/MyReviews";
 import PrivateRoutes from "./privateRoutes/PrivateRoutes";
 import DeliveryMenRoutes from "./DeliveryMenRoutes";
 import Payment from "@/pages/Dashboard/Payment/Payment";
+import PaymentSuccess from "@/pages/Dashboard/Payment/PaymentSuccess";
 // import Register from "@/pages/Authentication/Register";
 // import Login from "@/pages/Authentication/Login";
 
@@ -76,6 +77,10 @@ import Payment from "@/pages/Dashboard/Payment/Payment";
       {
         path:'payment',
         element:<PrivateRoutes><Payment /></PrivateRoutes>
+      },
+      {
+        path:'paymentSuccess',
+        element:<PrivateRoutes><PaymentSuccess /></PrivateRoutes>
       },
       /* ------------------------------ admin routes ------------------------------ */
       {

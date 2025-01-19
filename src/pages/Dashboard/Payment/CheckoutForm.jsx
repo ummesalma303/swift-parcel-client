@@ -4,8 +4,10 @@ import useAxiosSecure from '@/Hooks/useAxiosSecure';
 import { AuthContext } from '@/providers/AuthProvider';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CheckoutForm = () => {
+  const navigate = useNavigate()
   const axiosSecure = useAxiosSecure()
   const {total,user,parcelIds} = useContext(AuthContext);
   const [clientSecret, setClientSecret] = useState("");
@@ -75,6 +77,7 @@ const CheckoutForm = () => {
             console.log('payment intent--->',paymentIntent)
             if(paymentIntent?.status === 'succeeded'){
               setTransaction(paymentIntent.id)
+              navigate('/dashboard/paymentSuccess')
               const payment = {
                 name:user?.displayName,
                 email:user?.email,
@@ -83,6 +86,9 @@ const CheckoutForm = () => {
                 parcelIds:parcelIds
               }
             }
+            axiosSecure.patch('/payment',{parcelIds:parcelIds})
+            .then(res=>console.log(res))
+            .catch(err=>console.log(err))
           }
 
 

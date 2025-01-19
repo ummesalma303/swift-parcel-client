@@ -6,6 +6,7 @@ import FeaturesSec from '@/components/FeaturesSec/FeaturesSec/FeaturesSec';
 import TopDeliveryMen from '@/components/TopDeliveryMen/TopDeliveryMen';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '@/Hooks/useAxiosPublic';
+import Loading from '@/components/Sheared/Loading';
 // import { Button } from "@/components/ui/button"
 
 const Home = () => {
@@ -20,7 +21,7 @@ const Home = () => {
         }
     })
     if (isLoading) {
-        return<h2 className='h-screen'>Loading......</h2>
+        return<Loading></Loading>
     }
     console.log(topDeliveryMens)
     return (

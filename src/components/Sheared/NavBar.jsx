@@ -26,7 +26,8 @@ import DashboardRoutes from '@/routes/DashboardRoutes';
 const NavBar = () => {
   const navigate = useNavigate()
   const [users,isLoading] = useUser('');
-  console.log(users.role)
+  console.log(users?.photoURL)
+  console.log(users?.email)
 
   if (isLoading) {
     return<h2>loading.....</h2>
