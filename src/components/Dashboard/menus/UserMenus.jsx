@@ -7,10 +7,10 @@ import { RiLuggageCartLine } from "react-icons/ri";
 const UserMenus = () => {
     return (
         <>
-        <NavLink to='/dashboard' className='flex items-center space-x-2'><FaCalendarCheck />Book a Parcel</NavLink>
-        {/* <NavLink to='bookParcel' className='flex items-center space-x-2'><FaCalendarCheck />Book a Parcel</NavLink> */}
+        {/* <NavLink to='/dashboard' className='flex items-center space-x-2'><FaCalendarCheck />Book a Parcel</NavLink> */}
+        <NavLink to='bookParcel' className='flex items-center space-x-2'><FaCalendarCheck />Book a Parcel</NavLink>
         <NavLink to='myParcel'className='flex items-center space-x-2'><RiLuggageCartLine />My Parcels</NavLink>
-        <NavLink to='myProfile' className='flex items-center space-x-2'><CgProfile /> My Profile</NavLink>
+        <NavLink to='/dashboard/myProfile' className='flex items-center space-x-2'><CgProfile /> My Profile</NavLink>
         </>
     );
 };

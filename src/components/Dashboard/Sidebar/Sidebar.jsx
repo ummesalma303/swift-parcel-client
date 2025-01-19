@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { IoMdMenu } from "react-icons/io";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 import UserMenus from "../menus/UserMenus";
 import DeliveryMenMenus from "../menus/DeliveryMenMenus";
 import AdminMenus from "../menus/AdminMenus";
 import useUser from "@/Hooks/useUser";
+import { FaHome } from "react-icons/fa";
 
 const Sidebar = () => {
-  const [users,isLoading] = useUser();
+  const [users,isLoading] = useUser('');
   console.log(users?.role);
   const [toggle, setToggle] = useState(false);
   const handleToggle = () => {
@@ -16,6 +17,10 @@ const Sidebar = () => {
 if(isLoading){
   return <h2>Loading...</h2>
 }
+// if(users?.role === "User"){
+//   return <Navigate to='/dashboard/myProfile'></Navigate>
+// }
+
   return (
     <div>
       {/* small screen */}
@@ -48,6 +53,7 @@ left-0*/}
           {users?.role === "User" && <UserMenus />}
           {users?.role === "Delivery Man" && <DeliveryMenMenus />}
           {users?.role === "Admin" && <AdminMenus />}
+          <NavLink to='/' className='flex items-center'><FaHome/> Home</NavLink>
         </div>
       </div>
     </div>

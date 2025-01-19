@@ -34,6 +34,7 @@ import {
 } from "@/components/ui/dialog";
 import { Label } from "@radix-ui/react-dropdown-menu";
 import { useForm } from "react-hook-form";
+import { FaMoneyCheckDollar } from "react-icons/fa6";
 // import { DialogClose } from '@radix-ui/react-dialog';
 
 const MyParcel = () => {
@@ -127,6 +128,7 @@ const MyParcel = () => {
       {/* table */}
       <div className="w-11/12 mx-auto">
         {/* status */}
+        <div className="flex justify-between items-center mb-4">
         <div className="flex w-full max-w-sm items-center space-x-2 mb-4">
           {/* <Input type="email" placeholder="Email" />
       <Button type="submit">Subscribe</Button> */}
@@ -143,6 +145,9 @@ const MyParcel = () => {
           </select>
           <br />
         </div>
+        <NavLink to='/dashboard/payment'><Button><FaMoneyCheckDollar /> Pay</Button></NavLink>
+        
+        </div>
         {/* table start */}
         <Table>
           <TableCaption>A list of your recent invoices.</TableCaption>
@@ -156,7 +161,7 @@ const MyParcel = () => {
               <TableHead className="text-right">Booking Status</TableHead>
               <TableHead className="text-right">Update</TableHead>
               <TableHead className="text-right">Cancel</TableHead>
-              <TableHead className="text-right">Pay</TableHead>
+              {/* <TableHead className="text-right">Pay</TableHead> */}
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -197,9 +202,9 @@ const MyParcel = () => {
                     </Button>
                   )}
                 </TableCell>
-                <TableCell className="text-right">
+                {/* <TableCell className="text-right">
                   <Button>Pay</Button>
-                </TableCell>
+                </TableCell> */}
                 {parcel?.status === "delivered" && (
                   <TableCell className="text-right">
                     <Dialog>

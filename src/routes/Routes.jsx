@@ -9,18 +9,21 @@ import Login from "@/pages/Authentications/Login";
 import Register from "@/pages/Authentications/Register";
 import DashboardLayout from "@/Layout/DashboardLayout";
 import BookParcel from "@/pages/Dashboard/UserMenu/BookParcel";
-import PrivateRoutes from "@/privateRoutes/PrivateRoutes";
+// import PrivateRoutes from "@/privateRoutes/PrivateRoutes";
 import MyParcel from "@/pages/Dashboard/UserMenu/MyParcel";
 import MyProfile from "@/pages/Dashboard/UserMenu/MyProfile";
 import UpdateBooking from "@/pages/Dashboard/updateBooking/UpdateBooking";
 import AllUser from "@/pages/Dashboard/AdminMenus/AllUser";
 import Statistics from "@/pages/Dashboard/AdminMenus/Statistics";
 import AllParcels from "@/pages/Dashboard/AdminMenus/AllParcels";
-import AdminRoutes from "@/privateRoutes/AdminRoutes";
+import AdminRoutes from "@/routes/AdminRoutes";
 import AllDeliveryMen from "@/pages/Dashboard/AdminMenus/AllDeliveryMen";
 import MyDeliveryList from "@/pages/Dashboard/DeliveryMenMenus/MyDeliveryList";
 import Review from "@/pages/Dashboard/DeliveryMenMenus/MyReviews";
 import MyReviews from "@/pages/Dashboard/DeliveryMenMenus/MyReviews";
+import PrivateRoutes from "./privateRoutes/PrivateRoutes";
+import DeliveryMenRoutes from "./DeliveryMenRoutes";
+import Payment from "@/pages/Dashboard/Payment/Payment";
 // import Register from "@/pages/Authentication/Register";
 // import Login from "@/pages/Authentication/Login";
 
@@ -56,8 +59,9 @@ import MyReviews from "@/pages/Dashboard/DeliveryMenMenus/MyReviews";
         element:<PrivateRoutes><MyProfile /></PrivateRoutes>
       },
       {
-        path:'/dashboard',
-        // path:'bookParcel',
+        // path:'/dashboard',
+        path:'bookParcel',
+        // index:true,
         element:<PrivateRoutes><BookParcel /></PrivateRoutes>
       },
       {
@@ -70,33 +74,48 @@ import MyReviews from "@/pages/Dashboard/DeliveryMenMenus/MyReviews";
         element:<PrivateRoutes><UpdateBooking /></PrivateRoutes>
       },
       {
+        path:'payment',
+        element:<PrivateRoutes><Payment /></PrivateRoutes>
+      },
+      /* ------------------------------ admin routes ------------------------------ */
+      {
+        // index:true,
         path:'statistics',
         // path:'/dashboard',
-        element:<PrivateRoutes><Statistics/></PrivateRoutes>
+        element:<PrivateRoutes>
+          {/* <AdminRoutes> */}
+            <Statistics/>
+            {/* </AdminRoutes> */}
+            </PrivateRoutes>
       },
       {
         path:'allUsers',
-        element:<PrivateRoutes><AllUser/></PrivateRoutes>
+        element:<PrivateRoutes><AdminRoutes><AllUser/></AdminRoutes></PrivateRoutes>
       },
       {
         path:'allParcel',
         loader:()=>fetch('http://localhost:5000/delivery'),
-        element:<PrivateRoutes><AllParcels/></PrivateRoutes>
+        element:<PrivateRoutes><AdminRoutes><AllParcels/></AdminRoutes></PrivateRoutes>
       },
       {
         path:'allDeliveryMen',
         // loader:()=>fetch('http://localhost:5000/delivery'),
-        element:<PrivateRoutes><AllDeliveryMen/></PrivateRoutes>
+        element:<PrivateRoutes>
+          <AdminRoutes>
+          <AllDeliveryMen/>
+          </AdminRoutes>
+          </PrivateRoutes>
       },
+      /* --------------------------- delivery men routes -------------------------- */
       {
         path:'myDeliveryList',
         // loader:()=>fetch('http://localhost:5000/delivery'),
-        element:<PrivateRoutes><MyDeliveryList/></PrivateRoutes>
+        element:<PrivateRoutes><DeliveryMenRoutes><MyDeliveryList/></DeliveryMenRoutes></PrivateRoutes>
       },
       {
         path:'reviews',
         // loader:()=>fetch('http://localhost:5000/delivery'),
-        element:<PrivateRoutes><MyReviews/></PrivateRoutes>
+        element:<PrivateRoutes><DeliveryMenRoutes><MyReviews/></DeliveryMenRoutes></PrivateRoutes>
       },
      
      ]

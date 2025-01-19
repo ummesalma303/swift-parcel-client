@@ -2,16 +2,19 @@ import { Navigate } from 'react-router-dom';
 // import { AuthContext } from '../providers/AuthProvider';
 import React, { useContext } from 'react';
 import { AuthContext } from '@/providers/AuthProvider';
+import useUser from '@/Hooks/useUser';
 
 const AdminRoutes = ({children}) => {
     const {user,loading} = useContext(AuthContext);
-    if (loading) {
+    const [users,isLoading] = useUser();
+  console.log(users?.role);
+    if (loading || isLoading) {
         return <h2>Loading...</h2>
     }
-    if (user) {
+    if (users?.role ==="Admin") {
         return children
     }
-    return <Navigate to='/login'></Navigate>
+    return <Navigate to='/dashboard' replace></Navigate>
 };
 
 export default AdminRoutes;
