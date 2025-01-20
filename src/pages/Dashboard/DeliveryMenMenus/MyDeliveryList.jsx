@@ -17,7 +17,7 @@ import Swal from 'sweetalert2';
 import { MdCancelPresentation } from 'react-icons/md';
 // import { Copy } from "lucide-react"
 // import * as React from 'react';
-import Map from 'react-map-gl/maplibre';
+// import Map from 'react-map-gl/maplibre';
 
 // import { Button } from "@/components/ui/button"
 import {

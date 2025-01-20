@@ -16,6 +16,7 @@ import { Button } from '@/components/ui/button';
 import Swal from 'sweetalert2';
 // import React, { useState } from "react";
 import SweetPagination from "sweetpagination";
+import useAxiosSecure from '@/Hooks/useAxiosSecure';
 
 
 const AllUser = () => {
@@ -29,12 +30,16 @@ const AllUser = () => {
     // const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
     // const
 
-
+    const axiosSecure = useAxiosSecure()
     const axiosPublic = useAxiosPublic()
     const {data:users=[],isLoading,refetch} =useQuery({
-        queryKey:["users"],
+        queryKey:["users",axiosSecure],
         queryFn: async () => {
-    const res = await axiosPublic.get(`/users`)
+    const res = await axiosSecure.get(`/users`,{
+      headers:{
+        authorization: `Bearer ${localStorage.getItem("access-token")}`
+      }
+    })
          return res.data   
         }
     })
