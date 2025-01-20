@@ -15,7 +15,27 @@ import { AuthContext } from '@/providers/AuthProvider';
 import { Button } from '@/components/ui/button';
 import Swal from 'sweetalert2';
 import { MdCancelPresentation } from 'react-icons/md';
-   
+// import { Copy } from "lucide-react"
+// import * as React from 'react';
+import Map from 'react-map-gl/maplibre';
+
+// import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+// import { Input } from "@/components/ui/input"
+// import { Label } from "@/components/ui/label"
+    
+
+
+
 const MyDeliveryList = () => {
   const {user} = useContext(AuthContext)
     const {deliveryMenID} = useContext(AuthContext);
@@ -62,7 +82,7 @@ const MyDeliveryList = () => {
         }
 
 
-        const handleStatus =(id)=>{
+        const handleStatus =(id,deliveryMenID)=>{
           console.log(id)
           Swal.fire({
             title: "Are you sure?",
@@ -74,7 +94,7 @@ const MyDeliveryList = () => {
             confirmButtonText: "Yes, Update it!"
           }).then((result) => {
             if (result.isConfirmed) {
-              axiosPublic.patch(`/deliveryList/${id}`)
+              axiosPublic.patch(`/deliveryList`,{id,deliveryMenID})
               .then(res=>{
                 refetch()
                 if (res.data.modifiedCount > 0) {
@@ -126,9 +146,48 @@ const MyDeliveryList = () => {
             <TableCell className="text-right">{list?.receiverPhone}</TableCell>
             <TableCell className="text-right">{list?.deliveryAddress}</TableCell>
             <TableCell className="text-right">{list?.status}</TableCell>
-            <TableCell className="text-right"><Button>Location</Button></TableCell>
+            <TableCell className="text-right">
+              {/* location modal */}
+
+              <Dialog>
+      <DialogTrigger asChild>
+       <Button>Location</Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-md">
+        <DialogHeader>
+          <DialogTitle>User Location</DialogTitle>
+          <DialogDescription>
+            See User location.
+          </DialogDescription>
+        </DialogHeader>
+        <div className="flex items-center space-x-2">
+          <div className="grid flex-1 gap-2">
+          {/* <Map
+      initialViewState={{
+        longitude: -122.4,
+        latitude: 37.8,
+        zoom: 14
+      }}
+      style={{width: 600, height: 400}}
+      mapStyle="https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=YOUR_MAPBOX_ACCESS_TOKEN"
+    /> */}
+          </div>
+          
+        </div>
+        <DialogFooter className="sm:justify-start">
+          <DialogClose asChild>
+            <Button type="button" variant="secondary">
+              Close
+            </Button>
+          </DialogClose>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+
+              {/* <Location></Location> */}
+              </TableCell>
             <TableCell className="text-right"><Button variant="outline" onClick={()=>handleCancel(list?._id)}><MdCancelPresentation /></Button></TableCell>
-            <TableCell className="text-right"><Button onClick={()=>handleStatus(list?._id)}>Deliver</Button></TableCell>
+            <TableCell className="text-right"><Button onClick={()=>handleStatus(list?._id,list.deliveryMenID)}>Deliver</Button></TableCell>
           </TableRow>
         ))}
       </TableBody>

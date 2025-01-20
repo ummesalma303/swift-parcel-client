@@ -83,7 +83,7 @@ const AllUser = () => {
         <TableRow>
           <TableHead className="w-[100px]">User’s Name</TableHead>
           <TableHead className="text-center">Phone Number</TableHead>
-          {/* <TableHead>Requested Delivery Date</TableHead> */}
+          <TableHead>User Role:</TableHead>
           <TableHead className="text-center">Number of parcels Booked</TableHead>
           <TableHead className="text-right">Make Role Button</TableHead>
           {/* <TableHead className="text-right">Booking Status</TableHead>
@@ -98,11 +98,11 @@ const AllUser = () => {
              {/* <TableCell className="font-medium">{parcel?.parcelType}</TableCell> */}
              <TableCell>{user?.name}</TableCell>
              <TableCell className="text-center">{user?.phone||'N/A'}</TableCell>
-             {/* <TableCell>{user?.phone}</TableCell> */}
-             <TableCell className="text-right"> </TableCell>
+             <TableCell>{user?.role}</TableCell>
+             <TableCell className="text-right">{user?.bookingCount} </TableCell>
             <TableCell className="text-right space-x-3">
-            <Button onClick={()=>makeDeliveryMen(user?._id)}>{user?.role}</Button>
-            <Button  onClick={()=>makeAdmin(user?._id)}>{user?.role}</Button>
+            <Button onClick={()=>makeDeliveryMen(user?._id)}>Make Delivery Men</Button>
+            <Button  onClick={()=>makeAdmin(user?._id)}>Make User</Button>
              </TableCell>
             {/* <TableCell className="text-right"></TableCell> */}
             {/* {parcel?.status==='delivered'&&<TableCell className="text-right"><Button><IoStarHalfSharp />Review</Button></TableCell>} */}

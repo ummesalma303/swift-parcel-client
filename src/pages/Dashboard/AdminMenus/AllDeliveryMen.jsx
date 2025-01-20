@@ -20,7 +20,7 @@ const AllDeliveryMen = () => {
     const {data:delivery=[],isLoading} =useQuery({
         queryKey:["deliveryMen"],
         queryFn: async () => {
-    const res = await axiosPublic.get(`/delivery`)
+    const res = await axiosPublic.get(`/allDelivered`)
          return res.data   
         }
     })
@@ -48,11 +48,12 @@ const AllDeliveryMen = () => {
                            <TableRow key={deliveryMen?._id}>
                               {/* <TableCell className="font-medium">{parcel?.parcelType}</TableCell> */}
                               <TableCell>{deliveryMen?.name}</TableCell>
-                              <TableCell className="text-center">{deliveryMen?.phone||'N/A'}</TableCell>
-                              {/* <TableCell>{user?.phone}</TableCell> */}
-                              <TableCell className="text-right"> </TableCell>
+                              <TableCell className="text-center ">{deliveryMen?.phone||'N/A'}</TableCell>
+                              <TableCell className="text-center text-green-400 text-xl font-semibold">{deliveryMen?.deliveredCount}</TableCell>
+                             
+                              {/* <TableCell className="text-Center text-green-400 mx-auto bg-slate-400 font-semibold text-xl">{deliveryMen?.deliveredCount} </TableCell> */}
                              <TableCell className="text-right">
-                             <Button>Average review <FaStar/></Button>
+                             <Button>{deliveryMen?.avgRating} <FaStar/></Button>
                               </TableCell>
                              {/* <TableCell className="text-right"></TableCell> */}
                              {/* {parcel?.status==='delivered'&&<TableCell className="text-right"><Button><IoStarHalfSharp />Review</Button></TableCell>} */}
