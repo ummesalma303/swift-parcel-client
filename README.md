@@ -1,8 +1,22 @@
-# React + Vite
+# swifParcel  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+swifParcel is a modern and responsive delivery management website designed to enhance the user experience by providing convenient and efficient parcel services.  
 
-Currently, two official plugins are available:
+## Features:  
+- Fully responsive design for seamless browsing on mobile, tablet, and desktop devices.  
+- Integrated payment system using Stripe for secure and reliable transactions.  
+- Includes an admin panel for managing users, bookings, and deliveries efficiently.  
+- Enhanced UI/UX with advanced components and design using *shadcn*.  
+- Visual analytics through bar charts and line charts displayed using *React Apex Charts* for booking and rating insights.  
+- Form validation powered by *React Hook Form* for a smoother user experience.  
+- Authentication and authorization handled through *Firebase*, ensuring secure login and registration.  
+- Data storage and management using *MongoDB* for scalability and reliability.  
+- User profile update functionality to keep personal information up to date.  
+- Post-delivery review system where users can rate and review the delivery personnel.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Admin Credentials:  
+- Username: mahdiba jahan mahvi
+- user email:email@gmail.com 
+- Password: 123456  
+
+## Live Site URL:  

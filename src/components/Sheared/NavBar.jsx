@@ -80,7 +80,7 @@ const NavBar = () => {
 
 
 <DropdownMenu>
-  <DropdownMenuTrigger className='rounded-full'><img referrerPolicy='no-referrer' className='w-10 h-10 md:w-14 md:h-14 rounded-full' src={user?.photoURL ||profile} alt="" /></DropdownMenuTrigger>
+  <DropdownMenuTrigger className='rounded-full'><img referrerPolicy='no-referrer' className='w-10 border-2 h-10 md:w-14 md:h-14 rounded-full' src={user?.photoURL ||profile} alt="" /></DropdownMenuTrigger>
   <DropdownMenuContent>
     <DropdownMenuLabel>{user?.displayName}</DropdownMenuLabel>
     <DropdownMenuSeparator  />
