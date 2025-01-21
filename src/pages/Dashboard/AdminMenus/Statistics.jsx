@@ -7,7 +7,6 @@ import { format } from 'date-fns';
 import { useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import Chart from 'react-apexcharts'
-// import { format } from "date-fns";
 
 const Statistics = () => {
     const bookingDate = []

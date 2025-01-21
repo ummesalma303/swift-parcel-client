@@ -44,7 +44,7 @@ const BookParcel = () => {
 const parcelData={
   ...data, totalPrice: total, bookingDate: new Date(),parcelWeight:weight,status:'pending',show:true
 }
-// console.log(parcelData.totalPrice)
+console.log(parcelData)
 // console.log(parcelData,total)
     axiosPublic.post('/parcel',parcelData)
     .then(res=>{
@@ -57,7 +57,7 @@ const parcelData={
             navigate('/dashboard/myParcel')
       console.log(res.data)})
     .catch(err=>console.log(err))
-    // console.log(data);
+    console.log(data);
   };
  
   return (
@@ -191,24 +191,31 @@ const parcelData={
             {/* receiver input-4 */}
             <div className="space-y-1">
               <label>Delivery Address Latitude:</label>
-              <input step="any"
-                type="number"
+              <input step="0.0001"
+                type="text" 
                 className="w-full border-2 p-2 rounded-md"
                 placeholder="Delivery Address Latitude"
-                {...register("addressLatitude", { required: true })}
+                {...register("addressLatitude", { required: "This field is required",pattern:{value:/^\d+\.\d+$/,message:"Latitude must be decimal"} })}
               />
-              {errors.addressLatitude && <span className='text-red-500'>This field is required</span>} 
+          
+              {errors.addressLatitude && <span className='text-red-500'>{errors.addressLatitude.message}</span>} 
+              
+                                          
             </div>
             {/* receiver input-5 */}
             <div className="space-y-1">
-              <label>Delivery Address longitude:</label>
-              <input min="0"  step="any"
-                type="number"
+              <label>Delivery Address longitude:</label>                   
+
+
+
+              <input min="0"  step="0.0001"
+                type="text" required
                 className="w-full border-2 p-2 rounded-md"
                 placeholder="Delivery Address longitude"
-                {...register("addressLongitude", { required: true })}
+                {...register("addressLongitude", { required:"This field is required",pattern:{value:/^\d+\.\d+$/
+,message:"Longitude must be decimal"} })}
               />
-              {errors.addressLongitude && <span className='text-red-500'>This field is required</span>} 
+              {errors.addressLongitude && <span className='text-red-500'>{errors.addressLongitude.message}</span>} 
             </div>
             {/* receiver input-3 */}
             <div className="space-y-1">

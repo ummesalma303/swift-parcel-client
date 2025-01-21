@@ -95,7 +95,7 @@ import PaymentSuccess from "@/pages/Dashboard/Payment/PaymentSuccess";
       },
       {
         path:'allUsers',
-        element:<PrivateRoutes><AdminRoutes><AllUser/></AdminRoutes></PrivateRoutes>
+        element:<AdminRoutes><AllUser/></AdminRoutes>
       },
       {
         path:'allParcel',

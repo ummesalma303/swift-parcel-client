@@ -1,7 +1,7 @@
 import useAxiosPublic from '@/Hooks/useAxiosPublic';
 import useUser from '@/Hooks/useUser';
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
     Table,
     TableBody,
@@ -17,34 +17,26 @@ import Swal from 'sweetalert2';
 // import React, { useState } from "react";
 import SweetPagination from "sweetpagination";
 import useAxiosSecure from '@/Hooks/useAxiosSecure';
+import { AuthContext } from '@/providers/AuthProvider';
 
 
 const AllUser = () => {
   const [currentPageData, setCurrentPageData] = useState([]); 
-    // const {user} = useContext(AuthContext)
-    // const [currentPage, setCurrentPage] = useState([]);
-    // const [items, setItemsPage] = useState(3);
-    // const [count, setCount] = useState(0);
-    // const numberOfPages = Math.ceil(count/items)
-    // const pages = [...Array(numberOfPages)]
-    // const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-    // const
+    const {user} = useContext(AuthContext)
+    
 
     const axiosSecure = useAxiosSecure()
     const axiosPublic = useAxiosPublic()
     const {data:users=[],isLoading,refetch} =useQuery({
-        queryKey:["users",axiosSecure],
+        queryKey:["users"],
+        enabled:!!user,
         queryFn: async () => {
-    const res = await axiosSecure.get(`/users`,{
-      headers:{
-        authorization: `Bearer ${localStorage.getItem("access-token")}`
-      }
-    })
+    const res = await axiosSecure.get(`/users`)
          return res.data   
         }
     })
-    console.log(users)
-
+    // console.log(isLoading)
+    // clg
     const makeDeliveryMen =(id)=>{
       console.log(id)
       axiosPublic.patch(`/changeRole/${id}`)
@@ -63,7 +55,7 @@ const AllUser = () => {
       .catch(err=>console.log(err))
     }
     const makeAdmin =(id)=>{
-      console.log(id)
+      // console.log(id)
       axiosPublic.patch(`/changeAdminRole/${id}`)
       .then(res=>{
       refetch()  
@@ -91,16 +83,13 @@ const AllUser = () => {
           <TableHead>User Role:</TableHead>
           <TableHead className="text-center">Number of parcels Booked</TableHead>
           <TableHead className="text-right">Make Role Button</TableHead>
-          {/* <TableHead className="text-right">Booking Status</TableHead>
-          <TableHead className="text-right">Update</TableHead>
-          <TableHead className="text-right">Cancel</TableHead>
-          <TableHead className="text-right">Pay</TableHead> */}
+         
         </TableRow>
       </TableHeader>
       <TableBody>
         {currentPageData?.map((user) => (
           <TableRow key={user?._id}>
-             {/* <TableCell className="font-medium">{parcel?.parcelType}</TableCell> */}
+            
              <TableCell>{user?.name}</TableCell>
              <TableCell className="text-center">{user?.phone||'N/A'}</TableCell>
              <TableCell>{user?.role}</TableCell>
@@ -109,9 +98,7 @@ const AllUser = () => {
             <Button onClick={()=>makeDeliveryMen(user?._id)}>Make Delivery Men</Button>
             <Button  onClick={()=>makeAdmin(user?._id)}>Make User</Button>
              </TableCell>
-            {/* <TableCell className="text-right"></TableCell> */}
-            {/* {parcel?.status==='delivered'&&<TableCell className="text-right"><Button><IoStarHalfSharp />Review</Button></TableCell>} */}
-            
+           
           </TableRow>
         ))}
       </TableBody>
@@ -130,11 +117,6 @@ const AllUser = () => {
 </div>
     
      
-
-      {/* <SweetPagination
-        currentPageData={setCurrentPageData}
-        getData={items}
-      /> */}
    
         </div>
     );

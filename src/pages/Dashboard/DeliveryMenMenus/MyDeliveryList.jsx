@@ -15,11 +15,6 @@ import { AuthContext } from '@/providers/AuthProvider';
 import { Button } from '@/components/ui/button';
 import Swal from 'sweetalert2';
 import { MdCancelPresentation } from 'react-icons/md';
-// import { Copy } from "lucide-react"
-// import * as React from 'react';
-// import Map from 'react-map-gl/maplibre';
-
-// import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogClose,
@@ -32,7 +27,14 @@ import {
 } from "@/components/ui/dialog"
 // import { Input } from "@/components/ui/input"
 // import { Label } from "@/components/ui/label"
-    
+
+import 'leaflet/dist/leaflet.css';
+import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
+// import { CiLocationOn } from 'react-icons/ci';
+import { CiLocationOn } from "react-icons/ci";
+import { icon } from 'leaflet';
+import location from '../../../assets/location-icon.png'
+
 
 
 
@@ -110,6 +112,12 @@ const MyDeliveryList = () => {
             }
           });
         }
+
+        /* ------------------------------- custom icon ------------------------------ */
+        const customIcon = new icon({
+          iconUrl:'https://cdn-icons-png.freepik.com/512/535/535137.png',
+          iconSize: [44,44]
+        })
     return (
         <div>
            <h2> My Delivery List</h2>
@@ -146,6 +154,9 @@ const MyDeliveryList = () => {
             <TableCell className="text-right">{list?.receiverPhone}</TableCell>
             <TableCell className="text-right">{list?.deliveryAddress}</TableCell>
             <TableCell className="text-right">{list?.status}</TableCell>
+            {/* {
+              console.log(list?.addressLatitude)
+            } */}
             <TableCell className="text-right">
               {/* location modal */}
 
@@ -161,16 +172,22 @@ const MyDeliveryList = () => {
           </DialogDescription>
         </DialogHeader>
         <div className="flex items-center space-x-2">
-          <div className="grid flex-1 gap-2">
-          {/* <Map
-      initialViewState={{
-        longitude: -122.4,
-        latitude: 37.8,
-        zoom: 14
-      }}
-      style={{width: 600, height: 400}}
-      mapStyle="https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=YOUR_MAPBOX_ACCESS_TOKEN"
-    /> */}
+          <div className="grid flex-1 gap-2 h-60">
+
+
+          <MapContainer  center={[list?.addressLatitude, -list?.addressLongitude]} zoom={13} scrollWheelZoom={false}>
+  <TileLayer
+    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  />
+  <Marker position={[list?.addressLatitude, -list?.addressLongitude]} icon={customIcon}>
+    <Popup>
+      your location.
+    </Popup>
+  </Marker>
+</MapContainer>
+
+
           </div>
           
         </div>

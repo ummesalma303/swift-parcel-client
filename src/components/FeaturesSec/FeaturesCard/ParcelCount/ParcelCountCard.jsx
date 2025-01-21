@@ -2,6 +2,7 @@ import React from 'react';
 import useAxiosPublic from '@/Hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import CountUp from 'react-countup';
+import Loading from '@/components/Sheared/Loading';
 
 const ParcelCountCard = ({title}) => {
     const axiosPublic = useAxiosPublic()
@@ -13,7 +14,7 @@ const ParcelCountCard = ({title}) => {
         }
     })
     if (isLoading) {
-        return <h2>Loading....</h2>
+        return <Loading/>
     }
     console.log(userCount    )
     return (

@@ -30,7 +30,7 @@ const CheckoutForm = () => {
       .catch(err=>console.log(err))
       }
       
-    }, [axiosSecure,total])
+    }, [total])
 
     const handleSubmit = async (event) => {
         event.preventDefault();

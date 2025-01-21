@@ -14,7 +14,7 @@ const AdminRoutes = ({children}) => {
     if (users?.role ==="Admin") {
         return children
     }
-    return <Navigate to='/dashboard' replace></Navigate>
+    return <Navigate to='/dashboard/statistics' replace></Navigate>
 };
 
 export default AdminRoutes;

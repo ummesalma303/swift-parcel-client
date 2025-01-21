@@ -13,7 +13,7 @@ const DeliveryMenRoutes = ({children}) => {
     if (users?.role==="Delivery Man") {
         return children
     }
-    return <Navigate to='/dashboard' replace='true'></Navigate>
+    return <Navigate to='/dashboard/myDeliveryList' replace='true'></Navigate>
 };
 
 export default DeliveryMenRoutes;

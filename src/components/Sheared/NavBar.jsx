@@ -22,7 +22,8 @@ import {
   } from "@/components/ui/dropdown-menu"
 import useUser from '@/Hooks/useUser';
 import DashboardRoutes from '@/routes/DashboardRoutes';
-  
+import Loading from './Loading';
+import profile from '../../assets/profile-logo.png'
 const NavBar = () => {
   const navigate = useNavigate()
   const [users,isLoading] = useUser('');
@@ -30,7 +31,7 @@ const NavBar = () => {
   console.log(users?.email)
 
   if (isLoading) {
-    return<h2>loading.....</h2>
+    return<Loading></Loading>
   }
   // const [users,isLoading] = useUser('');
     const {user,handleLogout} = useContext(AuthContext);
@@ -78,7 +79,7 @@ const NavBar = () => {
 
 
 <DropdownMenu>
-  <DropdownMenuTrigger className='rounded-full'><img referrerPolicy='no-referrer' className='w-10 h-10 md:w-14 md:h-14 rounded-full' src={user?.photoURL} alt="" /></DropdownMenuTrigger>
+  <DropdownMenuTrigger className='rounded-full'><img referrerPolicy='no-referrer' className='w-10 h-10 md:w-14 md:h-14 rounded-full' src={user?.photoURL ||profile} alt="" /></DropdownMenuTrigger>
   <DropdownMenuContent>
     <DropdownMenuLabel>{user?.displayName}</DropdownMenuLabel>
     <DropdownMenuSeparator  />
