@@ -1,15 +1,32 @@
+import { format } from 'date-fns';
 import React, { useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 
-const LineChart = ({ bookingDate}) => {
+const LineChart = ({ parcels}) => {
+  const total = []
+  const newDate = []
+  const intDate=[]
     // const date =  parseInt(bookingDate)
-console.log()
-
+     for (let i = 0; i < parcels.length; i++) {
+            total.push(parcels[i]?.totalPrice)       
+            // newDate.push( )   
+            const num = parcels[i]?.bookingDate
+            const d = new Date(num).getTime() 
+            newDate.push(d)
+            // const date =  parseInt(bookingDate)
+            // const date = parseInt(bookingDate)
+            const date = format(new Date(num||0),'dd-MM-yyyy')
+            intDate.push(date)
+            // console.log(d)  
+            
+        }
+console.log(intDate)
+console.log(total)
     const [state, setState] = useState({
           
         series: [{
           name: 'Sales',
-          data: [4, 3, 10, 9, 29, 19, 22, 9, 12, 7, 19, 5, 13, 9, 17, 2, 7, 5]
+          data: total
         }],
         options: {
           chart: {

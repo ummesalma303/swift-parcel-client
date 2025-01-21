@@ -63,7 +63,7 @@ const AllParcels = () => {
     const select = JSON.parse(data.deliveryMan)
     const deliveryManData ={
       ...data, deliveryMan: select.name,deliveryMenID:select.id,deliveryEmail:select.email,
-      status:'On The Way',
+      status:'On The Way',index:select.index
     }
     // reset()
     // console.log(data)
@@ -142,43 +142,12 @@ console.log(lte,gte)
                        {/* input-1 */}
                         <div className="  ">
                           <label>Delivery Man Name:</label>
-                          {/* <select defaultValue="Choose a name" className=" border-2 w-full p-1 rounded-md" required>
-                            {delivery.map((deliveryMan,i) => (
-                              <>
-                              <option key={i} 
-                                className="w-full"
-                                value={deliveryMan?.name} {...register("deliveryMan")}
-                              >
-                                {deliveryMan?.name}
-                              </option>
-                              
-                              <input hidden
-                            type="deliveryEmail" value={deliveryMan?.email}
-                            {...register("deliveryEmail")}
-                          />
-                              <input hidden
-                            type="deliveryId" value={deliveryMan?._id}
-                            {...register("deliveryId")}
-                          />
-                              </>
-                            ))}
-                          </select> */}
+                         
       <select className='border-2 w-full p-1 rounded-md' required  {...register("deliveryMan")}>
      {
-      delivery?.map(man=> (
-        <option value={JSON.stringify({ id: man._id, email: man.email, name: man.name })}>{man.name}</option> 
+      delivery?.map((man)=> (
+        <option value={JSON.stringify({ id: man._id, email: man.email, name: man.name,index:i })}>{man.name}</option> 
       
-    //   <>
-    //   <input hidden
-    //     value={man?._id}
-    //     {...register("deliveryId")}
-    //   />
-    //    <input hidden
-    //     value={man?.email}
-    //   {...register("deliveryEmail")}
-    // />
-    //                       </>
-        
       ))
      }
         {/* <option value="User">User</option>

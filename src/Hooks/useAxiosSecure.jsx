@@ -26,12 +26,12 @@ const useAxiosSecure = () => {
    
     return response;
   }, function (error) {
-    const status = error.response.status;
-    if (status === 401 || status === 403) {
-      handleLogout()
-      navigate('/login')
+    // const status = error.response.status;
+    // if (status === 401 || status === 403) {
+    //   handleLogout()
+    //   navigate('/login')
 
-    }
+    // }
     console.log(error)
     return Promise.reject(error);
   });

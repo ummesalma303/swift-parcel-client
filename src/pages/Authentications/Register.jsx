@@ -42,8 +42,8 @@ const Register = () => {
                           icon: "success",
                         //   timer: 1000
                         });
-         /* -------------------------- send data on database ------------------------- */
-         axios.post('http://localhost:5000/users',userInfo)
+                        /* -------------------------- send data on database ------------------------- */
+                        axios.post('http://localhost:5000/users',userInfo)
          .then(res=>{
             if (data.insertedId) {
                 console.log('successfully added database')
@@ -51,6 +51,7 @@ const Register = () => {
             console.log(res.data)})
          .catch(err=>console.log(err))
             navigate('/')
+            window.location.reload()
             // reset
         })
         .catch(err=>console.log(err))
@@ -61,7 +62,7 @@ const Register = () => {
     return (
         <div className='py-6 flex flex-col justify-center items-center '>
              <h2 className='text-2xl font-semibold mb-6'>Please login yor account</h2>
-             <div className="w-11/12 md:w-1/3 border-2 p-5 rounded-lg">
+             <div className="w-11/12 md:w-[60%] border-2 p-5 rounded-lg">
             
              <form className='grid gap-4' onSubmit={handleSubmit(onSubmit)}>
     {/* input-1 */}

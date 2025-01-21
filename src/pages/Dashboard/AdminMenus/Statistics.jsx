@@ -22,9 +22,6 @@ const Statistics = () => {
         }
     })
 
-    // for (const i of parcels) {
-    //     bookingDate.push(parcels[i])
-    // }
 
     for (let i = 0; i < parcels.length; i++) {
         bookingDate.push(parcels[i]?.bookingDate )       
@@ -48,8 +45,8 @@ const Statistics = () => {
           
         series: [{
         //   data: bookingDate
-          // data: intDate
-          data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+          data: intDate
+          // data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
         }],
         options: {
           chart: {
@@ -92,7 +89,7 @@ const Statistics = () => {
             <div id="html-dist"></div>
 
             {/* line chart */}
-            <LineChart  bookingDate={ intDate}></LineChart>
+            <LineChart  bookingDate={ intDate} parcels={parcels}></LineChart>
 
             </div>
         </div>

@@ -7,7 +7,7 @@ import useAxiosSecure from './useAxiosSecure';
 const useUser = () => {
     const {user} = useContext(AuthContext)
     const axiosSecure = useAxiosSecure()
-    const {data:users={},isLoading} =useQuery({
+    const {data:users={},isLoading,refetch} =useQuery({
         queryKey:["user",user?.email],
         enabled:!!(user?.email )&&!!localStorage.getItem("access-token"),
         queryFn: async () => {
@@ -15,7 +15,7 @@ const useUser = () => {
          return res.data   
         }
     })
-    return [users,isLoading]
+    return [users,isLoading,refetch]
 };
 
 export default useUser;

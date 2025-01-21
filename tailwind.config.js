@@ -28,6 +28,8 @@ module.exports = {
   	extend: {
 		  backgroundImage: {
 			'banner': 'url("./src/assets/banner-2.jpg")', // Escape single quotes
+			'banner-2': 'url("./src/assets/login.jpg")', // Escape single quotes
+			'banner-3': 'url("./src/assets/register.jpg")', // Escape single quotes
 		  },
   		borderRadius: {
   			lg: 'var(--radius)',

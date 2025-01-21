@@ -25,7 +25,7 @@ const MyReviews = () => {
     return (
        <>
        <h2 className='text-center font-semibold text-3xl my-6 w-11/12 mx-auto'>My Reviews</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 mb-12">
             {
                 reviews?.map((review)=> <ReviewCard key={review._id} review={review}/>)
             }

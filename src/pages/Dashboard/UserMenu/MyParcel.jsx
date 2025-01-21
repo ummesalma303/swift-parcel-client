@@ -35,6 +35,7 @@ import {
 import { Label } from "@radix-ui/react-dropdown-menu";
 import { useForm } from "react-hook-form";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
+import { format } from "date-fns";
 // import { DialogClose } from '@radix-ui/react-dialog';
 
 const MyParcel = () => {
@@ -148,11 +149,10 @@ console.log(price)
             onChange={(e) => setFilter(e.target.value)}
             className="border-2 p-1 rounded-md"
           >
-            {/* <option defaultValue='Select A role'></option> */}
-            {/* <option disabled selected>Select A role</option> */}
+           
             <option value="all">All</option>
             <option value="pending">pending</option>
-            {/* <option value="other">other</option> */}
+         
           </select>
           <br />
         </div>
@@ -161,7 +161,7 @@ console.log(price)
         </div>
         {/* table start */}
         <Table>
-          <TableCaption>A list of your recent invoices.</TableCaption>
+          <TableCaption>A list of your recent parcel's.</TableCaption>
           <TableHeader>
             <TableRow>
               <TableHead className="w-[100px]">Parcel Type</TableHead>
@@ -184,7 +184,7 @@ console.log(price)
                 </TableCell>
                 <TableCell>{parcel?.approximateDate}</TableCell>
                 <TableCell>{parcel?.deliveryDate}</TableCell>
-                <TableCell>{parcel?.bookingDate}</TableCell>
+                <TableCell>{format(new Date(parcel?.bookingDate||0),'dd-MM-yyyy')}</TableCell>
                 <TableCell>${parcel?.totalPrice}</TableCell>
                 <TableCell>{parcel?.deliveryMenID || "N/A"}</TableCell>
                 <TableCell className="text-right">{parcel?.status}</TableCell>
@@ -236,6 +236,21 @@ console.log(price)
 
                         <form onSubmit={handleSubmit(onSubmit)} className=" ">
                           <div className=" py-4 items-center grid gap-4">
+                            {/* input-0 */}
+                            <div className="  ">
+                              <div className=" grid grid-cols-4 items-center gap-4">
+                                <Label htmlFor="name" className="text-right">
+                                Delivery Men ID
+                                </Label>
+                                <Input
+                                  id="id" disabled
+                                  value={parcel?.deliveryMenID}
+                                  className="col-span-3"
+                                  {...register("deliveryMenId", { required: true })}
+                                />
+                                
+                              </div>
+                            </div>
                             {/* input-1 */}
                             <div className="  ">
                               <div className=" grid grid-cols-4 items-center gap-4">
@@ -243,7 +258,7 @@ console.log(price)
                                   Name
                                 </Label>
                                 <Input
-                                  id="name"
+                                  id="name" disabled
                                   value={user?.displayName}
                                   className="col-span-3"
                                   {...register("name", { required: true })}
@@ -259,9 +274,9 @@ console.log(price)
                             {/* input-2 */}
                             <div className=" grid grid-cols-4 items-center gap-4">
                               <Label htmlFor="photo" className="text-right">
-                                Photo
+                                image
                               </Label>
-                              <Input
+                              <Input disabled
                                 id="photo"
                                 value={user?.photoURL}
                                 className="col-span-3"
@@ -298,9 +313,8 @@ console.log(price)
                           </DialogClose>
                         </form>
                         <DialogFooter>
-                          <DialogClose asChild>
-                            {/* <Button type="submit">Save changes</Button> */}
-                          </DialogClose>
+                          {/* <DialogClose asChild>
+                          </DialogClose> */}
                         </DialogFooter>
                       </DialogContent>
                     </Dialog>
@@ -309,12 +323,6 @@ console.log(price)
               </TableRow>
             ))}
           </TableBody>
-          {/* <TableFooter>
-        <TableRow>
-          <TableCell colSpan={3}>Total</TableCell>
-          <TableCell className="text-right">$2,500.00</TableCell>
-        </TableRow>
-      </TableFooter> */}
         </Table>
       </div>
     </div>
@@ -322,42 +330,3 @@ console.log(price)
 };
 
 export default MyParcel;
-
-{
-  /* <form onSubmit={handleSubmit(onSubmit)} className=" py-4 items-center grid gap-4">
-{/* <div > */
-}
-{
-  /* <div className="grid gap-4 py-4">
-<div className=" grid grid-cols-4 items-center gap-4">
-<Label htmlFor="name" className="text-right">
-Name
-</Label>
-<Input id="name" value={user?.displayName} className="col-span-3" {...register("name", { required: true })}/>
-</div>
-<div className="grid grid-cols-4 items-center gap-4">
-<Label htmlFor="username" className="text-right">
-Image
-</Label>
-<Input id="username" value={user?.photoURL} className="col-span-3" {...register("photo", { required: true })}/>
-
-</div>
-<div className="grid grid-cols-4 items-center gap-4">
-<Label htmlFor="username" className="text-right">
-Retting
-</Label>
-<Input id="username" type='number' max={5} min={0} placeholder='0-5' className="col-span-3" {...register("rating", { required: true })}/>
-
-</div> */
-}
-// </div>
-
-{
-  /* </div> */
-}
-{
-  /* <DialogClose  asChild>
-<input className='bg-black px-4 py-1 w-full rounded-md text-white mb-3' type="submit" value='Submit' />
-</DialogClose>
-</form> */
-}

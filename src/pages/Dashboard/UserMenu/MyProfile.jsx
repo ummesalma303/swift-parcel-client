@@ -79,13 +79,15 @@ const MyProfile = () => {
 
     const handleUpdateImage=e=>{
         e.preventDefault()
-        console.log(e)
+        // console.log(e)
     }
     return (
         <div className='h-[80vh]  w-11/12 mx-auto'>
-            
-            <h2 className='text-2xl font-semibold text-center'>myProfile</h2>
-           <div className="h-full flex flex-col justify-center space-x-4 items-center  ">
+            <div className="w-11/12 md:w-1/2 mx-auto text-center mt-5">
+            <h2 className='text-2xl font-semibold text-center'>My Profile</h2>
+            <p className='text-sm mt-3'>Welcome to your profile! Here, you can view and manage your personal details, account settings, and activity. Keep your information up to date to make the most of your experience.</p>
+            </div>
+           <div className="h-[70vh] flex flex-col justify-center space-x-4 items-center  ">
           <div className="border-[1px] p-5 rounded-md">
           <div className=" text-center mb-4">
                 <img className='w-24 h-24 rounded-full mx-auto' src={user?.photoURL} alt="" />
@@ -110,25 +112,7 @@ const MyProfile = () => {
                     
             </form>
           </div>
-            {/* <div className=" md:w-1/3 border-2 p-5 rounded-lg">
-            <form className=' ' onSubmit={handleSubmit(onSubmit)}>
-   
-      <div>
-     <label>Name</label>
-     
-      <Input type="text" placeholder="Name" {...register("name", { required: true })}/>
-      {errors.name && <span className='text-red-500'>This field is required</span>}
-     </div>
-     
-     <div className="">
-     <label>PhotoURL:</label>
-      <Input type="url" placeholder="PhotoURL" {...register("photo", { required: true })}/>
-      {errors.email && <span className='text-red-500'>This field is required</span>} 
-     </div>
-     
-      <input className='bg-black px-4 py-1 w-full rounded-md text-white mb-3 mt-2' type="submit" value='register' />
-    </form>
-            </div> */}
+          
            </div>
         </div>
     );

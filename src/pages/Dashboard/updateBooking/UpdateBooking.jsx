@@ -41,11 +41,7 @@ const UpdateBooking = () => {
   
     // console.log(weight)
     const onSubmit = (data) => {
-      // let date = new Date().toLocaleDateString()
-      // if (data?.phone) {
-      //     console.log('hjghj',data?.phone)
-  // 
-      // }
+     
   const parcelData={
     ...data,totalPrice: total,bookingDate,parcelWeight:weight,status:'pending'
   }
@@ -54,7 +50,7 @@ const UpdateBooking = () => {
       .then(res=>{
          Swal.fire({
                 title: "Success",
-                text: `${user?.displayName}'s ${weight} parcel successfully booked`,
+                text: `${user?.displayName}'s ${weight} parcel successfully updated`,
                 icon: "success",
                 // timer: 1000
               });

@@ -54,7 +54,7 @@ const AllUser = () => {
       })
       .catch(err=>console.log(err))
     }
-    const makeAdmin =(id)=>{
+    const makeUser =(id)=>{
       // console.log(id)
       axiosPublic.patch(`/changeAdminRole/${id}`)
       .then(res=>{
@@ -73,7 +73,7 @@ const AllUser = () => {
     }
     return (
         <div className='w-11/12 mx-auto'>
-            <div className="h-[80vh]">
+            <div className="min-h-[85vh]">
             <Table>
       <TableCaption>A list of your recent invoices.</TableCaption>
       <TableHeader>
@@ -93,10 +93,10 @@ const AllUser = () => {
              <TableCell>{user?.name}</TableCell>
              <TableCell className="text-center">{user?.phone||'N/A'}</TableCell>
              <TableCell>{user?.role}</TableCell>
-             <TableCell className="text-right">{user?.bookingCount} </TableCell>
+             <TableCell className="text-center text-green-400 text-xl font-semibold">{user?.bookingCount || 0} </TableCell>
             <TableCell className="text-right space-x-3">
             <Button onClick={()=>makeDeliveryMen(user?._id)}>Make Delivery Men</Button>
-            <Button  onClick={()=>makeAdmin(user?._id)}>Make User</Button>
+            <Button  onClick={()=>makeUser(user?._id)}>Make User</Button>
              </TableCell>
            
           </TableRow>
@@ -107,12 +107,15 @@ const AllUser = () => {
 
 
 <div>
-    <SweetPagination
+   <div className="">
+   <SweetPagination
+   width={25}
     navigation={true}
     dataPerPage={5}
         currentPageData={setCurrentPageData}
         getData={users}
       />
+   </div>
   
 </div>
     

@@ -25,8 +25,9 @@ import DashboardRoutes from '@/routes/DashboardRoutes';
 import Loading from './Loading';
 import profile from '../../assets/profile-logo.png'
 const NavBar = () => {
+  const {user,handleLogout} = useContext(AuthContext);
   const navigate = useNavigate()
-  const [users,isLoading] = useUser('');
+  const [users,isLoading,refetch] = useUser('');
   console.log(users?.photoURL)
   console.log(users?.email)
 
@@ -34,12 +35,12 @@ const NavBar = () => {
     return<Loading></Loading>
   }
   // const [users,isLoading] = useUser('');
-    const {user,handleLogout} = useContext(AuthContext);
         // console.log(user?.photoURL)
-        const handleRoute = () =>{
-         console.log('33------')
+        const handleRoute = async() =>{
+         console.log('33------',user.role)
+        //  await refetch()
          if(users.role==="User"){
-          console.log('35------')
+           //  console.log('35------',user.role)
           navigate('/dashboard/bookParcel')
           return
       }
@@ -57,7 +58,7 @@ const NavBar = () => {
        }
     return (
        <div className="">
-         <div className='fixed w-full px-5 md:px-10 flex justify-between items-center py-2 bg-slate-200' >
+         <div className='fixed w-full px-5 md:px-10 flex justify-between items-center py-2 bg-slate-200 z-10' >
             <div className="flex items-center">
                 <img className='w-8 md:w-10' src={logo} alt="" />
             <h2 className='text-lg md:text-2xl font-semibold'>SwiftParcel</h2>
