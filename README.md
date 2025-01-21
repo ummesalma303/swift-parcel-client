@@ -19,4 +19,4 @@ swifParcel is a modern and responsive delivery management website designed to en
 - user email:email@gmail.com 
 - Password: 123456  
 
-## Live Site URL:  
+## Live Site URL: https://assignment-12-5d452.web.app
