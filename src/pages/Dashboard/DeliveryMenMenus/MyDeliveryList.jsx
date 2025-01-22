@@ -85,7 +85,7 @@ const MyDeliveryList = () => {
 
 
         const handleStatus =(id,deliveryMenID)=>{
-          console.log(id)
+          // console.log(id)
           Swal.fire({
             title: "Are you sure?",
             text: "You won't to update it!!",

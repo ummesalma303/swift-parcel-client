@@ -16,7 +16,7 @@ const ParcelCountCard = ({title}) => {
     if (isLoading) {
         return <Loading/>
     }
-    console.log(userCount    )
+    // console.log(userCount    )
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-10 mt-5'>
             {/* card-1 */}

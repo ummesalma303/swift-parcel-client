@@ -4,14 +4,7 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 import { Button } from '../ui/button';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '@/providers/AuthProvider';
-// import {
-//     DropdownMenu,
-//     DropdownMenuContent,
-//     DropdownMenuItem,
-//     DropdownMenuLabel,
-//     DropdownMenuSeparator,
-//     DropdownMenuTrigger,
-//   } from "../ui/dropdown-menu"
+
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -27,17 +20,17 @@ import profile from '../../assets/profile-logo.png'
 const NavBar = () => {
   const {user,handleLogout} = useContext(AuthContext);
   const navigate = useNavigate()
-  const [users,isLoading,refetch] = useUser('');
-  console.log(users?.photoURL)
-  console.log(users?.email)
+  const [users,isLoading,refetch] = useUser();
+  // console.log(users)
+  // console.log(users?.email)
 
   if (isLoading) {
-    return<Loading></Loading>
+    return<h2></h2>
   }
   // const [users,isLoading] = useUser('');
         // console.log(user?.photoURL)
         const handleRoute = async() =>{
-         console.log('33------',user.role)
+        //  console.log('33------',users)
         //  await refetch()
          if(users.role==="User"){
            //  console.log('35------',user.role)
@@ -45,12 +38,12 @@ const NavBar = () => {
           return
       }
          if(users.role==="Admin"){
-          console.log('35------')
+          // console.log('35------')
           navigate('/dashboard/statistics')
           return
       }
          if(users.role==="Delivery Man"){
-          console.log('35------')
+          // console.log('35------')
         // path:'myDeliveryList',
           navigate('/dashboard/myDeliveryList')
           return

@@ -4,7 +4,7 @@ const ReviewCard = ({review}) => {
     const {
         deliveryEmail,feedback,date,
         name,photo,ratting} = review || {}
-    console.log(review)
+    // console.log(review)
     return (
         <div className='text-center border-2 border-gray-300 p-5'>
             <img className='w-16 h-16 mx-auto rounded-full' src={photo} alt="" />

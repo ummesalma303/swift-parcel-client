@@ -13,7 +13,7 @@ const SocialLogin = () => {
     const handleGoogleLogin =()=>{
         googleLoginUser()
         .then((res) => {
-            console.log(res.user)
+            // console.log(res.user)
             const userInfo={
             name: res?.user?.displayName,
             photo: res?.user?.photoURL,
@@ -22,7 +22,7 @@ const SocialLogin = () => {
             }
             axiosPublic.post('/users',userInfo)
             .then((res) => {
-                console.log(res.data)
+                // console.log(res.data)
                  Swal.fire({
                               title: "Success",
                               text: "User successfully login",

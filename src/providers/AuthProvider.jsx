@@ -22,7 +22,7 @@ const AuthProvider = ({children}) => {
     }
     // update profile
     const updateUserProfile = (updateData) =>{
-        console.log(updateData)
+        // console.log(updateData)
         setLoading(true)
         return updateProfile(auth.currentUser,updateData)
           
@@ -42,14 +42,14 @@ const AuthProvider = ({children}) => {
     const handleLogout=()=>{
         setLoading(true)
         signOut(auth).then((res) => {
-            console.log(res)
+            // console.log(res)
           }).catch((error) => {
-            console.log(error)
+            // console.log(error)
           });
     }
     useEffect(() => {
         const subscribe = onAuthStateChanged(auth, (currentUser) => {
-            console.log(currentUser)
+            // console.log(currentUser)
             setLoading(false)
             setUser(currentUser)
             const userInfo= {email:currentUser?.email}

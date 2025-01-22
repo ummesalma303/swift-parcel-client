@@ -32,7 +32,7 @@ const useAxiosSecure = () => {
       navigate('/login')
 
     }
-    console.log(error)
+    // console.log(error)
     return Promise.reject(error);
   });
    // request interceptors

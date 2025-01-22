@@ -35,7 +35,8 @@ const Register = () => {
         .then(res=>{
             console.log(res)
             updateUserProfile(updateData)
-            setUser({...user,...updateData})
+            // setUser({...user,...updateData})
+            console.log(updateData)
              Swal.fire({
                           title: "Success",
                           text: "user successfully register",
@@ -51,7 +52,7 @@ const Register = () => {
             console.log(res.data)})
          .catch(err=>console.log(err))
             navigate('/')
-            window.location.reload()
+            // window.location.reload()
             // reset
         })
         .catch(err=>console.log(err))
@@ -60,11 +61,12 @@ const Register = () => {
     
     //   console.log(watch("example"))
     return (
-        <div className='py-6 flex flex-col justify-center items-center '>
-             <h2 className='text-2xl font-semibold mb-6'>Please login yor account</h2>
-             <div className="w-11/12 md:w-[60%] border-2 p-5 rounded-lg">
+        <div className='py-24 flex flex-col justify-center items-center bg-banner-2 bg-no-repeat bg-cover'>
+             <h2 className='text-2xl font-semibold mb-6'>Please register yor account</h2>
+             
+             <div className="w-11/12 md:w-[60%] border-2 p-5 rounded-lg backdrop-blur-md bg-white/80 border-black">
             
-             <form className='grid gap-4' onSubmit={handleSubmit(onSubmit)}>
+             <form className='grid gap-4  ' onSubmit={handleSubmit(onSubmit)}>
     {/* input-1 */}
      <div>
      <label>Name</label>

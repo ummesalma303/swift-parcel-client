@@ -23,7 +23,7 @@ const Home = () => {
     if (isLoading) {
         return<Loading></Loading>
     }
-    console.log(topDeliveryMens)
+    // console.log(topDeliveryMens)
     return (
         <div>
             <Banner/>

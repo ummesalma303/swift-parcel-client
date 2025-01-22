@@ -9,7 +9,7 @@ const Banner = () => {
       <div className="bg-[#00000042] w-full h-full flex justify-center items-center">
         {/* <div className=""> */}
         <div className="w-11/12 md:w-1/2 mx-auto text-center text-white space-y-3">
-          <h2 className="text-xl md:text-3xl font-semibold">
+          <h2 className="text-2xl md:text-5xl font-bold">
             Streamline Your Deliveries with Ease
           </h2>
           <p className="text-sm md:text-base">

@@ -50,14 +50,14 @@ import PaymentSuccess from "@/pages/Dashboard/Payment/PaymentSuccess";
     },
     {
      path:'/dashboard',
-     element:<PrivateRoutes><DashboardLayout/></PrivateRoutes>,
+     element:<DashboardLayout/>,
      children:[
       
       
       {
         path:'myProfile',
         // index:true,
-        element:<PrivateRoutes><MyProfile /></PrivateRoutes>
+        element:<MyProfile />
       },
       {
         // path:'/dashboard',

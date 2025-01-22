@@ -95,8 +95,11 @@ const AllUser = () => {
              <TableCell>{user?.role}</TableCell>
              <TableCell className="text-center text-green-400 text-xl font-semibold">{user?.bookingCount || 0} </TableCell>
             <TableCell className="text-right space-x-3">
+              <div className='space-y-4 md:space-y-0 md:space-x-3'>
+
             <Button onClick={()=>makeDeliveryMen(user?._id)}>Make Delivery Men</Button>
             <Button  onClick={()=>makeUser(user?._id)}>Make User</Button>
+              </div>
              </TableCell>
            
           </TableRow>
