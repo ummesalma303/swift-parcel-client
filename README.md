@@ -120,7 +120,13 @@ Use the following credentials to log in as an admin:
 
 - **Username:** mahdiba jahan mahvi  
 - **Email:** email@gmail.com  
-- **Password:** 123456  
+- **Password:** 123456
+
+
+## 🔑 Delivery Men Credentials
+Use the following credentials to log in as Delivery Men
+- **Email:** mahira@gmail.com 
+- **Password:** 123456
 
 ## 📚 Additional Resources
 - [React Documentation](https://react.dev/)
