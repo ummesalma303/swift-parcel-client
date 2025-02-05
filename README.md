@@ -24,7 +24,7 @@ swifParcel is a modern and responsive delivery management website designed to pr
 
 
 ## 🛠️ Technologies Used
-- **Frontend:** React, React Router, TailwindCSS, Lucide Icons
+- **Frontend:** React, React Router, TailwindCSS, React Icons
 - **Backend:** Firebase, Stripe API
 - **State Management:** React Query, React Hook Form
 - **Libraries:** Leaflet, ApexCharts, Axios, SweetAlert2
