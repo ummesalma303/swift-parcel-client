@@ -65,14 +65,13 @@ This project relies on the following dependencies:
 }
 ```
 
-
 ## 🛠️ Installation & Setup
 Follow these steps to run the project locally:
 
 1. **Clone the repository**
    ```sh
    git clone https://github.com/ummesalma303/swift-parcel-client.git
-   cd swifParcel
+   cd choice-master
    ```
 
 2. **Install dependencies**
@@ -81,13 +80,7 @@ Follow these steps to run the project locally:
    ```
 
 3. **Set up environment variables**  
-   Create a `.env` file in the root directory and add the following:
-   ```sh
-   DB_USER=SwiftParcel
-   DB_PASS=A96RSQvyiBR671jx
-   STRIPE_API_SECRET=sk_test_51QfBM6GOWpH4QNzfbt8zAmymY5AnzNRRdbx8E68J0gDiyxxsuNsiH0CfV44bkqyAcnDtjiZVcBfPElU3SKVteEnL00cBh1HjbD
-   ACCESS_TOKEN_SECRET=79995238c694f5eb01f2246816de63f90b2c3e71bf282c675faeec5b1bc1eb525bd00d3a4f146cda3fc661dbc97c2718f350bcd1e4625e2526390d30d1f37e00
-   ```
+   Create a `.env` file in the root directory and add the necessary environment variables.
 
 4. **Start the development server**
    ```sh
@@ -103,8 +96,6 @@ Follow these steps to run the project locally:
    ```sh
    npm run preview
    ```
----
-
 
 ## 🖥️ Usage
 - **Users** can sign up, book deliveries, track parcels, and leave reviews.
@@ -126,6 +117,9 @@ Use the following credentials to log in as an admin:
 - [TailwindCSS](https://tailwindcss.com/)
 - [Firebase Documentation](https://firebase.google.com/docs/)
 - [Stripe API](https://stripe.com/docs)
+
+
+
 
 
 
