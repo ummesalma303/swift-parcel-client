@@ -171,6 +171,7 @@ console.log(price)
               <TableHead className="">Price</TableHead>
               <TableHead>Delivery Men ID</TableHead>
               <TableHead className="text-right">Booking Status</TableHead>
+              <TableHead className="text-right">Payment Status</TableHead>
               <TableHead className="text-right">Update</TableHead>
               <TableHead className="text-right">Cancel</TableHead>
               {/* <TableHead className="text-right">Pay</TableHead> */}
@@ -188,6 +189,7 @@ console.log(price)
                 <TableCell>${parcel?.totalPrice}</TableCell>
                 <TableCell>{parcel?.deliveryMenID || "N/A"}</TableCell>
                 <TableCell className="text-right">{parcel?.status}</TableCell>
+                <TableCell className="text-right">{parcel?.PaymentStatus}</TableCell>
                 <TableCell className="text-right">
                   {parcel?.status !== "pending" ? (
                     <Button disabled>

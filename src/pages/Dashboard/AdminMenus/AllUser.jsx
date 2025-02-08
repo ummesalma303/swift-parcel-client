@@ -35,8 +35,10 @@ const AllUser = () => {
          return res.data   
         }
     })
-    // console.log(isLoading)
-    // clg
+    console.log(users)
+    // const userCount= users?.map(u=>u.
+    //   bookingCount)
+    // console.log(userCount)
     const makeDeliveryMen =(id)=>{
       console.log(id)
       axiosPublic.patch(`/changeRole/${id}`)
@@ -80,7 +82,7 @@ const AllUser = () => {
         <TableRow>
           <TableHead className="w-[100px]">User’s Name</TableHead>
           <TableHead className="text-center">Phone Number</TableHead>
-          <TableHead>User Role:</TableHead>
+          <TableHead>User Type:</TableHead>
           <TableHead className="text-center">Number of parcels Booked</TableHead>
           <TableHead className="text-right">Make Role Button</TableHead>
          
@@ -98,7 +100,7 @@ const AllUser = () => {
               <div className='space-y-4 md:space-y-0 md:space-x-3'>
 
             <Button onClick={()=>makeDeliveryMen(user?._id)}>Make Delivery Men</Button>
-            <Button  onClick={()=>makeUser(user?._id)}>Make User</Button>
+            <Button  onClick={()=>makeUser(user?._id)}>Make Admin</Button>
               </div>
              </TableCell>
            

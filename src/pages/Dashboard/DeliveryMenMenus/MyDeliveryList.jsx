@@ -138,8 +138,8 @@ const MyDeliveryList = () => {
           <TableHead className="text-right">Receivers Address</TableHead>
           <TableHead className="text-right">Status</TableHead>
           <TableHead className="text-right">Location</TableHead>
-          <TableHead className="text-right">Cancel</TableHead>
           <TableHead className="text-right">Deliver</TableHead>
+          <TableHead className="text-right">Cancel</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -203,8 +203,8 @@ const MyDeliveryList = () => {
 
               {/* <Location></Location> */}
               </TableCell>
-            <TableCell className="text-right"><Button variant="outline" onClick={()=>handleCancel(list?._id)}><MdCancelPresentation /></Button></TableCell>
             <TableCell className="text-right"><Button onClick={()=>handleStatus(list?._id,list.deliveryMenID)}>Deliver</Button></TableCell>
+            <TableCell className="text-right"><Button variant="outline" onClick={()=>handleCancel(list?._id)}><MdCancelPresentation /></Button></TableCell>
           </TableRow>
         ))}
       </TableBody>

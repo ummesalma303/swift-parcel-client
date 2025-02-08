@@ -78,14 +78,16 @@ const CheckoutForm = () => {
             if(paymentIntent?.status === 'succeeded'){
               setTransaction(paymentIntent.id)
               navigate('/dashboard/paymentSuccess')
-              const payment = {
-                name:user?.displayName,
-                email:user?.email,
-                date:new Date(),
-                transactionId:paymentIntent.id,
-                parcelIds:parcelIds
-              }
+              // const payment = {
+              //   name:user?.displayName,
+              //   email:user?.email,
+              //   date:new Date(),
+              //   transactionId:paymentIntent.id,
+              //   parcelIds:parcelIds
+              // }
+              // navigate('/paymentHistory')
             }
+            
             axiosSecure.patch('/payment',{parcelIds:parcelIds})
             .then(res=>console.log(res))
             .catch(err=>console.log(err))

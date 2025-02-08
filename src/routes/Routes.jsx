@@ -25,6 +25,7 @@ import PrivateRoutes from "./privateRoutes/PrivateRoutes";
 import DeliveryMenRoutes from "./DeliveryMenRoutes";
 import Payment from "@/pages/Dashboard/Payment/Payment";
 import PaymentSuccess from "@/pages/Dashboard/Payment/PaymentSuccess";
+import PaymentHistory from "@/pages/PaymentHistory";
 // import Register from "@/pages/Authentication/Register";
 // import Login from "@/pages/Authentication/Login";
 
@@ -82,6 +83,10 @@ import PaymentSuccess from "@/pages/Dashboard/Payment/PaymentSuccess";
         path:'paymentSuccess',
         element:<PrivateRoutes><PaymentSuccess /></PrivateRoutes>
       },
+      // {
+      //   path: '/paymentHistory',
+      //   element:<PrivateRoutes><PaymentHistory></PaymentHistory></PrivateRoutes>
+      //  },
       /* ------------------------------ admin routes ------------------------------ */
       {
         // index:true,
