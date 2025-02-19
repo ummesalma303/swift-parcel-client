@@ -43,7 +43,7 @@ left-0*/}
       >
         {/* logo */}
         <div>
-          <h2 className="text-2xl font-semibold   px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-green-200 mx-auto">
+          <h2 className="text-2xl font-semibold dark:text-black  px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-green-200 mx-auto">
             SwiftParcel
           </h2>
         </div>
@@ -53,7 +53,7 @@ left-0*/}
           {users?.role === "User" && <UserMenus />}
           {users?.role === "Delivery Man" && <DeliveryMenMenus />}
           {users?.role === "Admin" && <AdminMenus />}
-          <NavLink to='/' className='flex items-center'><FaHome/> Home</NavLink>
+          <NavLink to='/' className='flex items-center dark:text-black'><FaHome/> Home</NavLink>
         </div>
       </div>
     </div>

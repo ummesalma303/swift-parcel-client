@@ -6,7 +6,7 @@ import { RiLuggageCartLine } from "react-icons/ri";
 
 const UserMenus = () => {
     return (
-        <div className=''>
+        <div className='dark:text-black'>
         {/* <NavLink to='/dashboard' className='flex items-center space-x-2'><FaCalendarCheck />Book a Parcel</NavLink> */}
         <NavLink to='bookParcel' className='flex items-center space-x-2'><FaCalendarCheck />Book a Parcel</NavLink>
         <NavLink to='myParcel'className='flex items-center space-x-2'><RiLuggageCartLine />My Parcels</NavLink>

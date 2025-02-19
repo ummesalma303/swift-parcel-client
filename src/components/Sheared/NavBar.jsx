@@ -93,12 +93,28 @@ const NavBar = () => {
     <MenubarTrigger><IoMdMenu />
     </MenubarTrigger>
     <MenubarContent>
-    <NavLink to='/'><MenubarItem> home </MenubarItem></NavLink>
-      <NavLink to='/'><MenubarItem>Faqs</MenubarItem></NavLink>
+    <NavLink to='/'>
+    <MenubarItem> home </MenubarItem>
+    </NavLink>
       <MenubarSeparator />
-      <MenubarItem>Share</MenubarItem>
+      <NavLink to='/faqs'><MenubarItem>Faqs</MenubarItem></NavLink>
       <MenubarSeparator />
-      <MenubarItem>Print</MenubarItem>
+
+      {/* <NavLink to='/'> */}
+     
+       {
+                  user&&<> <NavLink to='/bookParcel'> <MenubarItem>Book Parcel</MenubarItem></NavLink>
+                   <MenubarSeparator />
+                  <NavLink to='/dashboard/myProfile'><MenubarItem>Profile</MenubarItem></NavLink>
+                  <MenubarItem>
+                  <div  onClick={()=>handleRoute()} className='flex items-center'>Dashboard </div>
+
+                  </MenubarItem>
+                  </>
+                }
+      {/* </NavLink> */}
+     
+      
     </MenubarContent>
   </MenubarMenu>
 </Menubar>
@@ -119,11 +135,11 @@ const NavBar = () => {
             <ul className='hidden md:flex space-x-3  dark:text-black'>
                 <NavLink to='/'>home</NavLink>
                 <NavLink to='/faqs'>Faqs</NavLink>
-                 <NavLink to='/bookParcel'>Book Parcel</NavLink>
-                <NavLink to='/dashboard/myProfile'>Profile</NavLink>
-                {/* <NavLink to='/'>Faqs</NavLink>
-                <NavLink to='/'>Faqs</NavLink> */}
-                <div  onClick={()=>handleRoute()} className='flex items-center'>Dashboard </div>
+                {
+                  user&&<> <NavLink to='/bookParcel'>Book Parcel</NavLink>
+                  <NavLink to='/dashboard/myProfile'>Profile</NavLink>
+                  <div  onClick={()=>handleRoute()} className='flex items-center'>Dashboard </div></>
+                }
             </ul>
             </div>
             {/* theme controller */}

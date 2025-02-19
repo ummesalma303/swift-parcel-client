@@ -6,7 +6,7 @@ import { CgProfile } from 'react-icons/cg';
 
 const AdminMenus = () => {
     return (
-        <>
+        <div className='dark:text-black'>
         {/* <NavLink to='/dashboard' className='flex items-center space-x-2'>Statistic</NavLink> */}
         <NavLink to='statistics' className='flex items-center space-x-2'>Statistic</NavLink>
         <NavLink to='allUsers'className='flex items-center space-x-2'><FaUsers /> All Users</NavLink>
@@ -14,7 +14,7 @@ const AdminMenus = () => {
         <NavLink to='allDeliveryMen' className='flex items-center space-x-2'><FaUsersViewfinder /> All Delivery Men</NavLink>
         <NavLink to='/dashboard/myProfile' className='flex items-center space-x-2'><CgProfile /> My Profile</NavLink>
         
-        </>
+        </div>
     );
 };
 
