@@ -119,10 +119,11 @@ const NavBar = () => {
             <ul className='hidden md:flex space-x-3  dark:text-black'>
                 <NavLink to='/'>home</NavLink>
                 <NavLink to='/faqs'>Faqs</NavLink>
+                 <NavLink to='/bookParcel'>Book Parcel</NavLink>
                 <NavLink to='/dashboard/myProfile'>Profile</NavLink>
                 {/* <NavLink to='/'>Faqs</NavLink>
                 <NavLink to='/'>Faqs</NavLink> */}
-                <div  onClick={()=>handleRoute()} className='flex items-center'>Dashboard <GoSidebarCollapse /></div>
+                <div  onClick={()=>handleRoute()} className='flex items-center'>Dashboard </div>
             </ul>
             </div>
             {/* theme controller */}

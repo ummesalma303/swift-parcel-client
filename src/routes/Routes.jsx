@@ -59,6 +59,12 @@ import Faqs from "@/pages/Faqs/Faqs";
           // loader: ({params})=>fetch(``),
           element:<Faqs />
         },
+        {
+          // path:'/dashboard',
+          path:'/bookParcel',
+          // index:true,
+          element:<PrivateRoutes><BookParcel /></PrivateRoutes>
+        },
       ],
     },
     {

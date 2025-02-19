@@ -64,7 +64,7 @@ console.log(parcelData)
     <div>
         
       {/* form */}
-      <div className="my-7 flex flex-col justify-center items-center ">
+      <div className="py-7 flex flex-col justify-center items-center ">
         <div className="">
           <h2 className="text-2xl font-semibold mb-6 flex items-center">
             {" "}

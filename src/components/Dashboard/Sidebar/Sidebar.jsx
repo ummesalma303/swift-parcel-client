@@ -48,7 +48,7 @@ left-0*/}
           </h2>
         </div>
         {/* Nav Items */}
-        <div className="flex flex-col justify-between flex-1 mt-6 space-y-3 text-lg px-3">
+        <div className="flex flex-col justify-between flex-1 mt-6 space-y-3 text-lg px-3 ">
           {/* <div className=""> */}
           {users?.role === "User" && <UserMenus />}
           {users?.role === "Delivery Man" && <DeliveryMenMenus />}
