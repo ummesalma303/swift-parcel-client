@@ -9,9 +9,9 @@ import { Slide } from 'react-awesome-reveal';
 const FeaturesSec = () => {
    
     return (
-       <div className="my-12 mx-auto">
+       <div className="my-16 mx-auto ">
         <h2 className='text-3xl font-semibold my-6'> Our Beautiful Features</h2>
-         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-10'>
+         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             <Slide>
             <FeaturesCard title={'Secure Packaging'} subtitle={' Protect your shipments with tamper-proof, durable packaging designed to keep your items safe.'} icon={<FaBox  size={60}/>}/>
             </Slide>

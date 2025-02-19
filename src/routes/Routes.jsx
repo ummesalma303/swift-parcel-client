@@ -27,6 +27,7 @@ import Payment from "@/pages/Dashboard/Payment/Payment";
 import PaymentSuccess from "@/pages/Dashboard/Payment/PaymentSuccess";
 import PaymentHistory from "@/pages/PaymentHistory";
 import SeeMore from "@/components/RecentParcel/SeeMore";
+import Faqs from "@/pages/Faqs/Faqs";
 // import Register from "@/pages/Authentication/Register";
 // import Login from "@/pages/Authentication/Login";
 
@@ -53,6 +54,11 @@ import SeeMore from "@/components/RecentParcel/SeeMore";
           // loader: ({params})=>fetch(``),
           element:<PrivateRoutes><SeeMore /></PrivateRoutes>
         },
+        {
+          path:'/faqs',
+          // loader: ({params})=>fetch(``),
+          element:<Faqs />
+        },
       ],
     },
     {
@@ -64,7 +70,7 @@ import SeeMore from "@/components/RecentParcel/SeeMore";
       {
         path:'myProfile',
         // index:true,
-        element:<MyProfile />
+        element:<PrivateRoutes><MyProfile /></PrivateRoutes>
       },
       {
         // path:'/dashboard',

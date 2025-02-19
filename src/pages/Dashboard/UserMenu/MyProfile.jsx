@@ -11,16 +11,28 @@ import { updateProfile } from 'firebase/auth';
 import { auth } from '@/firebase/firebase.config';
 import useAxiosPublic from '@/Hooks/useAxiosPublic';
 import { Button } from '@/components/ui/button';
+import { useQuery } from '@tanstack/react-query';
+import useUser from '@/Hooks/useUser';
 // import { getAuth, updateProfile } from "firebase/auth";
 const imgkey=import.meta.env.VITE_imageHostingKey
 const imgUploadURL=`https://api.imgbb.com/1/upload?key=${imgkey}`
 // console.log(imgkey,'--------',imgUploadURL)
 const MyProfile = () => {
     const axiosPublic=useAxiosPublic()
+    const [users] = useUser()
     // const auth = getAuth(app);
     const navigate = useNavigate()
-    const {setUser,user} = useContext(AuthContext);
-    // console.log(createNewUser)
+    const {setUser,user,address} = useContext(AuthContext);
+    console.log(address)
+    // const {data:myProfile=[]} =useQuery({
+    //     queryKey:["myProfile"],
+    //     enabled:!!user,
+    //     queryFn: async () => {
+    // const res = await axiosSecure.get(`/users/:email`)
+    //      return res.data   
+    //     }
+    // })
+    // console.log(users)
     const {
         register,
         formState: { errors },
@@ -29,15 +41,7 @@ const MyProfile = () => {
       } = useForm()
     
       const handleImage = e => {
-        // e.preventDefault()
-        // console.log(data)
-        // const userInfo ={
-        //     name: data?.name,
-        //     photo: data?.photo,
-        // }
-        // const updateData ={
-        //     displayName: user?.displayName, photoURL: data?.photo
-        // }
+      
         const imageFile={image:e}
         axiosPublic.post(imgUploadURL,imageFile,{
             headers:{
@@ -64,15 +68,6 @@ const MyProfile = () => {
         })
         .catch(err=>console.log(err))
        
-         /* -------------------------- send data on database ------------------------- */
-        //  axios.patch('https://assignment-12-server-three-sage.vercel.app/users',userInfo)
-        //  .then(res=>{
-        //     if (data.insertedId) {
-        //         console.log('successfully added database')
-        //     }
-        //     console.log(res.data)})
-        //  .catch(err=>console.log(err))
-        //     navigate('/')
        
 
     }
@@ -83,16 +78,23 @@ const MyProfile = () => {
     }
     return (
         <div className='h-[80vh]  w-11/12 mx-auto'>
-            <div className="w-11/12 md:w-1/2 mx-auto text-center mt-5">
+            {/* <div className="w-11/12 md:w-1/2 mx-auto text-center mt-5">
             <h2 className='text-2xl font-semibold text-center'>My Profile</h2>
             <p className='text-sm mt-3'>Welcome to your profile! Here, you can view and manage your personal details, account settings, and activity. Keep your information up to date to make the most of your experience.</p>
-            </div>
+            </div> */}
            <div className="h-[70vh] flex flex-col justify-center space-x-4 items-center  ">
-          <div className="border-[1px] p-5 rounded-md">
-          <div className=" text-center mb-4">
-                <img className='w-24 h-24 rounded-full mx-auto' src={user?.photoURL} alt="" />
-                <h2>{user?.displayName}</h2>
+          <div className="border-[1px] p-5 rounded-md flex space-x-3">
+          <div className=" text-center mb-4 spa">
+                <img className='w-24 h-24  mx-auto' src={user?.photoURL} alt="" />
+               
             </div>
+
+
+                <div className="">
+                    <div className=""> 
+                        <h2>{user?.displayName}</h2>
+                    <h3>{user?.email}</h3></div>
+                    <p>Phone: {users?.phone}</p>
             <form action="" className='space-x-5' >
                 {/* <input onChange={(e)=>handleImage(e.target.files[0])} type="file" name="" id="" /> */}
 
@@ -111,6 +113,7 @@ const MyProfile = () => {
 
                     
             </form>
+                </div>
           </div>
           
            </div>

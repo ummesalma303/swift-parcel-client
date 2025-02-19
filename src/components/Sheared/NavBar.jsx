@@ -19,16 +19,24 @@ import Loading from './Loading';
 import profile from '../../assets/profile-logo.png'
 import {
   Menubar,
+  MenubarCheckboxItem,
   MenubarContent,
   MenubarItem,
   MenubarMenu,
+  MenubarRadioGroup,
+  MenubarRadioItem,
   MenubarSeparator,
   MenubarShortcut,
+  MenubarSub,
+  MenubarSubContent,
+  MenubarSubTrigger,
   MenubarTrigger,
 } from "@/components/ui/menubar"
+import { IoMdMenu } from "react-icons/io";
+import { GoSidebarCollapse } from "react-icons/go";
 
 const NavBar = () => {
-  const [theme,setTheme] =useState('light')
+  const [theme,setTheme] = useState('light')
   const {user,handleLogout} = useContext(AuthContext);
   const navigate = useNavigate()
   const [users,isLoading,refetch] = useUser();
@@ -78,6 +86,25 @@ const NavBar = () => {
        <div className="">
          <div className='fixed w-full px-5 md:px-10 flex justify-between items-center py-2 bg-slate-200 z-10' >
             <div className="flex items-center">
+              
+           <div className="md:hidden block">
+           <Menubar>
+  <MenubarMenu>
+    <MenubarTrigger><IoMdMenu />
+    </MenubarTrigger>
+    <MenubarContent>
+    <NavLink to='/'><MenubarItem> home </MenubarItem></NavLink>
+      <NavLink to='/'><MenubarItem>Faqs</MenubarItem></NavLink>
+      <MenubarSeparator />
+      <MenubarItem>Share</MenubarItem>
+      <MenubarSeparator />
+      <MenubarItem>Print</MenubarItem>
+    </MenubarContent>
+  </MenubarMenu>
+</Menubar>
+
+           </div>
+
                 <img className='w-8 md:w-10' src={logo} alt="" />
             <h2 className='text-lg md:text-2xl font-semibold dark:text-black'>SwiftParcel</h2>
             </div>
@@ -85,8 +112,17 @@ const NavBar = () => {
             <div className="flex items-center space-x-2 md:space-x-4">
             <div className="flex items-center">
             <IoIosNotificationsOutline />
-            <ul>
+
+
+
+
+            <ul className='hidden md:flex space-x-3  dark:text-black'>
                 <NavLink to='/'>home</NavLink>
+                <NavLink to='/faqs'>Faqs</NavLink>
+                <NavLink to='/dashboard/myProfile'>Profile</NavLink>
+                {/* <NavLink to='/'>Faqs</NavLink>
+                <NavLink to='/'>Faqs</NavLink> */}
+                <div  onClick={()=>handleRoute()} className='flex items-center'>Dashboard <GoSidebarCollapse /></div>
             </ul>
             </div>
             {/* theme controller */}
@@ -113,7 +149,7 @@ const NavBar = () => {
   <DropdownMenuContent>
     <DropdownMenuLabel>{user?.displayName}</DropdownMenuLabel>
     <DropdownMenuSeparator  />
-    <><DropdownMenuItem  onClick={()=>handleRoute()}>Dashboard</DropdownMenuItem></>
+    {/* <><DropdownMenuItem  onClick={()=>handleRoute()}>Dashboard</DropdownMenuItem></> */}
    <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
     {/* <DropdownMenuItem>Team</DropdownMenuItem>
     <DropdownMenuItem>Subscription</DropdownMenuItem> */}

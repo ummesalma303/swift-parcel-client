@@ -10,6 +10,7 @@ import Loading from '@/components/Sheared/Loading';
 import Faqs from '../Faqs/Faqs';
 import Contact from './Contact';
 import RecentParcel from './RecentParcel';
+import Newsletter from './Newsletter';
 // import { Button } from "@/components/ui/button"
 
 const Home = () => {
@@ -30,10 +31,13 @@ const Home = () => {
     return (
         <div>
             <Banner/>
-            <div className="w-11/12 mx-auto">
-            {/* features section */}
+            <div className="w-11/12 mx-auto ">
+            
             <FeaturesSec/>
+            </div>
+            {/* features section */}
             <Faqs/>
+            <div className="w-11/12 mx-auto ">
 
             <div className="mb-16">
             <h2 className='text-center font-semibold text-3xl my-6 w-11/12 mx-auto '>The Top Delivery Man</h2>
@@ -47,6 +51,7 @@ const Home = () => {
             <RecentParcel/>
             <Contact/>
             </div>
+            <Newsletter/>
         </div>
     );
 };

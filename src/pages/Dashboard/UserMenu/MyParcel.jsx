@@ -39,6 +39,7 @@ import { format } from "date-fns";
 // import { DialogClose } from '@radix-ui/react-dialog';
 
 const MyParcel = () => {
+  const {setAddress} = useContext(AuthContext)
   // const [myParcels]
   const {
     register,
@@ -68,12 +69,17 @@ const MyParcel = () => {
     },
   });
   
-
+// useEffect(()=>{
+  
+// },[])
   /* ----------------------- set state for checkout form ---------------------- */
   useEffect(()=>{
   const total = myParcels?.reduce((a,b)=>a + b?.totalPrice,0);
   setTotal(total)
-
+  // const add = myParcels.find(p=>p?.deliveryAddress)
+  // console.log(add)
+  // setAddress(add)
+  
 },[myParcels,setTotal])
 
   useEffect(()=>{
@@ -130,7 +136,7 @@ const MyParcel = () => {
     })
     .catch(err=>console.log(err))
   };
-console.log(myParcels)
+// console.log(myParcels)
   return (
     <div>
       <div className="text-3xl font-semibold text-center my-4">

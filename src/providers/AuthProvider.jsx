@@ -9,6 +9,7 @@ export const AuthContext = createContext(null);
 const provider = new GoogleAuthProvider();
 const AuthProvider = ({children}) => {
     const axiosPublic = useAxiosPublic()
+    const [address,setAddress] = useState({})
     const [user,setUser] = useState(null);
     const [loading,setLoading] = useState(true);
     const [deliveryMenID,setDeliveryMenID] = useState();
@@ -91,7 +92,8 @@ const AuthProvider = ({children}) => {
         parcelIds,
         setParcelIds,
         loading,
-        user
+        user,
+        address,setAddress
     }
     return (
         <div>

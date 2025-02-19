@@ -25,7 +25,7 @@ export default function Contact() {
                         e.target.reset()
           }
   return (
-    <div className=" md:flex mb-9 md:space-x-6 space-y-4 md:space-y-0">
+    <div className=" md:flex mb-16 md:space-x-6 space-y-4 md:space-y-0">
 
     <div className="grid h-96 md:w-1/2 z-0">
        <MapContainer center={position} zoom={13} scrollWheelZoom={false}>

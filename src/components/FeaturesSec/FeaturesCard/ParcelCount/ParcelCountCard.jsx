@@ -18,7 +18,7 @@ const ParcelCountCard = ({title}) => {
     }
     // console.log(userCount    )
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-10 mt-5'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-10 mt-16 dark:text-black'>
             {/* card-1 */}
            <div className="bg-[#F7F7F7] rounded-md p-5 text-center ">
            <h2>Total Number of People Using Your App: <CountUp duration={2} end={userCount?.usersCount} /> </h2>

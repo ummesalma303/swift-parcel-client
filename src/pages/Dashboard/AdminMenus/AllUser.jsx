@@ -35,7 +35,7 @@ const AllUser = () => {
          return res.data   
         }
     })
-    console.log(users)
+   
     // const userCount= users?.map(u=>u.
     //   bookingCount)
     // console.log(userCount)
