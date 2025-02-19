@@ -8,6 +8,7 @@ import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '@/Hooks/useAxiosPublic';
 import Loading from '@/components/Sheared/Loading';
 import Faqs from '../Faqs/Faqs';
+import Contact from './Contact';
 // import { Button } from "@/components/ui/button"
 
 const Home = () => {
@@ -41,6 +42,8 @@ const Home = () => {
             }
            </div>
             </div>
+            <h2 className='text-center font-semibold text-3xl my-6 w-11/12 mx-auto '>Blog</h2>
+            <Contact/>
         </div>
     );
 };

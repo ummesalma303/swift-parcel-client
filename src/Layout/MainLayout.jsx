@@ -9,9 +9,9 @@ const MainLayout = () => {
         <div>
             <NavBar></NavBar>
             <Outlet></Outlet>
-            <Fade>
+            {/* <Fade> */}
             <Footer></Footer>
-            </Fade>
+            {/* </Fade> */}
         </div>
     );
 };

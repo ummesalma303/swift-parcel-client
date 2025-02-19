@@ -2,8 +2,8 @@ import React from 'react'
 import faqs from '../../assets/faqs.webp'
 export default function Faqs() {
   return (
-    <div className='flex justify-between items-center w-11/12 mx-auto'>
-      <div className="space-y-4 w-1/2">
+    <div className='md:flex justify-between items-center w-11/12 mx-auto'>
+      <div className="space-y-4 md:w-1/2">
       <h2 className='text-4xl font-bold'>Faqs Asked Questions</h2>
   <details className="group [&_summary::-webkit-details-marker]:hidden" open>
     <summary
