@@ -30,7 +30,7 @@ export default function SeeMore() {
     <img
       alt=""
       src={recentParcels?.parcelUrl}
-      className="aspect-square h-full w-full object-cover"
+      className="aspect-square h-full w-full object-cover "
     />
   </div>
 

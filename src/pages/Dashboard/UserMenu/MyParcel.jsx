@@ -95,7 +95,7 @@ const MyParcel = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/parcel/${id}`)
+          .delete(`https://assignment-12-server-three-sage.vercel.app/parcel/${id}`)
           .then((res) => {
             refetch();
             if (res.data.deletedCount > 0) {

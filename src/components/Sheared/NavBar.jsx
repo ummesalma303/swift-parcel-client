@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import logo from '../../assets/logo.png'
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { Button } from '../ui/button';
@@ -17,7 +17,18 @@ import useUser from '@/Hooks/useUser';
 import DashboardRoutes from '@/routes/DashboardRoutes';
 import Loading from './Loading';
 import profile from '../../assets/profile-logo.png'
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarTrigger,
+} from "@/components/ui/menubar"
+
 const NavBar = () => {
+  const [theme,setTheme] =useState('light')
   const {user,handleLogout} = useContext(AuthContext);
   const navigate = useNavigate()
   const [users,isLoading,refetch] = useUser();
@@ -49,12 +60,26 @@ const NavBar = () => {
           return
       }
        }
+
+
+       const themeToggle=()=>{
+        setTheme(theme === 'dark' ? 'light':"dark")
+      }
+      useEffect(() => {
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark'); 
+        } else {
+          document.documentElement.classList.remove('dark'); 
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+      }, [theme]);
+  
     return (
        <div className="">
          <div className='fixed w-full px-5 md:px-10 flex justify-between items-center py-2 bg-slate-200 z-10' >
             <div className="flex items-center">
                 <img className='w-8 md:w-10' src={logo} alt="" />
-            <h2 className='text-lg md:text-2xl font-semibold'>SwiftParcel</h2>
+            <h2 className='text-lg md:text-2xl font-semibold dark:text-black'>SwiftParcel</h2>
             </div>
             {/*  */}
             <div className="flex items-center space-x-2 md:space-x-4">
@@ -64,6 +89,17 @@ const NavBar = () => {
                 <NavLink to='/'>home</NavLink>
             </ul>
             </div>
+            {/* theme controller */}
+            <label
+  htmlFor="AcceptConditions"
+  className="relative inline-block h-8 w-14 cursor-pointer rounded-full bg-gray-300 transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-green-500"
+>
+  <input type="checkbox" id="AcceptConditions" className="peer sr-only" onClick={themeToggle} />
+
+  <span
+    className="absolute inset-y-0 start-0 m-1 size-6 rounded-full bg-white transition-all peer-checked:start-6"
+  ></span>
+</label>
             {/* user info */}
             <div className="">
                 

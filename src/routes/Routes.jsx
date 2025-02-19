@@ -78,7 +78,7 @@ import SeeMore from "@/components/RecentParcel/SeeMore";
       },
       {
         path:'updateBooking/:id',
-        loader: ({params})=>fetch(`http://localhost:5000/parcels/${params.id}`),
+        loader: ({params})=>fetch(`https://assignment-12-server-three-sage.vercel.app/parcels/${params.id}`),
         element:<PrivateRoutes><UpdateBooking /></PrivateRoutes>
       },
       {
@@ -111,12 +111,12 @@ import SeeMore from "@/components/RecentParcel/SeeMore";
       },
       {
         path:'allParcel',
-        loader:()=>fetch('http://localhost:5000/delivery'),
+        loader:()=>fetch('https://assignment-12-server-three-sage.vercel.app/delivery'),
         element:<PrivateRoutes><AdminRoutes><AllParcels/></AdminRoutes></PrivateRoutes>
       },
       {
         path:'allDeliveryMen',
-        // loader:()=>fetch('http://localhost:5000/delivery'),
+        // loader:()=>fetch('https://assignment-12-server-three-sage.vercel.app/delivery'),
         element:<PrivateRoutes>
           <AdminRoutes>
           <AllDeliveryMen/>
@@ -126,12 +126,12 @@ import SeeMore from "@/components/RecentParcel/SeeMore";
       /* --------------------------- delivery men routes -------------------------- */
       {
         path:'myDeliveryList',
-        // loader:()=>fetch('http://localhost:5000/delivery'),
+        // loader:()=>fetch('https://assignment-12-server-three-sage.vercel.app/delivery'),
         element:<PrivateRoutes><DeliveryMenRoutes><MyDeliveryList/></DeliveryMenRoutes></PrivateRoutes>
       },
       {
         path:'reviews',
-        // loader:()=>fetch('http://localhost:5000/delivery'),
+        // loader:()=>fetch('https://assignment-12-server-three-sage.vercel.app/delivery'),
         element:<PrivateRoutes><DeliveryMenRoutes><MyReviews/></DeliveryMenRoutes></PrivateRoutes>
       },
      

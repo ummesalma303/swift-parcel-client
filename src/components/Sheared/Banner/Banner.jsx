@@ -16,10 +16,11 @@ const Banner = () => {
             Effortlessly manage, track, and optimize your delivery operations
             for <br /> faster, smarter, and more reliable results.
           </p>
-          <div className="flex max-w-sm mx-auto items-center space-x-2">
+          <a href="#recentParcel"><Button className="my-4">Get Started</Button></a>
+          {/* <div className="flex max-w-sm mx-auto items-center space-x-2">
             <Input className='' type="email" placeholder="Email" />
             <Button type="submit">Search</Button>
-          </div>
+          </div> */}
         </div>
         {/* </div> */}
         {/* <div className="bg-banner bg-cover"></div> */}

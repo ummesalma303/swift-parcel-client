@@ -44,7 +44,7 @@ const Register = () => {
                         //   timer: 1000
                         });
                         /* -------------------------- send data on database ------------------------- */
-                        axios.post('http://localhost:5000/users',userInfo)
+                        axios.post('https://assignment-12-server-three-sage.vercel.app/users',userInfo)
          .then(res=>{
             if (data.insertedId) {
                 console.log('successfully added database')

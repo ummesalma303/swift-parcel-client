@@ -6,8 +6,8 @@ import React from 'react'
 
 export default function RecentParcel() {
     const axiosPublic = useAxiosPublic();
-  const { data: parcels = [], isLoading,refetch } = useQuery({
-    queryKey: ["parcels"],
+  const { data: recentP = [], isLoading,refetch } = useQuery({
+    queryKey: ["recentP"],
     queryFn: async () => {
       const res = await axiosPublic.get('/recentParcel');
       return res.data;
@@ -16,13 +16,13 @@ export default function RecentParcel() {
   if (isLoading) {
     return <Loading/>
   }
-  console.log(parcels)
+  console.log(recentP)
   return (
-    <div className='mb-16'>
+    <div className='mb-16' id='recentParcel'>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
 
       {
-        parcels.map(parcel=><RecentParcelCard parcel={parcel}/>)
+        recentP?.map(parcel=><RecentParcelCard parcel={parcel} key={parcel._id}/>)
       }
         </div>
     </div>

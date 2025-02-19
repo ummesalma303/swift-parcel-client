@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 export default function RecentParcelCard({parcel}) {
    
-    const { parcelUrl, description, parcelType,_id } = parcel
+    const { parcelUrl, description, parcelType,_id } = parcel || {}
 
    
   return (
