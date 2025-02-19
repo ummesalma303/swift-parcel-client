@@ -11,10 +11,9 @@ const axiosSecure = axios.create({
 const useAxiosSecure = () => {
   const {handleLogout} = useContext(AuthContext)
   const navigate = useNavigate()
-  // request interceptors
+  // request interceptorshghj
   axiosSecure.interceptors.request.use(function (config) {
-    // Do something before request is sent
-    // console.log('stop by intercreptor.........')
+   
     const token = localStorage.getItem("access-token")
     config.headers.authorization = `Bearer ${token}`
     return config;
