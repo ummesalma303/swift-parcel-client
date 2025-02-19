@@ -118,6 +118,18 @@ console.log(parcelData)
             </div>
             {/* input-4 */}
             <div className="space-y-2">
+              <label>Parcel URL:</label>
+              <Input
+                type="url"
+                placeholder="Parcel URL"
+                {...register("parcelUrl", { required: true })}
+              />
+              {errors.parcelUrl && (
+                <span className="text-red-500">This field is required</span>
+              )}
+            </div>
+            {/* input-5 */}
+            <div className="space-y-2">
               <label>Parcel Type:</label>
               <Input
                 type="text"
@@ -227,6 +239,19 @@ console.log(parcelData)
                 {...register("deliveryAddress", { required: true })}
               />
               {errors.deliveryAddress && (
+                <span className="text-red-500">This field is required</span>
+              )}
+            </div>
+            {/* description */}
+            <div className="space-y-1">
+              <label>Description:</label>
+              <textarea
+                type="text"
+                className="w-full border-2 p-2 rounded-md"
+                placeholder="Parcel Delivery Address"
+                {...register("description", { required: true })}
+              />
+              {errors.description && (
                 <span className="text-red-500">This field is required</span>
               )}
             </div>

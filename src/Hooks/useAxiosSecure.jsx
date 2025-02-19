@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 // import React from 'react';
 
 const axiosSecure = axios.create({
-    baseURL: 'https://assignment-12-server-three-sage.vercel.app',
+    baseURL: 'http://localhost:5000',
     // baseURL: 'http://localhost:5000',
   });
 const useAxiosSecure = () => {

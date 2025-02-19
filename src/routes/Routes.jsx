@@ -26,6 +26,7 @@ import DeliveryMenRoutes from "./DeliveryMenRoutes";
 import Payment from "@/pages/Dashboard/Payment/Payment";
 import PaymentSuccess from "@/pages/Dashboard/Payment/PaymentSuccess";
 import PaymentHistory from "@/pages/PaymentHistory";
+import SeeMore from "@/components/RecentParcel/SeeMore";
 // import Register from "@/pages/Authentication/Register";
 // import Login from "@/pages/Authentication/Login";
 
@@ -46,6 +47,11 @@ import PaymentHistory from "@/pages/PaymentHistory";
         {
           path: '/register',
           element:<Register />
+        },
+        {
+          path:'/recentParcel/:id',
+          // loader: ({params})=>fetch(``),
+          element:<PrivateRoutes><SeeMore /></PrivateRoutes>
         },
       ],
     },
@@ -72,7 +78,7 @@ import PaymentHistory from "@/pages/PaymentHistory";
       },
       {
         path:'updateBooking/:id',
-        loader: ({params})=>fetch(`https://assignment-12-server-three-sage.vercel.app/parcels/${params.id}`),
+        loader: ({params})=>fetch(`http://localhost:5000/parcels/${params.id}`),
         element:<PrivateRoutes><UpdateBooking /></PrivateRoutes>
       },
       {
@@ -83,6 +89,7 @@ import PaymentHistory from "@/pages/PaymentHistory";
         path:'paymentSuccess',
         element:<PrivateRoutes><PaymentSuccess /></PrivateRoutes>
       },
+     
       // {
       //   path: '/paymentHistory',
       //   element:<PrivateRoutes><PaymentHistory></PaymentHistory></PrivateRoutes>
@@ -104,12 +111,12 @@ import PaymentHistory from "@/pages/PaymentHistory";
       },
       {
         path:'allParcel',
-        loader:()=>fetch('https://assignment-12-server-three-sage.vercel.app/delivery'),
+        loader:()=>fetch('http://localhost:5000/delivery'),
         element:<PrivateRoutes><AdminRoutes><AllParcels/></AdminRoutes></PrivateRoutes>
       },
       {
         path:'allDeliveryMen',
-        // loader:()=>fetch('https://assignment-12-server-three-sage.vercel.app/delivery'),
+        // loader:()=>fetch('http://localhost:5000/delivery'),
         element:<PrivateRoutes>
           <AdminRoutes>
           <AllDeliveryMen/>
@@ -119,12 +126,12 @@ import PaymentHistory from "@/pages/PaymentHistory";
       /* --------------------------- delivery men routes -------------------------- */
       {
         path:'myDeliveryList',
-        // loader:()=>fetch('https://assignment-12-server-three-sage.vercel.app/delivery'),
+        // loader:()=>fetch('http://localhost:5000/delivery'),
         element:<PrivateRoutes><DeliveryMenRoutes><MyDeliveryList/></DeliveryMenRoutes></PrivateRoutes>
       },
       {
         path:'reviews',
-        // loader:()=>fetch('https://assignment-12-server-three-sage.vercel.app/delivery'),
+        // loader:()=>fetch('http://localhost:5000/delivery'),
         element:<PrivateRoutes><DeliveryMenRoutes><MyReviews/></DeliveryMenRoutes></PrivateRoutes>
       },
      

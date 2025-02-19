@@ -9,7 +9,7 @@ import { Slide } from 'react-awesome-reveal';
 const FeaturesSec = () => {
    
     return (
-       <div className="my-12 w-11/12 mx-auto">
+       <div className="my-12 mx-auto">
         <h2 className='text-3xl font-semibold my-6'> Our Beautiful Features</h2>
          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-10'>
             <Slide>

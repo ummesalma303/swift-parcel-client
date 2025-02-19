@@ -29,10 +29,12 @@ import { useLoaderData } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { AuthContext } from "@/providers/AuthProvider";
+import SweetPagination from "sweetpagination";
 import { format } from "date-fns";
 //   import { Label } from "@/components/ui/label"
 
 const AllParcels = () => {
+   const [currentPageData, setCurrentPageData] = useState([]); 
   const [lte,setLte] = useState('')
   const [gte,setGte] = useState('')
   const delivery = useLoaderData();
@@ -122,7 +124,7 @@ console.log(lte,gte)
           </TableRow>
         </TableHeader>
         <TableBody>
-          {parcels?.map((parcel,i) => (
+          {currentPageData?.map((parcel,i) => (
             <TableRow key={i}>
               <TableCell className="font-medium">{parcel?.name}</TableCell>
               <TableCell>{parcel?.phone}</TableCell>
@@ -191,6 +193,16 @@ console.log(lte,gte)
         </TableBody>
        
       </Table>
+     </div>
+     <div className="">
+
+     <SweetPagination
+   width={25}
+    navigation={true}
+    dataPerPage={5}
+        currentPageData={setCurrentPageData}
+        getData={parcels}
+      />
      </div>
     </div>
   );

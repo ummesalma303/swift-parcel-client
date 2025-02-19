@@ -50,7 +50,7 @@ const MyParcel = () => {
   const [filter, setFilter] = useState("");
   const { user,setTotal,total:price,setParcelIds } = useContext(AuthContext);
   const axiosPublic = useAxiosPublic();
-console.log(price)
+// console.log()
   // show data
 
   const {
@@ -95,7 +95,7 @@ console.log(price)
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://assignment-12-server-three-sage.vercel.app/parcel/${id}`)
+          .delete(`http://localhost:5000/parcel/${id}`)
           .then((res) => {
             refetch();
             if (res.data.deletedCount > 0) {
@@ -130,7 +130,7 @@ console.log(price)
     })
     .catch(err=>console.log(err))
   };
-
+console.log(myParcels)
   return (
     <div>
       <div className="text-3xl font-semibold text-center my-4">

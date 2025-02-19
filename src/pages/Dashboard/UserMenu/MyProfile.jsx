@@ -53,7 +53,7 @@ const MyProfile = () => {
             setUser({...user,...updateData})
             // console.log(res)
             // console.log(updateData?.photoURL)
-            axios.patch(`https://assignment-12-server-three-sage.vercel.app/updateUser/${user?.email}`,{photo:updateData?.photoURL})
+            axios.patch(`http://localhost:5000/updateUser/${user?.email}`,{photo:updateData?.photoURL})
             .then(res=>console.log(res))
             .catch(err=>console.log(err))
             // window.reload()
@@ -65,7 +65,7 @@ const MyProfile = () => {
         .catch(err=>console.log(err))
        
          /* -------------------------- send data on database ------------------------- */
-        //  axios.patch('https://assignment-12-server-three-sage.vercel.app/users',userInfo)
+        //  axios.patch('http://localhost:5000/users',userInfo)
         //  .then(res=>{
         //     if (data.insertedId) {
         //         console.log('successfully added database')

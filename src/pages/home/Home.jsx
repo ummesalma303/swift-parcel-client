@@ -9,6 +9,7 @@ import useAxiosPublic from '@/Hooks/useAxiosPublic';
 import Loading from '@/components/Sheared/Loading';
 import Faqs from '../Faqs/Faqs';
 import Contact from './Contact';
+import RecentParcel from './RecentParcel';
 // import { Button } from "@/components/ui/button"
 
 const Home = () => {
@@ -29,21 +30,23 @@ const Home = () => {
     return (
         <div>
             <Banner/>
-            {/* <div className=""></div> */}
+            <div className="w-11/12 mx-auto">
             {/* features section */}
             <FeaturesSec/>
             <Faqs/>
 
             <div className="mb-16">
             <h2 className='text-center font-semibold text-3xl my-6 w-11/12 mx-auto '>The Top Delivery Man</h2>
-           <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+           <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
            {
                 topDeliveryMens?.map((topMen,i)=> <TopDeliveryMen key={i} topMen={topMen}></TopDeliveryMen>)
             }
            </div>
             </div>
-            <h2 className='text-center font-semibold text-3xl my-6 w-11/12 mx-auto '>Blog</h2>
+            <h2 className='text-center font-semibold text-3xl my-6 w-11/12 mx-auto '>Recent Booked Parcel</h2>
+            <RecentParcel/>
             <Contact/>
+            </div>
         </div>
     );
 };
