@@ -32,8 +32,9 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from "@/components/ui/menubar"
+import { IoIosArrowForward } from "react-icons/io";
 import { IoMdMenu } from "react-icons/io";
-import { GoSidebarCollapse } from "react-icons/go";
+// import { GoSidebarCollapse } from "react-icons/go";
 
 const NavBar = () => {
   const [theme,setTheme] = useState('light')
@@ -139,7 +140,7 @@ const NavBar = () => {
                 {
                   user&&<> <NavLink to='/bookParcel'>Book Parcel</NavLink>
                   <NavLink to='/dashboard/myProfile'>Profile</NavLink>
-                  <div  onClick={()=>handleRoute()} className='flex items-center'>Dashboard </div></>
+                  <div  onClick={()=>handleRoute()} className='flex items-center'>Dashboard <IoIosArrowForward /> </div></>
                 }
             </ul>
             </div>

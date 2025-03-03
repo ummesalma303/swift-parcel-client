@@ -31,6 +31,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "@/providers/AuthProvider";
 import SweetPagination from "sweetpagination";
 import { format } from "date-fns";
+import glass from '../../../assets/glass.jpg'
 //   import { Label } from "@/components/ui/label"
 
 const AllParcels = () => {
@@ -92,48 +93,70 @@ const AllParcels = () => {
     // console.log(deliveryManData)
   }
 
-console.log(lte,gte)
+console.log(parcels)
 
   return (
-    <div>
+    <div className="w-[95%] mx-auto">
       <div className=" flex items-end">
         {/* <form onSubmit={handleSearch} className=" flex items-end"> */}
         <div className="">
         <label htmlFor="" className="text-xl font-semibold ">Requested delivery date:</label><br />
-        <input onChange={(e)=>setLte(e.target.value)} className="border-2 border-gray-300 px-2 mt-3" type="date" name="gte" />
+        <input onChange={(e)=>setLte(e.target.value)} className="border-2 border-gray-300 px-2 mt-3 dark:text-black" type="date" name="gte" />
         </div>
         <div className="">
-        <input onChange={(e)=>setGte(e.target.value)} className="border-2 border-gray-300 px-2" type="date" name="lte" />
+        <input onChange={(e)=>setGte(e.target.value)} className="border-2 border-gray-300 px-2 dark:text-black" type="date" name="lte" />
         </div>
         {/* <Button type="submit"  >Search</Button>
         </form> */}
        
       </div>
-     <div className="">
-     <Table>
-        <TableCaption>A list of your recent invoices.</TableCaption>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-[100px]">User’s Name</TableHead>
-            <TableHead>User’s Phone</TableHead>
-            <TableHead>Booking Date</TableHead>
-            <TableHead>Requested Delivery Date</TableHead>
-            <TableHead className="text-right">Cost</TableHead>
-            <TableHead className="text-right">Status</TableHead>
-            <TableHead className="text-right">Manage Button</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {currentPageData?.map((parcel,i) => (
-            <TableRow key={i}>
-              <TableCell className="font-medium">{parcel?.name}</TableCell>
-              <TableCell>{parcel?.phone}</TableCell>
-              <TableCell>{format(new Date(parcel?.bookingDate),'dd-MM-yyyy')}</TableCell>
-              <TableCell>{parcel?.deliveryDate}</TableCell>
-              <TableCell className="text-right">{parcel?.totalPrice}</TableCell>
-              <TableCell className="text-right">{parcel?.status}</TableCell>
-              <TableCell className="text-right">
-                <Dialog>
+    
+
+     
+
+
+     {/* all parcel card */}
+     <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-5 my-16 ">
+      {/*
+  Heads up! 👋
+
+  This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
+*/}
+{
+  currentPageData?.map((parcel,i)=>(
+    <article className="overflow-hidden rounded-lg border border-gray-100 dark:bg-transparent bg-white shadow-xs h-full">
+  <img
+    alt=""
+    src={parcel?.parcelUrl || glass}
+    className="h-56 w-full object-cover"
+  />
+
+  <div className="p-4 sm:p-6 ">
+  <div className="text-xs text-gray-600 dark:text-white">
+      <p>booking date: {format(new Date(parcel?.bookingDate),'dd-MM-yyyy')}
+        <p>Requested Delivery Date: {parcel?.deliveryDate}</p>
+      </p>
+    </div>
+
+    <a >
+      <h3 className="text-lg font-medium text-gray-900 dark:text-white">
+        {parcel?.parcelType}
+      </h3>
+    </a>
+   
+    <div className="">
+      <h2>user: {parcel?.name}</h2>
+      <h2>phone:{parcel?.phone}</h2>
+    </div>
+    <div className="">
+      <h2>price: {parcel?.totalPrice}</h2>
+      <h2>status: {parcel?.status}</h2>
+    </div>
+    <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500 dark:text-white"> <span className="font-semibold ">Description:</span>
+     {parcel?.description|| ' .....'}
+    </p>
+   <div className="pt-6">
+   <Dialog>
                   <DialogTrigger asChild>
                     <Button >Manage</Button>
                   </DialogTrigger>
@@ -185,17 +208,25 @@ console.log(lte,gte)
                     </DialogClose> */}
                   </DialogContent>
                 </Dialog>
+   </div>
+    {/* <Link to={`/recentParcel/${_id}`} className="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600">
+      See more...
 
-                {/* <Button>Mange</Button> */}
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-       
-      </Table>
-     </div>
+      <span aria-hidden="true" className="block transition-all group-hover:ms-0.5 rtl:rotate-180">
+        &rarr;
+      </span>
+    </Link> */}
+  </div>
+</article>
+  ))
+}
+
+    </div>
+
+
+
+
      <div className="">
-
      <SweetPagination
    width={25}
     navigation={true}

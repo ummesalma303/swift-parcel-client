@@ -23,7 +23,9 @@ const MyProfile = () => {
     // const auth = getAuth(app);
     const navigate = useNavigate()
     const {setUser,user,address} = useContext(AuthContext);
-    console.log(address)
+    console.log(address
+
+    )
     // const {data:myProfile=[]} =useQuery({
     //     queryKey:["myProfile"],
     //     enabled:!!user,
@@ -77,25 +79,45 @@ const MyProfile = () => {
         // console.log(e)
     }
     return (
-        <div className='h-[80vh]  w-11/12 mx-auto'>
+        <div className='mb-20'>
             {/* <div className="w-11/12 md:w-1/2 mx-auto text-center mt-5">
             <h2 className='text-2xl font-semibold text-center'>My Profile</h2>
             <p className='text-sm mt-3'>Welcome to your profile! Here, you can view and manage your personal details, account settings, and activity. Keep your information up to date to make the most of your experience.</p>
             </div> */}
-           <div className="h-[70vh] flex flex-col justify-center space-x-4 items-center  ">
-          <div className="border-[1px] p-5 rounded-md flex space-x-3">
-          <div className=" text-center mb-4 spa">
-                <img className='w-24 h-24  mx-auto' src={user?.photoURL} alt="" />
-               
-            </div>
+            <div className="bg-cover-image bg-cover bg-bottom bg-no-repeat h-[50vh] bg-fixed mb-16 relative">
+                 <div className="bg-gradient-to-t from-[#00000056] to-[#0000005c] w-full h-full ">
+                   <div className="">
+                   <img className='w-28 h-28  mx-auto absolute -bottom-14 left-10 rounded-full ring ring-white' src={user?.photoURL} alt="" />
+                   </div>
+                 </div>
+               </div>
 
+               <div className="mt-20 border-[1px] px-5 py-9 rounded-md dark:text-black bg-slate-100">
 
-                <div className="">
-                    <div className=""> 
+                <div className="border-b-[1px] dark:text-black">
+                    <h2 className='text-3xl font-bold'>Info:</h2>
+                </div>
+                <div className="space-y-4">
+                    <div className="grid grid-cols-2 dark:text-black">
+                        <h2>Full Name:</h2> 
                         <h2>{user?.displayName}</h2>
-                    <h3>{user?.email}</h3></div>
-                    <p>Phone: {users?.phone}</p>
-            <form action="" className='space-x-5' >
+                    </div>
+                    <div className="grid grid-cols-2">
+                        <h2>Mobile:</h2> 
+                        <h2>{users?.phone}</h2>
+                    </div>
+                    <div className="grid grid-cols-2">
+                        <h2>Full Name:</h2> 
+                        <h2>{user?.displayName}</h2>
+                    </div>
+                    <div className="grid grid-cols-2">
+                        <h2>Address:</h2> 
+                        <address>{user?.address || 'comilla,bangladesh'}</address>
+                    </div>
+                </div>
+
+                <div className="pt-10">
+                <form action="" className='space-x-5' >
                 {/* <input onChange={(e)=>handleImage(e.target.files[0])} type="file" name="" id="" /> */}
 
                 <label className='inline-block px-4 py-3 bg-slate-500 text-white cursor-pointer text-center' >Upload a image
@@ -114,9 +136,8 @@ const MyProfile = () => {
                     
             </form>
                 </div>
-          </div>
-          
-           </div>
+               </div>
+
         </div>
     );
 };

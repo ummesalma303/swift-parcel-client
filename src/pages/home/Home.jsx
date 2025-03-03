@@ -49,9 +49,12 @@ const Home = () => {
             </div>
             <h2 className='text-center font-semibold text-3xl my-6 w-11/12 mx-auto '>Recent Booked Parcel</h2>
             <RecentParcel/>
+            </div>
+
+            <Newsletter/>
+            <div className="w-11/12 mx-auto ">
             <Contact/>
             </div>
-            <Newsletter/>
         </div>
     );
 };

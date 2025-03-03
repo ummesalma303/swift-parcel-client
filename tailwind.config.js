@@ -33,6 +33,7 @@ module.exports = {
 			'banner-3': 'url("/login-2.jpg")', // Escape single quotes
 			'banner-error': 'url("/eror-page-2.jpg")', // Escape single quotes
 			'newsletter': 'url("/parcel.jpg")', // Escape single quotes
+			'cover-image': 'url("/cover-2.jpg")', // Escape single quotes
 		  },
   		borderRadius: {
   			lg: 'var(--radius)',

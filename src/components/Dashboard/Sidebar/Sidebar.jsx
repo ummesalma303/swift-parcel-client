@@ -37,7 +37,7 @@ transform
 left-0*/}
 
       <div
-        className={`z-10 md:fixed overflow-x-hidden bg-gray-100 w-64 space-y-6 px-2 py-4 absolute inset-y-0 ${
+        className={`z-10 md:fixed overflow-x-hidden dark:bg-gray-300 bg-gray-100 w-64 space-y-6 px-2 py-4 absolute inset-y-0 ${
           toggle && "-translate-x-full"
         }  md:translate-x-0  transition duration-200 ease-in-out`}
       >
