@@ -186,7 +186,7 @@ console.log(parcelData)
               <label>Parcel Delivery Date:</label>
               <input
                 type="date"
-                className="w-full border-2 p-2 rounded-md"
+                className="w-full border-2 p-2 rounded-md dark:bg-transparent dark:text-white"
                 {...register("deliveryDate", { required: true })}
               />
               {errors.deliveryDate && <span className='text-red-500'>This field is required</span>} 
@@ -205,7 +205,7 @@ console.log(parcelData)
               <label>Delivery Address Latitude:</label>
               <input step="0.0001"
                 type="text" 
-                className="w-full border-2 p-2 rounded-md"
+                className="w-full border-2 p-2 rounded-md dark:bg-transparent"
                 placeholder="Delivery Address Latitude"
                 {...register("addressLatitude", { required: "This field is required",pattern:{value:/^\d+\.\d+$/,message:"Latitude must be decimal"} })}
               />
@@ -222,7 +222,7 @@ console.log(parcelData)
 
               <input min="0"  step="0.0001"
                 type="text" required
-                className="w-full border-2 p-2 rounded-md"
+                className="w-full border-2 p-2 rounded-md dark:bg-transparent"
                 placeholder="Delivery Address longitude"
                 {...register("addressLongitude", { required:"This field is required",pattern:{value:/^\d+\.\d+$/
 ,message:"Longitude must be decimal"} })}
@@ -234,7 +234,7 @@ console.log(parcelData)
               <label>Parcel Delivery Address:</label>
               <textarea
                 type="text"
-                className="w-full border-2 p-2 rounded-md"
+                className="w-full border-2 p-2 rounded-md dark:bg-transparent"
                 placeholder="Parcel Delivery Address"
                 {...register("deliveryAddress", { required: true })}
               />
@@ -247,7 +247,7 @@ console.log(parcelData)
               <label>Description:</label>
               <textarea
                 type="text"
-                className="w-full border-2 p-2 rounded-md"
+                className="w-full border-2 p-2 rounded-md dark:bg-transparent" 
                 placeholder="Parcel Delivery Address"
                 {...register("description", { required: true })}
               />
@@ -257,7 +257,7 @@ console.log(parcelData)
             </div>
 
             <input
-              className="bg-black px-4 py-1 w-full rounded-md text-white mb-3"
+              className="bg-black dark:bg-white dark:text-black px-4 py-1 w-full rounded-md text-white mb-3"
               type="submit"
               value="Book"
             />
