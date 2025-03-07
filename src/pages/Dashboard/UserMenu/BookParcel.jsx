@@ -256,7 +256,7 @@ console.log(parcelData)
               )}
             </div>
 
-            <input
+            <Input
               className="bg-black dark:bg-white dark:text-black px-4 py-1 w-full rounded-md text-white mb-3"
               type="submit"
               value="Book"
