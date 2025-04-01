@@ -127,20 +127,18 @@ const NavBar = () => {
             <h2 className='text-lg md:text-2xl font-semibold dark:text-black'>SwiftParcel</h2>
             </div>
             {/*  */}
-            <div className="flex items-center space-x-2 md:space-x-4">
+            <div className="flex items-center text-center space-x-2 md:space-x-4">
             <div className="flex items-center">
             <IoIosNotificationsOutline />
-
-
-
-
-            <ul className='hidden md:flex space-x-3  dark:text-black'>
-                <NavLink to='/'>home</NavLink>
+            <ul className='hidden md:flex space-x-3   dark:text-black'>
+                <NavLink to='/' className='text-center'>home</NavLink>
                 <NavLink to='/faqs'>Faqs</NavLink>
                 {
-                  user&&<> <NavLink to='/bookParcel'>Book Parcel</NavLink>
-                  <NavLink to='/dashboard/myProfile'>Profile</NavLink>
-                  <div  onClick={()=>handleRoute()} className='flex items-center'>Dashboard <IoIosArrowForward /> </div></>
+                  user&&<> 
+                  <NavLink to='/bookParcel'>Book Parcel</NavLink>
+                 
+                  {/* <div  onClick={()=>handleRoute()} className='flex items-center'>Dashboard <IoIosArrowForward /> </div> */}
+                  </>
                 }
             </ul>
             </div>
@@ -168,7 +166,8 @@ const NavBar = () => {
   <DropdownMenuContent>
     <DropdownMenuLabel>{user?.displayName}</DropdownMenuLabel>
     <DropdownMenuSeparator  />
-    {/* <><DropdownMenuItem  onClick={()=>handleRoute()}>Dashboard</DropdownMenuItem></> */}
+    <DropdownMenuItem><NavLink to='/dashboard/myProfile'>Profile</NavLink></DropdownMenuItem>
+    <><DropdownMenuItem  onClick={()=>handleRoute()}>Dashboard</DropdownMenuItem></>
    <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
     {/* <DropdownMenuItem>Team</DropdownMenuItem>
     <DropdownMenuItem>Subscription</DropdownMenuItem> */}
