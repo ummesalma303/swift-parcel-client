@@ -7,7 +7,7 @@ export default function Faqs() {
       <h2 className='text-4xl font-bold'>Faqs Asked Questions</h2>
   <details className="group [&_summary::-webkit-details-marker]:hidden" open>
     <summary
-      className="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50 p-4 text-gray-900"
+      className="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50 dark:bg-transparent border-2 dark:border-gray-300 p-4 text-gray-900 dark:text-white"
     >
       <h2 className="font-medium">How do I track the status of my parcel?</h2>
 
@@ -29,7 +29,7 @@ export default function Faqs() {
 
   <details className="group [&_summary::-webkit-details-marker]:hidden">
     <summary
-      className="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50 p-4 text-gray-900"
+      className="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50 p-4 text-gray-900 dark:bg-transparent border-2 dark:border-gray-300 dark:text-white"
     >
       <h2 className="font-medium">What happens if my parcel is delayed?</h2>
 

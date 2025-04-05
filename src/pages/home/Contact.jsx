@@ -55,9 +55,9 @@ export default function Contact() {
         </div>
         <div className="">
         <Label>Message</Label>
-        <textarea name="" id="" placeholder='Message' className='w-full border-[1px]' required></textarea>
+        <textarea name="" id="" placeholder='Message' className='w-full border-[1px] bg-transparent' required></textarea>
         </div>
-        <input type="submit" className='px-4 py-2 bg-black text-white rounded-sm' />
+        <input type="submit" className='px-4 py-2 bg-black text-white rounded-sm dark:bg-white dark:text-black' />
       </form>
     </div>
     </div>

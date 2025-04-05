@@ -15,7 +15,7 @@ export default function RecentParcelCard({parcel}) {
   This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
 */}
 
-<article className="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-xs h-full">
+<article className="overflow-hidden rounded-lg border border-gray-100 dark:border-gray-700 bg-white dark:bg-[#1F2937] shadow-xs h-full">
   <img
     alt=""
     src={parcelUrl}
@@ -24,12 +24,12 @@ export default function RecentParcelCard({parcel}) {
 
   <div className="p-4 sm:p-6">
     <a href="#">
-      <h3 className="text-lg font-medium text-gray-900">
+      <h3 className="text-lg font-medium text-gray-900 dark:text-white">
         {parcelType}
       </h3>
     </a>
 
-    <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
+    <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500 dark:text-gray-300">
      {description.slice(0,68)}...
     </p>
 

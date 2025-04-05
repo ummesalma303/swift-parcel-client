@@ -137,7 +137,7 @@ const NavBar = () => {
                   user&&<> 
                   <NavLink to='/bookParcel'>Book Parcel</NavLink>
                  
-                  {/* <div  onClick={()=>handleRoute()} className='flex items-center'>Dashboard <IoIosArrowForward /> </div> */}
+                  <div  onClick={()=>handleRoute()} className='flex items-center'>Dashboard  </div>
                   </>
                 }
             </ul>
@@ -167,7 +167,7 @@ const NavBar = () => {
     <DropdownMenuLabel>{user?.displayName}</DropdownMenuLabel>
     <DropdownMenuSeparator  />
     <DropdownMenuItem><NavLink to='/dashboard/myProfile'>Profile</NavLink></DropdownMenuItem>
-    <><DropdownMenuItem  onClick={()=>handleRoute()}>Dashboard</DropdownMenuItem></>
+    {/* <><DropdownMenuItem  onClick={()=>handleRoute()}>Dashboard</DropdownMenuItem></> */}
    <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
     {/* <DropdownMenuItem>Team</DropdownMenuItem>
     <DropdownMenuItem>Subscription</DropdownMenuItem> */}

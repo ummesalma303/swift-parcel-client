@@ -14,8 +14,8 @@ const Footer = () => {
                 <h2 className='text-xl text-gray-300'>Make something you love.</h2>
             </div>
             <hr />
-            <div className="flex justify-between items-center px-6">
-            <div className="py-3 ">
+            <div className="flex justify-between items-center px-6 py-3 ">
+            <div>
                 <p>Copyright © 2025 - All right reserved</p>
             </div>
             <div className="flex items-center space-x-2">
