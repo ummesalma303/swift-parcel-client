@@ -1,25 +1,3 @@
-// /** @type {import('tailwindcss').Config} */
-// export default {
-//   content: [
-//     "./index.html",
-//     "./src/**/*.{js,ts,jsx,tsx}",
-//   ],
-//   theme: {
-//     extend: {
-      // backgroundImage: {
-      //   // 'banner':"url('./src/assets/banner.jpeg')"
-      //    "banner": "url('/src/assets/banner.jpeg')"
-      // }
-//     },
-//   },
-//   plugins: [
-//     require('daisyui'),
-//   ],
-// }
-
-
-
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     darkMode: ["class"],
@@ -28,12 +6,13 @@ module.exports = {
   theme: {
   	extend: {
 		  backgroundImage: {
-			'banner': 'url("/banner-2.jpg")', // Escape single quotes
-			'banner-2': 'url("/login.jpg")', // Escape single quotes
-			'banner-3': 'url("/login-2.jpg")', // Escape single quotes
-			'banner-error': 'url("/eror-page-2.jpg")', // Escape single quotes
-			'newsletter': 'url("/parcel.jpg")', // Escape single quotes
-			'cover-image': 'url("/cover-2.jpg")', // Escape single quotes
+			'banner': 'url("/public/banner-2.jpg")', 
+			'banner-1': 'url("/cover-image-2.webp")', 
+			'banner-2': 'url("/login.jpg")', 
+			'banner-3': 'url("/login-2.jpg")', 
+			'banner-error': 'url("/eror-page-2.jpg")', 
+			'newsletter': 'url("/parcel.jpg")', 
+			'cover-image': 'url("/cover-2.jpg")', 
 		  },
   		borderRadius: {
   			lg: 'var(--radius)',
