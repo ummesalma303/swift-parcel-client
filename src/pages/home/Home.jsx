@@ -52,7 +52,7 @@ const Home = () => {
             </div>
 
             <Newsletter/>
-            <div className="w-11/12 mx-auto ">
+            <div id="contacts" className="w-11/12 mx-auto ">
             <Contact/>
             </div>
         </div>

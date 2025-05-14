@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import logo from "../../assets/logo.png";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { Button } from "../ui/button";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "@/providers/AuthProvider";
 
 import {
@@ -36,9 +36,9 @@ import { IoIosArrowForward } from "react-icons/io";
 import { IoMdMenu } from "react-icons/io";
 import { ModeToggle } from "../mode-toggle";
 // import { GoSidebarCollapse } from "react-icons/go";
-// import { Link, Element } from 'react-scroll';
+import { Link, Element } from 'react-scroll';
 const NavBar = () => {
-  const [theme, setTheme] = useState("light");
+
   const { user, handleLogout } = useContext(AuthContext);
   const navigate = useNavigate();
   const [users, isLoading, refetch] = useUser();
@@ -91,12 +91,11 @@ const NavBar = () => {
                   <NavLink to="/faqs">
                     <MenubarItem>Faqs</MenubarItem>
                   </NavLink>
-                  {/* <MenubarSeparator />
-                  <Link to="/contacts">
+                  <MenubarSeparator />
+                  <Link to="contacts"  smooth={true} duration={500} offset={-90}>
                     <MenubarItem>Contacts</MenubarItem>
-                  </Link> */}
-                  {/* <NavLink to='/'> */}
-
+                  </Link>
+                 
                   {user && (
                     <>
                       {" "}
@@ -118,7 +117,7 @@ const NavBar = () => {
                       </MenubarItem>
                     </>
                   )}
-                  {/* </NavLink> */}
+                 
                 </MenubarContent>
               </MenubarMenu>
             </Menubar>
@@ -154,6 +153,7 @@ const NavBar = () => {
                 </div>
               </>
             )}
+                  <Link to="contacts"  smooth={true} duration={500} offset={-130}> Contacts </Link>
           </ul>
         </div>
 
