@@ -9,13 +9,9 @@ export default function RecentParcelCard({parcel}) {
    
   return (
     <div>
-      {/*
-  Heads up! 👋
+   
 
-  This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
-*/}
-
-<article className="overflow-hidden rounded-lg border border-gray-100 dark:border-gray-700 bg-white dark:bg-[#0e092675] shadow-xs h-full">
+<article className="overflow-hidden rounded-lg border border-gray-100 dark:border-gray-700 bg-white dark:bg-transparent shadow-xs h-full">
   <img
     alt=""
     src={parcelUrl}

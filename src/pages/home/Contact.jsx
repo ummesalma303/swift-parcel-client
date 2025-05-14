@@ -42,7 +42,7 @@ export default function Contact() {
     </div>
     {/* input */}
     <div className="flex-1">
-      <h2 className='text-2xl font-semibold'>Contacts</h2>
+      <h2 id='contacts' className='text-2xl font-semibold'>Contacts</h2>
       <p className='mb-4'>if you want to contact us.</p>
       <form onSubmit={handleSubmit} className="space-y-4 border-[1px] p-4">
         <div className="">

@@ -4,9 +4,11 @@ import { Outlet } from 'react-router-dom';
 import Footer from '../components/Sheared/Footer';
 import { Fade } from 'react-awesome-reveal';
 // import NavBar2 from '@/components/Sheared/Banner/NavBar2';
+import { ThemeProvider } from "@/components/theme-provider"
 
 const MainLayout = () => {
     return (
+         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
         <div>
             <NavBar></NavBar>
             {/* <NavBar2></NavBar2> */}
@@ -15,6 +17,7 @@ const MainLayout = () => {
             <Footer></Footer>
             {/* </Fade> */}
         </div>
+         </ThemeProvider>
     );
 };
 

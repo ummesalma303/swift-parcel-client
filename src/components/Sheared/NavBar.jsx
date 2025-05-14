@@ -34,8 +34,9 @@ import {
 } from "@/components/ui/menubar";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoMdMenu } from "react-icons/io";
+import { ModeToggle } from "../mode-toggle";
 // import { GoSidebarCollapse } from "react-icons/go";
-
+// import { Link, Element } from 'react-scroll';
 const NavBar = () => {
   const [theme, setTheme] = useState("light");
   const { user, handleLogout } = useContext(AuthContext);
@@ -70,18 +71,7 @@ const NavBar = () => {
     }
   };
 
-  const themeToggle = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
-
+ 
   return (
     <div className="">
       <div className="fixed w-full px-5 md:px-10 flex justify-between items-center py-2 bg-slate-200 dark:bg-[#030712] z-10">
@@ -101,8 +91,10 @@ const NavBar = () => {
                   <NavLink to="/faqs">
                     <MenubarItem>Faqs</MenubarItem>
                   </NavLink>
-                  <MenubarSeparator />
-
+                  {/* <MenubarSeparator />
+                  <Link to="/contacts">
+                    <MenubarItem>Contacts</MenubarItem>
+                  </Link> */}
                   {/* <NavLink to='/'> */}
 
                   {user && (
@@ -149,6 +141,7 @@ const NavBar = () => {
               home
             </NavLink>
             <NavLink to="/faqs">Faqs</NavLink>
+            {/* <NavLink to="/contacts">Contacts</NavLink> */}
             {user && (
               <>
                 <NavLink to="/bookParcel">Book Parcel</NavLink>
@@ -167,19 +160,7 @@ const NavBar = () => {
         {/* user info */}
         <div className="flex items-center space-x-3">
           {/* theme controller */}
-          <label
-            htmlFor="AcceptConditions"
-            className="relative inline-block h-8 w-14 cursor-pointer rounded-full bg-gray-300 transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-green-500"
-          >
-            <input
-              type="checkbox"
-              id="AcceptConditions"
-              className="peer sr-only"
-              onClick={themeToggle}
-            />
-
-            <span className="absolute inset-y-0 start-0 m-1 size-6 rounded-full bg-white transition-all peer-checked:start-6"></span>
-          </label>
+         <ModeToggle/>
           {/* user info */}
           {user ? (
             <div>
