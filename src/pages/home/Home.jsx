@@ -29,7 +29,7 @@ const Home = () => {
     }
     // console.log(topDeliveryMens)
     return (
-        <div>
+        <div className=''>
             <Banner/>
             <div className="w-11/12 mx-auto ">
             

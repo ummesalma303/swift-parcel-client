@@ -8,8 +8,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 
 const MainLayout = () => {
     return (
-         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-        <div>
+         <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+        <div className='bg-[#ecf0f3cd]'>
             <NavBar></NavBar>
             {/* <NavBar2></NavBar2> */}
             <Outlet></Outlet>
