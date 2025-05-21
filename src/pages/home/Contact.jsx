@@ -25,7 +25,7 @@ export default function Contact() {
                         e.target.reset()
           }
   return (
-    <div className=" md:flex mb-16 md:space-x-6 space-y-4 md:space-y-0">
+    <div className=" bg-[#EAEEF1] dark:bg-[#06151E] dark:border-[1px] dark:border-gray-700 shadow-[0_0_15px_rgba(0,0,0,0.1)] inset-shadow-sm inset-shadow-white border-[1px] border-indigo-100 shadow-indigo-100 p-6 rounded-xl md:flex mb-16 md:space-x-6 space-y-4 md:space-y-0">
 
     <div className="grid h-96 md:w-1/2 z-0">
        <MapContainer center={position} zoom={13} scrollWheelZoom={false}>

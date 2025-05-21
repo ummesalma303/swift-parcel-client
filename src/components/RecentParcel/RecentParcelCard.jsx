@@ -11,7 +11,7 @@ export default function RecentParcelCard({parcel}) {
     <div>
    
 
-<article className="overflow-hidden rounded-lg border border-gray-100 dark:border-gray-700 bg-white dark:bg-transparent shadow-xs h-full">
+<article className="overflow-hidden rounded-lg p-8 text-center dark:bg-[#06151E]  dark:border-gray-700 light:bg-[#ecf0f3] shadow-[0_0_15px_rgba(0,0,0,0.1)] inset-shadow-sm inset-shadow-white border-[1px] border-indigo-100 hover:border-indigo-300 transition-all duration-[0.5] delay-200 hover:bg-gradient-to-b hover:from-[#ffffff1e] hover:from-[5%] dark:hover:from-[#1b13132c] dark:hover:via-[#271b1b1d] hover:via-[#ffffff93]  hover:to-indigo-200 dark:hover:to-indigo-800 h-full">
   <img
     alt=""
     src={parcelUrl}

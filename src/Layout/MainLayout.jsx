@@ -10,7 +10,10 @@ const MainLayout = () => {
     return (
          <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
         <div className=' light:bg-[#ecf0f3cd]'>
-            <NavBar></NavBar>
+            <div className="sticky top-0 z-10 backdrop-blur-xl">
+            <NavBar ></NavBar>
+
+            </div>
             {/* <NavBar2></NavBar2> */}
             <Outlet></Outlet>
             {/* <Fade> */}
