@@ -63,4 +63,13 @@
   }
 }
 
+.my-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.my-card:hover {
+  transform: rotateX(4deg) rotateY(-4deg);
+}
 
