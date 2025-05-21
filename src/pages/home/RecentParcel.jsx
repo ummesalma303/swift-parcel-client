@@ -16,9 +16,9 @@ export default function RecentParcel() {
   if (isLoading) {
     return <Loading/>
   }
-  console.log(recentP)
+  // console.log(recentP)
   return (
-    <div className='mb-16' id='recentParcel'>
+    <div className='mb-16 ' id='recentParcel'>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
 
       {

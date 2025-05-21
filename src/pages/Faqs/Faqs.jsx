@@ -9,9 +9,9 @@ import {
  
 export default function Faqs() {
   return (
-    <div className='md:flex justify-between items-center w-11/12 mx-auto py-20 '>
+    <div className='md:flex justify-between items-center w-11/12 mx-auto my-16 '>
       <div className="space-y-4 md:w-1/2">
-      <h2 className='text-4xl font-bold'>Faqs Asked Questions</h2>
+      <h2 className='text-3xl font-semibold mt-28 mb-6'>Faqs Asked Questions</h2>
    <Accordion type="single" collapsible className="w-full">
       <AccordionItem value="item-1">
         <AccordionTrigger>How do I track the status of my parcel?</AccordionTrigger>
