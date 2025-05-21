@@ -74,7 +74,7 @@ const NavBar = () => {
  
   return (
     <div className="">
-      <div className=" sticky top-0 w-full px-5 md:px-10 flex justify-between items-center py-2 bg-gradient-to-tr from-indigo-300 to-transparent dark:bg-[#030712] z-10">
+      <div className=" sticky top-0 w-full px-5 md:px-10 flex justify-between items-center py-2 bg-gradient-to-tr from-indigo-300 dark:from-[#181745] to-transparent  z-10">
         <div className="flex items-center">
           {/* mobile view */}
           <div className="md:hidden block">
