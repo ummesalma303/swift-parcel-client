@@ -5,15 +5,15 @@ module.exports = {
 	darkMode: 'class',
   theme: {
   	extend: {
-		  backgroundImage: {
-			'banner': 'url("/public/banner-2.jpg")', 
-			'banner-1': 'url("/cover-image-2.webp")', 
-			'banner-2': 'url("/login.jpg")', 
-			'banner-3': 'url("/login-2.jpg")', 
-			'banner-error': 'url("/eror-page-2.jpg")', 
-			'newsletter': 'url("/parcel.jpg")', 
-			'cover-image': 'url("/cover-2.jpg")', 
-		  },
+  		backgroundImage: {
+  			banner: 'url("/public/banner-2.jpg")',
+  			'banner-1': 'url("/cover-image-2.webp")',
+  			'banner-2': 'url("/login.jpg")',
+  			'banner-3': 'url("/login-2.jpg")',
+  			'banner-error': 'url("/eror-page-2.jpg")',
+  			newsletter: 'url("/parcel.jpg")',
+  			'cover-image': 'url("/cover-2.jpg")'
+  		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
@@ -60,6 +60,28 @@ module.exports = {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			}
+  		},
+  		keyframes: {
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
+  			}
+  		},
+  		animation: {
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
   		}
   	}
   },

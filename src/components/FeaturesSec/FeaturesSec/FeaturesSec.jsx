@@ -10,7 +10,7 @@ const FeaturesSec = () => {
    
     return (
        <div className="mt-16 mx-auto ">
-        <h2 className='text-3xl font-semibold my-6'> Our Beautiful Features</h2>
+        <h2 className='text-3xl font-semibold mt-28 mb-6'> Our Beautiful Features</h2>
          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             <Slide>
             <FeaturesCard title={'Secure Packaging'} subtitle={' Protect your shipments with tamper-proof, durable packaging designed to keep your items safe.'} icon={<FaBox  size={40}/>}/>
@@ -28,6 +28,7 @@ const FeaturesSec = () => {
             
         </div>
         <div className="">
+             <h2 className='text-3xl font-semibold mt-28'> Your Trust, Our Growth</h2>
         <ParcelCountCard/>
         {/* <ParcelCountCard title={"Total Number of Parcels Delivered"}/>
         <ParcelCountCard title={`Total Number of People Using Your App: ${users?.length}`}/> */}
