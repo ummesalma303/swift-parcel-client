@@ -32,45 +32,15 @@ export default function SeeMore() {
    
   return (
     <div className='w-11/12 mx-auto flex justify-center items-center pt-32 pb-16'>
-      {/* <article className="flex flex-col md:flex-row bg-white transition hover:shadow-xl">
-  
-
-  <div className=" sm:block sm:basis-56 ">
-    <img
-      alt=""
-      src={recentParcels?.parcelUrl}
-      className="aspect-square h-full w-full object-cover "
-    />
-  </div>
-
-  <div className="flex flex-1 flex-col justify-between">
-    <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-     <div className="*:text-xs text-gray-600">
-     <h2>Customer Name: {recentParcels?.name}</h2>
-     <h2>Customer Email: {recentParcels?.email}</h2>
-     </div><br />
-        <h3 className="font-bold text-gray-900 uppercase">
-          Product Name: {recentParcels?.parcelType}
-        </h3>
-     
-
-      <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
-       Description: {recentParcels?.description}
-      </p>
-    </div>
-
-   
-  </div>
-</article> */}
 
 
-<Card className="flex">
+<Card className=" flex w-9/12 light:bg-[#edf1f3] border-[1px] dark:bg-[#06151E]  dark:border-gray-700 border-[#aab8fd57] bg-gradient-to-tl from-[#aab8fd7c] dark:from-indigo-700 dark:from-[1%]  from-[10%] hover:from-[15%] via-white dark:via-[#06151E] to-[#fff] dark:to-[#06151E] duration-[0.5] delay-1000">
   <CardHeader>
-     <div className="">
-    <img
-      alt=""
+     <div className="w-[400px]">
+    <img 
+      alt="" 
       src={recentParcels?.parcelUrl}
-      className="aspect-square w-[400px] object-cover "
+      className="aspect-square w-full object-cover "
     />
   </div>
   </CardHeader>
@@ -83,7 +53,12 @@ export default function SeeMore() {
         <h3 className="font-bold uppercase">
           Product Name: {recentParcels?.parcelType}
         </h3>
-     
+        <div className="flex items-center justify-between py-2">
+
+     <h4>Price: ${recentParcels?.totalPrice}</h4>
+     <h4>Weight: {recentParcels?.parcelWeight}</h4>
+        </div>
+     <h4>Type: {recentParcels?.parcelType}</h4>
 
       <p className="mt-2 line-clamp-3 text-sm/relaxed ">
        Description: {recentParcels?.description}

@@ -35,11 +35,11 @@ const ParcelCountCard = ({title}) => {
     ></path>
   </svg>
 
-  <div class="z-20 flex flex-col justify-center items-center">
-    <span class="font-bold text-6xl ml-2"><CountUp duration={2} end={userCount?.usersCount} />+</span>
-    <p class="font-bold">Users</p>
+  <div className="z-20 flex flex-col justify-center items-center">
+    <span className="font-bold text-6xl ml-2"><CountUp duration={2} end={userCount?.usersCount} />+</span>
+    <p className="font-bold">Users</p>
   
-    <p class="font-semibold text-black text-center pt-3">Lots of users have joined SwiftParcel, trusting us for safe and reliable delivery every day</p>
+    <p className="font-semibold text-black text-center pt-3">Lots of users have joined SwiftParcel, trusting us for safe and reliable delivery every day</p>
   </div>
 </div>
 
@@ -50,10 +50,10 @@ const ParcelCountCard = ({title}) => {
         
          light:bg-[#ecf0f3] inset-shadow-sm inset-shadow-white border-[1px] border-indigo-300 duration-[0.5] delay-100 hover:bg-gradient-to-bl hover:from-[#ffffff1e] dark:hover:from-[#1b13132c] dark:hover:via-[#271b1b1d] hover:via-[#ffffff93]  hover:to-indigo-200 dark:hover:to-indigo-800 w-full'>
        
-          <div class="z-20 flex flex-col justify-center items-center">
+          <div className="z-20 flex flex-col justify-center items-center">
 
-    <span class="font-bold text-5xl ml-2"> <CountUp duration={2} end={userCount?.parcelCount} />+</span>
-    <p class="font-bold">Parcels</p>
+    <span className="font-bold text-5xl ml-2"> <CountUp duration={2} end={userCount?.parcelCount} />+</span>
+    <p className="font-bold">Parcels</p>
   
   </div>
   <p>Total parcel booked in our app</p>
@@ -70,10 +70,10 @@ const ParcelCountCard = ({title}) => {
         
          light:bg-[#ecf0f3] inset-shadow-sm inset-shadow-white border-[1px] border-indigo-300 duration-[0.5] delay-100 hover:bg-gradient-to-bl hover:from-[#ffffff1e] dark:hover:from-[#1b13132c] dark:hover:via-[#271b1b1d] hover:via-[#ffffff93]  hover:to-indigo-200 dark:hover:to-indigo-800'>
        
-          <div class="z-20 flex flex-col justify-center items-center">
+          <div className="z-20 flex flex-col justify-center items-center">
 
-    <span class="font-bold text-5xl ml-2"> <CountUp duration={2} end={userCount?.delivered} />+</span>
-    <p class="font-bold">Parcels</p>
+    <span className="font-bold text-5xl ml-2"> <CountUp duration={2} end={userCount?.delivered} />+</span>
+    <p className="font-bold">Parcels</p>
   
   </div>
   <p>Total parcel successfully delivered </p>

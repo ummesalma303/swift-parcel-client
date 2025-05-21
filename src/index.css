@@ -70,6 +70,6 @@
 }
 
 .my-card:hover {
-  transform: rotateX(4deg) rotateY(-4deg);
+  transform: rotateX(6deg) rotateY(-6deg);
 }
 
